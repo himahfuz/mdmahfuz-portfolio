@@ -18,7 +18,7 @@ export default function Navbar() {
   ];
 
   return (
-    <nav className="fixed top-5 left-1/2 -translate-x-1/2 z-50 flex flex-col items-center w-[90vw] max-w-5xl gap-2 transition-all">
+    <nav className="relative z-50 flex flex-col items-center w-[90vw] max-w-5xl mx-auto transition-all">
       <div className="glass-panel h-[56px] px-6 rounded-[50px] flex items-center justify-between w-full">
         {/* Left: Logo */}
         <div className="flex items-center gap-3">
@@ -67,34 +67,40 @@ export default function Navbar() {
         </button>
       </div>
 
-      {/* Mobile Menu Dropdown */}
-      {isOpen && (
-        <div className="lg:hidden glass-panel w-full rounded-[24px] p-5 flex flex-col gap-4 shadow-xl border-t border-white/20">
-          <div className="flex flex-col gap-4">
-            {navLinks.map((link) => {
-              const isActive =
-                pathname === link.href ||
-                (link.href !== "/" && pathname.startsWith(link.href));
-              return (
-                <Link
-                  key={link.name}
-                  href={link.href}
-                  onClick={() => setIsOpen(false)}
-                  className={`text-base font-medium transition-colors ${
-                    isActive ? "text-[var(--color-brand-primary)]" : "text-[var(--color-text-primary)]"
-                  }`}
-                >
-                  {link.name}
-                </Link>
-              );
-            })}
+      {/* Mobile Menu Dropdown (Push Layout with Transition) */}
+      <div 
+        className={`lg:hidden w-full grid transition-all duration-300 ease-in-out ${
+          isOpen ? "grid-rows-[1fr] opacity-100 mt-3" : "grid-rows-[0fr] opacity-0 mt-0"
+        }`}
+      >
+        <div className="overflow-hidden">
+          <div className="glass-panel w-full rounded-[24px] p-5 flex flex-col gap-4 shadow-xl border-t border-white/20 mb-2">
+            <div className="flex flex-col gap-4">
+              {navLinks.map((link) => {
+                const isActive =
+                  pathname === link.href ||
+                  (link.href !== "/" && pathname.startsWith(link.href));
+                return (
+                  <Link
+                    key={link.name}
+                    href={link.href}
+                    onClick={() => setIsOpen(false)}
+                    className={`text-base font-medium transition-colors ${
+                      isActive ? "text-[var(--color-brand-primary)]" : "text-[var(--color-text-primary)]"
+                    }`}
+                  >
+                    {link.name}
+                  </Link>
+                );
+              })}
+            </div>
+            <div className="w-full h-[1px] bg-white/40 my-1"></div>
+            <button className="btn-primary py-3 w-full justify-center text-sm rounded-[30px] flex items-center gap-2">
+              Let's Work Together <span className="text-lg leading-none">↗</span>
+            </button>
           </div>
-          <div className="w-full h-[1px] bg-white/40 my-1"></div>
-          <button className="btn-primary py-3 w-full justify-center text-sm rounded-[30px] flex items-center gap-2">
-            Let's Work Together <span className="text-lg leading-none">↗</span>
-          </button>
         </div>
-      )}
+      </div>
     </nav>
   );
 }
