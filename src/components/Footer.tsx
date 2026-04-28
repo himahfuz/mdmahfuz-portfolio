@@ -3,8 +3,8 @@ import Link from "next/link";
 
 export default function Footer() {
   return (
-    <footer className="fixed bottom-5 left-1/2 -translate-x-1/2 z-50 w-[90vw] max-w-5xl">
-      <div className="glass-panel h-[60px] px-10 flex items-center justify-between rounded-[20px]">
+    <footer className="relative w-full px-6 mt-10 pb-8 z-50 lg:px-0 lg:mt-0 lg:pb-0 lg:w-[90vw] lg:max-w-5xl lg:fixed lg:bottom-5 lg:left-1/2 lg:-translate-x-1/2">
+      <div className="glass-panel min-h-[60px] py-4 lg:py-0 px-6 lg:px-10 flex flex-col lg:flex-row items-center text-center justify-between gap-4 lg:gap-0 rounded-[24px]">
         {/* Left */}
         <div className="flex items-center gap-2 text-[var(--color-text-primary)] font-medium text-sm">
           <Mail size={18} />

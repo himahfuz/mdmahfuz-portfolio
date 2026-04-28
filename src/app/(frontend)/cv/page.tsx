@@ -13,7 +13,7 @@ export default function CV() {
   };
 
   return (
-    <div className="flex flex-col lg:flex-row gap-8 pb-10">
+    <div className="flex flex-col lg:flex-row gap-8 pb-10 min-h-screen lg:min-h-0 overflow-x-hidden">
       
       {/* LEFT SIDEBAR */}
       <div className="w-full lg:w-[350px] shrink-0">

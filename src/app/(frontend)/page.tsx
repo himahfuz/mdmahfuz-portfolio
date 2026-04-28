@@ -20,7 +20,7 @@ export default function Home() {
   ];
 
   return (
-    <div className="w-full h-full lg:h-[calc(100vh-200px)] flex flex-col lg:flex-row items-center justify-between gap-10 lg:overflow-hidden relative mt-8 lg:mt-0">
+    <div className="w-full min-h-screen lg:min-h-0 lg:h-[calc(100vh-200px)] flex flex-col lg:flex-row items-center justify-between gap-10 overflow-x-hidden lg:overflow-hidden relative mt-8 lg:mt-0 pb-10 lg:pb-0">
       
       {/* Left Column */}
       <div className="flex-1 lg:flex-[0.3] flex flex-col justify-center hero-left z-10 w-full">
