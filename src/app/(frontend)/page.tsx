@@ -27,7 +27,7 @@ export default function Home() {
         <div className="flex items-center gap-3 mb-6">
           <div className="w-5 h-[2px] bg-[var(--color-brand-primary)]"></div>
           <span className="uppercase text-[12px] font-medium tracking-[0.1em] text-[var(--color-brand-primary)]">
-            CA Student
+            Accounting Professional
           </span>
         </div>
 
