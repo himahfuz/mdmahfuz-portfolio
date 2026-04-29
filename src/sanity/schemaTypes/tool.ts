@@ -32,5 +32,31 @@ export const toolType = defineType({
         allowRelative: true,
       }),
     }),
+    defineField({
+      name: 'seo',
+      title: 'SEO Metadata',
+      type: 'object',
+      fields: [
+        defineField({
+          name: 'metaTitle',
+          title: 'Meta Title',
+          type: 'string',
+          description: 'Title used for search engines and browsers.',
+        }),
+        defineField({
+          name: 'metaDescription',
+          title: 'Meta Description',
+          type: 'text',
+          description: 'Description for search engines.',
+        }),
+        defineField({
+          name: 'keywords',
+          title: 'Keywords',
+          type: 'array',
+          of: [{ type: 'string' }],
+          description: 'Keywords for search engines.',
+        }),
+      ],
+    }),
   ],
 })
