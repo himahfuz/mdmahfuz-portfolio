@@ -1,7 +1,9 @@
-import { Briefcase } from "lucide-react";
+
 import { TestimonialCard } from "@/components/ui/TestimonialCard";
 import Image from "next/image";
 import portraitHome from "../../../public/images/portrait-home.jpg";
+import { Typewriter } from "@/components/ui/Typewriter";
+import { JobAvailabilityBadge } from "@/components/ui/JobAvailabilityBadge";
 
 export default function Home() {
   const testimonials = [
@@ -26,8 +28,14 @@ export default function Home() {
       <div className="flex-1 lg:flex-[0.3] flex flex-col justify-center hero-left z-10 w-full">
         <div className="flex items-center gap-3 mb-6">
           <div className="w-5 h-[2px] bg-[var(--color-brand-primary)]"></div>
-          <span className="uppercase text-[12px] font-medium tracking-[0.1em] text-[var(--color-brand-primary)]">
-            Accounting Professional
+          <span className="uppercase text-[12px] font-medium tracking-[0.1em] text-[var(--color-brand-primary)] inline-block min-h-[18px]">
+            <Typewriter 
+              texts={[
+                "Accounting Professional",
+                "VAT & TAX Expert",
+                "Chartered Accountancy Student"
+              ]} 
+            />
           </span>
         </div>
 
@@ -43,9 +51,7 @@ export default function Home() {
           <strong className="font-bold text-[var(--color-brand-primary)]">Innovation</strong> Anything for <strong className="font-bold text-[var(--color-brand-primary)]">Automation</strong> Everything
         </p>
 
-        <button className="btn-glass mt-8 w-max">
-          <Briefcase size={18} /> Available for Job
-        </button>
+        <JobAvailabilityBadge />
       </div>
 
       {/* Center Column */}
