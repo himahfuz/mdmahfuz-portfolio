@@ -45,6 +45,44 @@ export default function RootLayout({
     >
       <body className="min-h-full font-sans m-0 p-0 bg-transparent">
         {children}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "Person",
+              "name": "MD Mahfuzur Rahman",
+              "alternateName": "Mahfuzur Rahman",
+              "description": "Accounting Professional and VAT & TAX Expert in Bangladesh.",
+              "url": "https://mdmahfuz.com",
+              "jobTitle": [
+                "Audit Associate",
+                "Accounting Professional",
+                "VAT Expert",
+                "TAX Expert"
+              ],
+              "worksFor": {
+                "@type": "Organization",
+                "name": "Islam Quazi Shafique & Co. Chartered Accountants",
+                "address": {
+                  "@type": "PostalAddress",
+                  "addressLocality": "Dhaka",
+                  "addressCountry": "BD"
+                }
+              },
+              "address": {
+                "@type": "PostalAddress",
+                "addressLocality": "Gazipur",
+                "addressRegion": "Dhaka Division",
+                "addressCountry": "BD"
+              },
+              "sameAs": [
+                "https://github.com/himahfuz",
+                "https://linkedin.com/in/mdmahfuzurali" 
+              ]
+            }),
+          }}
+        />
       </body>
     </html>
   );
