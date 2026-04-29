@@ -52,35 +52,13 @@ export default function RootLayout({
               "@context": "https://schema.org",
               "@type": "Person",
               "name": "MD Mahfuzur Rahman",
-              "alternateName": "Mahfuzur Rahman",
-              "description": "Accounting Professional and VAT & TAX Expert in Bangladesh.",
-              "url": "https://mdmahfuz.com",
-              "jobTitle": [
-                "Audit Associate",
-                "Accounting Professional",
-                "VAT Expert",
-                "TAX Expert"
-              ],
+              "jobTitle": ["Accounting Professional", "VAT Expert", "TAX Expert"],
               "worksFor": {
                 "@type": "Organization",
-                "name": "Islam Quazi Shafique & Co. Chartered Accountants",
-                "address": {
-                  "@type": "PostalAddress",
-                  "addressLocality": "Dhaka",
-                  "addressCountry": "BD"
-                }
+                "name": "Islam Quazi Shafique & Co. Chartered Accountants"
               },
-              "address": {
-                "@type": "PostalAddress",
-                "addressLocality": "Gazipur",
-                "addressRegion": "Dhaka Division",
-                "addressCountry": "BD"
-              },
-              "sameAs": [
-                "https://github.com/himahfuz",
-                "https://linkedin.com/in/mdmahfuzurali" 
-              ]
-            }),
+              "url": "https://mdmahfuz.com"
+            })
           }}
         />
       </body>
