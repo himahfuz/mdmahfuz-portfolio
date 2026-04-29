@@ -21,28 +21,28 @@ export default function Home() {
 
   return (
     <div className="w-full min-h-screen lg:min-h-0 lg:h-[calc(100vh-200px)] flex flex-col lg:flex-row items-center justify-between gap-10 overflow-x-hidden lg:overflow-hidden relative mt-8 lg:mt-0 pb-10 lg:pb-0">
-      
+
       {/* Left Column */}
       <div className="flex-1 lg:flex-[0.3] flex flex-col justify-center hero-left z-10 w-full">
         <div className="flex items-center gap-3 mb-6">
           <div className="w-5 h-[2px] bg-[var(--color-brand-primary)]"></div>
           <span className="uppercase text-[12px] font-medium tracking-[0.1em] text-[var(--color-brand-primary)]">
-            CA Student
+            ACCOUNTING PROFESSIONAL
           </span>
         </div>
-        
+
         <h1 className="font-poppins font-extrabold text-5xl lg:text-[72px] leading-[1.1] text-[var(--color-text-primary)]">
-          MD<br/>
-          <span className="text-[var(--color-brand-primary)]">Mahfuzur</span><br/>
+          MD<br />
+          <span className="text-[var(--color-brand-primary)]">Mahfuzur</span><br />
           Rahman
         </h1>
-        
+
         <div className="w-10 h-[2px] bg-[var(--color-brand-primary)] my-6"></div>
-        
+
         <p className="text-[var(--color-text-secondary)] text-[16px] max-w-[300px] leading-relaxed">
           <strong className="font-bold text-[var(--color-brand-primary)]">Innovation</strong> Anything for <strong className="font-bold text-[var(--color-brand-primary)]">Automation</strong> Everything
         </p>
-        
+
         <button className="btn-glass mt-8 w-max">
           <Briefcase size={18} /> Available for Job
         </button>
@@ -52,10 +52,10 @@ export default function Home() {
       <div className="flex-1 lg:flex-[0.35] relative flex items-center justify-center h-[400px] lg:h-full w-full max-w-[400px] lg:max-w-none mx-auto hero-center">
         {/* Glow */}
         <div className="absolute w-[320px] h-[320px] rounded-full bg-[image:var(--background-image-glow)] z-0"></div>
-        
+
         {/* Portrait Card */}
         <div className="glass-panel w-full lg:w-[340px] h-[400px] lg:h-[480px] z-10 overflow-hidden relative">
-          <Image 
+          <Image
             src={portraitHome}
             alt="MD Mahfuzur Rahman"
             fill
@@ -63,13 +63,13 @@ export default function Home() {
             priority
           />
         </div>
-        
+
         {/* Dot Matrix Pattern */}
         <div className="absolute top-0 right-0 lg:-right-5 w-[100px] h-[100px] z-20"
-             style={{
-               backgroundImage: "radial-gradient(circle, rgba(31,122,99,0.25) 1px, transparent 1px)",
-               backgroundSize: "10px 10px"
-             }}>
+          style={{
+            backgroundImage: "radial-gradient(circle, rgba(31,122,99,0.25) 1px, transparent 1px)",
+            backgroundSize: "10px 10px"
+          }}>
         </div>
       </div>
 
@@ -81,7 +81,7 @@ export default function Home() {
           ))}
         </div>
       </div>
-      
+
     </div>
   );
 }

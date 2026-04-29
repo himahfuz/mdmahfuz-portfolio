@@ -15,8 +15,22 @@ const poppins = Poppins({
 });
 
 export const metadata: Metadata = {
-  title: "MD Mahfuzur Rahman - CA Student & Analyst",
-  description: "Portfolio of MD Mahfuzur Rahman. Innovation Anything for Automation Everything.",
+  title: 'MD Mahfuzur Rahman | Accounting Professional & VAT/TAX Expert',
+  description: 'Accounting Professional, VAT & TAX Expert associated with Islam Quazi Shafique & Co. Chartered Accountants. Specialized in Auditing and Financial Services in Bangladesh.',
+  keywords: [
+    'Accounting Professional Bangladesh',
+    'VAT Expert Gazipur',
+    'VAT Expert Uttara',
+    'TAX Expert Gazipur ',
+    'TAX Expert Uttara',
+    'Islam Quazi Shafique & Co',
+    'Chartered Accountancy Student'
+  ],
+  openGraph: {
+    title: 'MD Mahfuzur Rahman - Accounting & Tax Expert',
+    description: 'Expertise in Auditing, VAT, and TAX services. Associated with Islam Quazi Shafique & Co.',
+    url: 'https://mdmahfuz.com',
+  },
 };
 
 export default function RootLayout({
