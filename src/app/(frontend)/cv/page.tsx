@@ -219,11 +219,36 @@ export default function CV() {
               >
                 <div className="flex items-center gap-3">
                   <Award size={18} className="text-[var(--color-brand-primary)]" />
-                  <span className="font-semibold text-[15px] text-[var(--color-text-primary)]">Business Intelligence with Excel (Ostad)</span>
+                  <span className="font-semibold text-[15px] text-[var(--color-text-primary)]">Practical VAT Management</span>
                 </div>
                 <ChevronDown size={18} className={`transition-transform duration-300 ${certOpen === 0 ? 'rotate-180' : ''}`} />
               </button>
-              <div className={`px-4 text-[13px] text-[var(--color-text-secondary)] transition-all duration-300 overflow-hidden ${certOpen === 0 ? 'max-h-[600px] pb-4 opacity-100' : 'max-h-0 opacity-0'}`}>
+              <div className={`px-4 text-[13px] text-[var(--color-text-secondary)] transition-all duration-300 overflow-hidden ${certOpen === 0 ? 'max-h-[700px] pb-4 opacity-100' : 'max-h-0 opacity-0'}`}>
+                <p className="mb-4">VAT Registration | All Mushak Hands on Practice | VAT Return Submission | VAT Rates</p>
+                <div className="relative w-full sm:w-[350px] md:w-[400px] max-w-full aspect-[0.707] rounded-lg overflow-hidden border border-white/20 shadow-md">
+                  <Image 
+                    src="/images/certificates/vat-management.jpg" 
+                    alt="Practical VAT Management Certificate" 
+                    fill 
+                    sizes="(max-width: 768px) 100vw, 400px"
+                    className="object-cover hover:scale-105 transition-transform duration-500" 
+                  />
+                </div>
+              </div>
+            </div>
+
+            <div className="border border-white/50 rounded-lg overflow-hidden accordion-item bg-white/20">
+              <button 
+                className="w-full flex items-center justify-between p-4 text-left"
+                onClick={() => toggleCert(1)}
+              >
+                <div className="flex items-center gap-3">
+                  <Award size={18} className="text-[var(--color-brand-primary)]" />
+                  <span className="font-semibold text-[15px] text-[var(--color-text-primary)]">Business Intelligence with Excel (Ostad)</span>
+                </div>
+                <ChevronDown size={18} className={`transition-transform duration-300 ${certOpen === 1 ? 'rotate-180' : ''}`} />
+              </button>
+              <div className={`px-4 text-[13px] text-[var(--color-text-secondary)] transition-all duration-300 overflow-hidden ${certOpen === 1 ? 'max-h-[600px] pb-4 opacity-100' : 'max-h-0 opacity-0'}`}>
                 <p className="mb-4">Manage Data Model | Data relationship | Advance formula (Vlookup, Index, Match etc) | Power Pivot | Power Query</p>
                 <div className="relative w-full sm:w-[350px] md:w-[400px] max-w-full aspect-[1.414] rounded-lg overflow-hidden border border-white/20 shadow-md">
                   <Image 
@@ -240,15 +265,15 @@ export default function CV() {
             <div className="border border-white/50 rounded-lg overflow-hidden accordion-item bg-white/20">
               <button 
                 className="w-full flex items-center justify-between p-4 text-left"
-                onClick={() => toggleCert(1)}
+                onClick={() => toggleCert(2)}
               >
                 <div className="flex items-center gap-3">
                   <Award size={18} className="text-[var(--color-brand-primary)]" />
                   <span className="font-semibold text-[15px] text-[var(--color-text-primary)]">Power BI for Professionals (Ostad)</span>
                 </div>
-                <ChevronDown size={18} className={`transition-transform duration-300 ${certOpen === 1 ? 'rotate-180' : ''}`} />
+                <ChevronDown size={18} className={`transition-transform duration-300 ${certOpen === 2 ? 'rotate-180' : ''}`} />
               </button>
-              <div className={`px-4 text-[13px] text-[var(--color-text-secondary)] transition-all duration-300 overflow-hidden ${certOpen === 1 ? 'max-h-[600px] pb-4 opacity-100' : 'max-h-0 opacity-0'}`}>
+              <div className={`px-4 text-[13px] text-[var(--color-text-secondary)] transition-all duration-300 overflow-hidden ${certOpen === 2 ? 'max-h-[600px] pb-4 opacity-100' : 'max-h-0 opacity-0'}`}>
                 <p className="mb-4">Data transform | DAX Calculation | Interactive Reporting</p>
                 <div className="relative w-full sm:w-[350px] md:w-[400px] max-w-full aspect-[1.414] rounded-lg overflow-hidden border border-white/20 shadow-md">
                   <Image 
@@ -277,16 +302,25 @@ export default function CV() {
                 <h4 className="font-semibold text-[15px] text-[var(--color-text-primary)]">Awarded Employee of the Q3 FY23</h4>
                 <p className="text-[13px] text-[var(--color-text-secondary)] italic mt-1">"Daraz Bangladesh Ltd" for consistently innovate and exceeding team performance metric. – Feb 2023</p>
                 
-                <div className="mt-4">
-                  <div className="relative w-full sm:w-[350px] md:w-[400px] aspect-[1.414] rounded-lg overflow-hidden border-2 border-white/20 shadow-md">
-                    <Image 
-                      src="/images/certificates/daraz-q3-award.jpg" 
-                      alt="Daraz Employee of the Quarter Q3 FY23" 
-                      fill 
-                      sizes="(max-width: 768px) 100vw, 400px"
-                      priority
-                      className="object-cover hover:scale-105 transition-transform duration-500" 
-                    />
+                <div className="mt-3">
+                  <button 
+                    onClick={() => toggleAward(0)} 
+                    className="text-[13px] font-semibold text-[var(--color-brand-primary)] flex items-center gap-1.5 hover:underline transition-all"
+                  >
+                    <ImageIcon size={14} /> 
+                    {awardOpen === 0 ? "Hide Certificate" : "View Certificate"}
+                  </button>
+                  <div className={`transition-all duration-300 overflow-hidden ${awardOpen === 0 ? 'max-h-[600px] mt-4 opacity-100' : 'max-h-0 opacity-0'}`}>
+                    <div className="relative w-full sm:w-[350px] md:w-[400px] aspect-[1.414] rounded-lg overflow-hidden border-2 border-white/20 shadow-md">
+                      <Image 
+                        src="/images/certificates/daraz-q3-award.jpg" 
+                        alt="Daraz Employee of the Quarter Q3 FY23" 
+                        fill 
+                        sizes="(max-width: 768px) 100vw, 400px"
+                        priority
+                        className="object-cover hover:scale-105 transition-transform duration-500" 
+                      />
+                    </div>
                   </div>
                 </div>
               </div>
