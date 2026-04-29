@@ -100,7 +100,11 @@ export default function CV() {
               <div className="w-2.5 h-2.5 rounded-full border-2 border-[var(--color-brand-primary)] bg-white mt-2 shrink-0 hidden md:block relative -left-[18px] z-10"></div>
               <div className="flex-1">
                 <div className="flex flex-col md:flex-row md:items-center justify-between mb-1">
-                  <h4 className="font-bold text-[16px] text-[var(--color-text-primary)]">Islam Quazi Shafique & Co.</h4>
+                  <h4 className="font-bold text-[16px] text-[var(--color-text-primary)]">
+                    <a href="https://qsibd.com/" target="_blank" rel="noopener noreferrer" className="hover:text-[var(--color-brand-primary)] transition-colors">
+                      Islam Quazi Shafique & Co.
+                    </a>
+                  </h4>
                   <span className="badge mt-2 md:mt-0 w-max text-[12px]">Apr 2024 – Present</span>
                 </div>
                 <div className="font-semibold text-[13px] text-[var(--color-brand-primary)] mb-3">Auditor (Articleship Student)</div>
@@ -116,7 +120,11 @@ export default function CV() {
               <div className="w-2.5 h-2.5 rounded-full border-2 border-[var(--color-brand-primary)] bg-white mt-2 shrink-0 hidden md:block relative -left-[18px] z-10"></div>
               <div className="flex-1">
                 <div className="flex flex-col md:flex-row md:items-center justify-between mb-1">
-                  <h4 className="font-bold text-[16px] text-[var(--color-text-primary)]">Daraz Bangladesh Limited</h4>
+                  <h4 className="font-bold text-[16px] text-[var(--color-text-primary)]">
+                    <a href="https://www.daraz.com.bd/" target="_blank" rel="noopener noreferrer" className="hover:text-[var(--color-brand-primary)] transition-colors">
+                      Daraz Bangladesh Limited
+                    </a>
+                  </h4>
                   <span className="badge mt-2 md:mt-0 w-max text-[12px]">Sep 2022 – Feb 2024</span>
                 </div>
                 <div className="font-semibold text-[13px] text-[var(--color-brand-primary)] mb-3">Team Lead & Customer Support</div>
