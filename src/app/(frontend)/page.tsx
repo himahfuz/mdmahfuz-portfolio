@@ -65,6 +65,7 @@ export default function Home() {
             src={portraitHome}
             alt="MD Mahfuzur Rahman"
             fill
+            sizes="(max-width: 1024px) 100vw, 340px"
             className="object-cover object-top"
             priority
           />

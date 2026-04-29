@@ -1,15 +1,20 @@
 "use client";
 
-import { MapPin, Phone, Mail, Link2, Download, User, Briefcase, GraduationCap, List, Award, ChevronDown, Trophy, Users } from "lucide-react";
+import { MapPin, Phone, Mail, Link2, Download, User, Briefcase, GraduationCap, List, Award, ChevronDown, Trophy, Users, Image as ImageIcon } from "lucide-react";
 import Image from "next/image";
 import { useState } from "react";
 import portraitCv from "../../../../public/images/portrait-cv.jpeg";
 
 export default function CV() {
   const [certOpen, setCertOpen] = useState<number | null>(null);
+  const [awardOpen, setAwardOpen] = useState<number | null>(null);
 
   const toggleCert = (index: number) => {
     setCertOpen(certOpen === index ? null : index);
+  };
+
+  const toggleAward = (index: number) => {
+    setAwardOpen(awardOpen === index ? null : index);
   };
 
   return (
@@ -249,10 +254,22 @@ export default function CV() {
           </h3>
           <div className="glass-panel p-6">
             <div className="flex gap-4 mb-5">
-              <span className="text-[#f59e0b] text-[24px] leading-none">★</span>
-              <div>
+              <span className="text-[#f59e0b] text-[24px] leading-none shrink-0">★</span>
+              <div className="flex-1 w-full">
                 <h4 className="font-semibold text-[15px] text-[var(--color-text-primary)]">Awarded Employee of the Q3 FY23</h4>
                 <p className="text-[13px] text-[var(--color-text-secondary)] italic mt-1">"Daraz Bangladesh Ltd" for consistently innovate and exceeding team performance metric. – Feb 2023</p>
+                
+                <div className="mt-4">
+                  <div className="relative w-full sm:w-[350px] md:w-[400px] aspect-[1.414] rounded-lg overflow-hidden border-2 border-white/20 shadow-md">
+                    <Image 
+                      src="/images/certificates/daraz-q3-award.jpg" 
+                      alt="Daraz Employee of the Quarter Q3 FY23" 
+                      fill 
+                      sizes="(max-width: 768px) 100vw, 400px"
+                      className="object-cover hover:scale-105 transition-transform duration-500" 
+                    />
+                  </div>
+                </div>
               </div>
             </div>
             <div className="flex gap-4">
@@ -273,7 +290,7 @@ export default function CV() {
           </h3>
           <div className="glass-panel p-6 flex gap-4 items-center">
             <div className="w-16 h-16 rounded-full bg-[#e6efe9] overflow-hidden shrink-0 flex items-center justify-center relative">
-              <Image src="/images/avatars/avatar-tanveer.jpg" alt="Tanveer Hossain" fill className="object-cover" />
+              <Image src="/images/avatars/avatar-tanveer.jpg" alt="Tanveer Hossain" fill sizes="64px" className="object-cover" />
             </div>
             <div>
               <h4 className="font-semibold text-[16px] text-[var(--color-text-primary)]">Tanveer Hossain</h4>
