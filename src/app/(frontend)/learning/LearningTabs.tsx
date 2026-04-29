@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { PostCard } from "@/components/ui/PostCard";
+import { Clock } from "lucide-react";
 
 export default function LearningTabs({ learningData }: { learningData: any[] }) {
   const [activeTab, setActiveTab] = useState(learningData[0]?.category || "Accounting");
@@ -34,8 +35,12 @@ export default function LearningTabs({ learningData }: { learningData: any[] }) 
             <PostCard key={post._id} {...post} id={post._id} hrefPrefix="/learning" />
           ))}
         {learningData.find((d) => d.category === activeTab)?.posts.length === 0 && (
-          <div className="col-span-full py-10 text-center text-[var(--color-text-secondary)] italic">
-            No posts in this category yet.
+          <div className="col-span-full py-20 flex flex-col items-center justify-center opacity-70">
+            <div className="w-16 h-16 bg-[var(--color-brand-primary)]/10 rounded-full flex items-center justify-center mb-4 text-[var(--color-brand-primary)]">
+              <Clock size={28} />
+            </div>
+            <h3 className="font-poppins font-semibold text-xl text-[var(--color-text-primary)] mb-2">Coming Soon</h3>
+            <p className="text-[14px] text-[var(--color-text-secondary)] text-center w-full max-w-[400px]">Content for this category is currently being prepared and will be published shortly.</p>
           </div>
         )}
       </div>

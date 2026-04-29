@@ -28,30 +28,40 @@ export default async function Tools() {
 
       {/* Tool Cards Grid */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-        {toolsData.map((tool: any) => {
-          // Dynamically get the icon component
-          const IconComponent = (LucideIcons as any)[tool.icon] || (LucideIcons as any).Wrench;
-
-          return (
-            <div key={tool._id} className="glass-panel p-6 flex flex-col hover:shadow-[0_12px_40px_rgba(31,38,135,0.1)] transition-all duration-300">
-              <div className="w-12 h-12 rounded-full bg-white/50 flex items-center justify-center mb-4 text-[var(--color-brand-primary)] border border-white/60">
-                <IconComponent size={24} />
-              </div>
-              
-              <h3 className="font-semibold text-[16px] text-[var(--color-text-primary)] mb-2">
-                {tool.title}
-              </h3>
-              
-              <p className="text-[13px] text-[var(--color-text-secondary)] flex-1 mb-6">
-                {tool.description}
-              </p>
-              
-              <Link href={tool.link} className="btn-glass justify-center mt-auto">
-                Open Tool
-              </Link>
+        {toolsData.length === 0 ? (
+          <div className="col-span-full py-20 flex flex-col items-center justify-center opacity-70">
+            <div className="w-16 h-16 bg-[var(--color-brand-primary)]/10 rounded-full flex items-center justify-center mb-4 text-[var(--color-brand-primary)]">
+              <LucideIcons.Clock size={28} />
             </div>
-          );
-        })}
+            <h3 className="font-poppins font-semibold text-xl text-[var(--color-text-primary)] mb-2">Coming Soon</h3>
+            <p className="text-[14px] text-[var(--color-text-secondary)] text-center w-full max-w-[400px]">Tools and resources are currently being prepared and will be published shortly.</p>
+          </div>
+        ) : (
+          toolsData.map((tool: any) => {
+            // Dynamically get the icon component
+            const IconComponent = (LucideIcons as any)[tool.icon] || (LucideIcons as any).Wrench;
+
+            return (
+              <div key={tool._id} className="glass-panel p-6 flex flex-col hover:shadow-[0_12px_40px_rgba(31,38,135,0.1)] transition-all duration-300">
+                <div className="w-12 h-12 rounded-full bg-white/50 flex items-center justify-center mb-4 text-[var(--color-brand-primary)] border border-white/60">
+                  <IconComponent size={24} />
+                </div>
+                
+                <h3 className="font-semibold text-[16px] text-[var(--color-text-primary)] mb-2">
+                  {tool.title}
+                </h3>
+                
+                <p className="text-[13px] text-[var(--color-text-secondary)] flex-1 mb-6">
+                  {tool.description}
+                </p>
+                
+                <Link href={tool.link} className="btn-glass justify-center mt-auto">
+                  Open Tool
+                </Link>
+              </div>
+            );
+          })
+        )}
       </div>
 
     </div>

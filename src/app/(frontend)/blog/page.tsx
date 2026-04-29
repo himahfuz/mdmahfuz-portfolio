@@ -23,8 +23,12 @@ export default async function BlogList() {
 
   if (!featuredPost) {
     return (
-      <div className="pb-20 text-center text-[var(--color-text-secondary)] italic">
-        No blog posts published yet.
+      <div className="pb-20 pt-20 flex flex-col items-center justify-center opacity-70">
+        <div className="w-16 h-16 bg-[var(--color-brand-primary)]/10 rounded-full flex items-center justify-center mb-4 text-[var(--color-brand-primary)]">
+          <Clock size={28} />
+        </div>
+        <h3 className="font-poppins font-semibold text-xl text-[var(--color-text-primary)] mb-2">Coming Soon</h3>
+        <p className="text-[14px] text-[var(--color-text-secondary)] text-center w-full max-w-[400px]">Blog articles are currently being prepared and will be published shortly.</p>
       </div>
     );
   }
