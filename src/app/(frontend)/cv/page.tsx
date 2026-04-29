@@ -223,8 +223,17 @@ export default function CV() {
                 </div>
                 <ChevronDown size={18} className={`transition-transform duration-300 ${certOpen === 0 ? 'rotate-180' : ''}`} />
               </button>
-              <div className={`px-4 text-[13px] text-[var(--color-text-secondary)] transition-all duration-300 overflow-hidden ${certOpen === 0 ? 'max-h-40 pb-4 opacity-100' : 'max-h-0 opacity-0'}`}>
-                Manage Data Model | Data relationship | Advance formula (Vlookup, Index, Match etc) | Power Pivot | Power Query
+              <div className={`px-4 text-[13px] text-[var(--color-text-secondary)] transition-all duration-300 overflow-hidden ${certOpen === 0 ? 'max-h-[600px] pb-4 opacity-100' : 'max-h-0 opacity-0'}`}>
+                <p className="mb-4">Manage Data Model | Data relationship | Advance formula (Vlookup, Index, Match etc) | Power Pivot | Power Query</p>
+                <div className="relative w-full sm:w-[350px] md:w-[400px] max-w-full aspect-[1.414] rounded-lg overflow-hidden border border-white/20 shadow-md">
+                  <Image 
+                    src="/images/certificates/excel.jpg" 
+                    alt="Business Intelligence with Excel Certificate" 
+                    fill 
+                    sizes="(max-width: 768px) 100vw, 384px"
+                    className="object-cover hover:scale-105 transition-transform duration-500" 
+                  />
+                </div>
               </div>
             </div>
 
@@ -239,8 +248,17 @@ export default function CV() {
                 </div>
                 <ChevronDown size={18} className={`transition-transform duration-300 ${certOpen === 1 ? 'rotate-180' : ''}`} />
               </button>
-              <div className={`px-4 text-[13px] text-[var(--color-text-secondary)] transition-all duration-300 overflow-hidden ${certOpen === 1 ? 'max-h-40 pb-4 opacity-100' : 'max-h-0 opacity-0'}`}>
-                Data transform | DAX Calculation | Interactive Reporting
+              <div className={`px-4 text-[13px] text-[var(--color-text-secondary)] transition-all duration-300 overflow-hidden ${certOpen === 1 ? 'max-h-[600px] pb-4 opacity-100' : 'max-h-0 opacity-0'}`}>
+                <p className="mb-4">Data transform | DAX Calculation | Interactive Reporting</p>
+                <div className="relative w-full sm:w-[350px] md:w-[400px] max-w-full aspect-[1.414] rounded-lg overflow-hidden border border-white/20 shadow-md">
+                  <Image 
+                    src="/images/certificates/power-bi.jpg" 
+                    alt="Power BI for Professionals Certificate" 
+                    fill 
+                    sizes="(max-width: 768px) 100vw, 384px"
+                    className="object-cover hover:scale-105 transition-transform duration-500" 
+                  />
+                </div>
               </div>
             </div>
 
@@ -266,6 +284,7 @@ export default function CV() {
                       alt="Daraz Employee of the Quarter Q3 FY23" 
                       fill 
                       sizes="(max-width: 768px) 100vw, 400px"
+                      priority
                       className="object-cover hover:scale-105 transition-transform duration-500" 
                     />
                   </div>
