@@ -4,8 +4,19 @@ import Link from "next/link";
 
 export const revalidate = 60; // Revalidate every 60 seconds
 
+// Hardcoded local tools for scalability
+const localTools = [
+  {
+    _id: "local-vat-tax-calculator",
+    title: "Consultant VAT & Tax Calculator",
+    icon: "Calculator",
+    description: "Quickly calculate Gross, VAT, and Tax amounts for professional consultancy services. Supports both Net and Total calculation modes.",
+    link: "/tools/vat-tax-calculator",
+  }
+];
+
 export default async function Tools() {
-  const toolsData = await client.fetch(`*[_type == "tool"]{
+  const sanityTools = await client.fetch(`*[_type == "tool"]{
     _id,
     title,
     icon,
@@ -13,16 +24,19 @@ export default async function Tools() {
     link
   }`);
 
+  // Combine local hardcoded tools with Sanity fetched tools
+  const toolsData = [...localTools, ...sanityTools];
+
   return (
     <div className="pb-20">
       
       {/* Hero Section */}
       <div className="glass-panel p-10 md:p-12 w-full mb-10 text-center md:text-left">
         <h1 className="font-poppins font-bold text-[36px] text-[var(--color-text-primary)] leading-tight mb-2">
-          My Tools & Resources
+          Professional Audit & Tax Tools
         </h1>
         <p className="font-inter text-[15px] text-[var(--color-text-secondary)]">
-          Web applications and calculators designed for accounting and finance tasks.
+          Web applications and calculators designed for accounting, auditing, and finance professionals.
         </p>
       </div>
 
@@ -55,8 +69,8 @@ export default async function Tools() {
                   {tool.description}
                 </p>
                 
-                <Link href={tool.link} className="btn-glass justify-center mt-auto">
-                  Open Tool
+                <Link href={tool.link} className="btn-glass justify-center mt-auto text-center w-full">
+                  Use Tool
                 </Link>
               </div>
             );
