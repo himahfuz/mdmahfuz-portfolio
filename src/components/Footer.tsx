@@ -27,10 +27,15 @@ export default function Footer() {
         </div>
 
         {/* Right */}
-        <div className="flex items-center gap-2 text-[var(--color-text-secondary)] text-sm">
-          <Globe size={18} />
-          <span>© 2026 mdmahfuz.com</span>
-          <span className="opacity-30">·</span>
+        <div className="flex flex-col items-center gap-1 lg:flex-row lg:gap-2 text-[var(--color-text-secondary)] text-sm">
+          {/* Globe + Copyright grouped */}
+          <div className="flex items-center gap-2">
+            <Globe size={18} />
+            <span>© 2026 mdmahfuz.com</span>
+          </div>
+          {/* Separator — hidden on mobile, visible on lg */}
+          <span className="hidden lg:inline opacity-30">·</span>
+          {/* Privacy Policy */}
           <Link
             href="/privacy-policy"
             className="text-xs opacity-50 hover:opacity-100 hover:text-[var(--color-brand-primary)] transition-all duration-200"
