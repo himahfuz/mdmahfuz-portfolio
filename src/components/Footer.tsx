@@ -30,6 +30,13 @@ export default function Footer() {
         <div className="flex items-center gap-2 text-[var(--color-text-secondary)] text-sm">
           <Globe size={18} />
           <span>© 2026 mdmahfuz.com</span>
+          <span className="opacity-30">·</span>
+          <Link
+            href="/privacy-policy"
+            className="text-xs opacity-50 hover:opacity-100 hover:text-[var(--color-brand-primary)] transition-all duration-200"
+          >
+            Privacy Policy
+          </Link>
         </div>
       </div>
     </footer>

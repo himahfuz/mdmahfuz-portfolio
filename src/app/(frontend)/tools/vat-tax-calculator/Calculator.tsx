@@ -187,54 +187,54 @@ export default function Calculator() {
               {mode === "net" ? (
                 <>
                   {/* Step 1: Given Amount */}
-                  <div className="flex justify-between items-center p-3 hover:bg-white/5 rounded-lg transition-colors">
-                    <span className="text-[var(--color-text-secondary)] flex items-center gap-2">
-                      <LucideIcons.FileText size={16} />
+                  <div className="flex justify-between items-center gap-4 p-3 hover:bg-white/5 rounded-lg transition-colors">
+                    <span className="text-[var(--color-text-secondary)] flex items-center gap-2 min-w-0">
+                      <LucideIcons.FileText size={16} className="shrink-0" />
                       Your given amount
                     </span>
-                    <span className="font-semibold text-[var(--color-text-primary)]">
+                    <span className="font-semibold text-[var(--color-text-primary)] whitespace-nowrap shrink-0">
                       ৳ {results.netPayable.toLocaleString('en-IN')}
                     </span>
                   </div>
 
                   {/* Step 2: Add TAX */}
-                  <div className="flex justify-between items-center p-3 bg-green-500/5 rounded-lg border border-green-500/20">
-                    <span className="text-green-600 dark:text-green-400 flex items-center gap-2">
-                      <LucideIcons.PlusCircle size={16} />
+                  <div className="flex justify-between items-center gap-4 p-3 bg-green-500/5 rounded-lg border border-green-500/20">
+                    <span className="text-green-600 dark:text-green-400 flex items-center gap-2 min-w-0">
+                      <LucideIcons.PlusCircle size={16} className="shrink-0" />
                       Add: TAX/TDS ({taxRate === "" ? "0" : taxRate}%)
                     </span>
-                    <span className="font-semibold text-green-600 dark:text-green-400">
+                    <span className="font-semibold text-green-600 dark:text-green-400 whitespace-nowrap shrink-0">
                       + ৳ {results.taxAmount.toLocaleString('en-IN')}
                     </span>
                   </div>
 
                   {/* Step 3: Total Amount with TAX (Gross) */}
-                  <div className="flex justify-between items-center p-3 border-t border-white/10">
-                    <span className="font-medium text-[var(--color-text-primary)]">
+                  <div className="flex justify-between items-center gap-4 p-3 border-t border-white/10">
+                    <span className="font-medium text-[var(--color-text-primary)] min-w-0">
                       Total Amount with TAX
                     </span>
-                    <span className="font-bold text-[16px] text-[var(--color-text-primary)]">
+                    <span className="font-bold text-[16px] text-[var(--color-text-primary)] whitespace-nowrap shrink-0">
                       ৳ {results.grossAmount.toLocaleString('en-IN')}
                     </span>
                   </div>
 
                   {/* Step 4: Add VAT */}
-                  <div className="flex justify-between items-center p-3 bg-green-500/5 rounded-lg border border-green-500/20">
-                    <span className="text-green-600 dark:text-green-400 flex items-center gap-2">
-                      <LucideIcons.PlusCircle size={16} />
+                  <div className="flex justify-between items-center gap-4 p-3 bg-green-500/5 rounded-lg border border-green-500/20">
+                    <span className="text-green-600 dark:text-green-400 flex items-center gap-2 min-w-0">
+                      <LucideIcons.PlusCircle size={16} className="shrink-0" />
                       Add: VAT ({vatRate === "" ? "0" : vatRate}%)
                     </span>
-                    <span className="font-semibold text-green-600 dark:text-green-400">
+                    <span className="font-semibold text-green-600 dark:text-green-400 whitespace-nowrap shrink-0">
                       + ৳ {results.vatAmount.toLocaleString('en-IN')}
                     </span>
                   </div>
 
                   {/* Step 5: Final Total */}
-                  <div className="flex justify-between items-center p-3 border-t border-white/10">
-                    <span className="font-medium text-[var(--color-text-primary)]">
+                  <div className="flex justify-between items-center gap-4 p-3 border-t border-white/10">
+                    <span className="font-medium text-[var(--color-text-primary)] min-w-0">
                       Total Amount (TAX + VAT)
                     </span>
-                    <span className="font-bold text-[16px] text-[var(--color-text-primary)]">
+                    <span className="font-bold text-[16px] text-[var(--color-text-primary)] whitespace-nowrap shrink-0">
                       ৳ {results.totalPayable.toLocaleString('en-IN')}
                     </span>
                   </div>
@@ -242,54 +242,54 @@ export default function Calculator() {
               ) : (
                 <>
                   {/* Step 1: Given Amount */}
-                  <div className="flex justify-between items-center p-3 hover:bg-white/5 rounded-lg transition-colors">
-                    <span className="text-[var(--color-text-secondary)] flex items-center gap-2">
-                      <LucideIcons.FileText size={16} />
+                  <div className="flex justify-between items-center gap-4 p-3 hover:bg-white/5 rounded-lg transition-colors">
+                    <span className="text-[var(--color-text-secondary)] flex items-center gap-2 min-w-0">
+                      <LucideIcons.FileText size={16} className="shrink-0" />
                       Your given amount
                     </span>
-                    <span className="font-semibold text-[var(--color-text-primary)]">
+                    <span className="font-semibold text-[var(--color-text-primary)] whitespace-nowrap shrink-0">
                       ৳ {results.totalPayable.toLocaleString('en-IN')}
                     </span>
                   </div>
 
                   {/* Step 2: Less VAT */}
-                  <div className="flex justify-between items-center p-3 bg-red-500/5 rounded-lg border border-red-500/20">
-                    <span className="text-red-500 flex items-center gap-2">
-                      <LucideIcons.MinusCircle size={16} />
+                  <div className="flex justify-between items-center gap-4 p-3 bg-red-500/5 rounded-lg border border-red-500/20">
+                    <span className="text-red-500 flex items-center gap-2 min-w-0">
+                      <LucideIcons.MinusCircle size={16} className="shrink-0" />
                       Less: VAT ({vatRate === "" ? "0" : vatRate}%)
                     </span>
-                    <span className="font-semibold text-red-500">
+                    <span className="font-semibold text-red-500 whitespace-nowrap shrink-0">
                       - ৳ {results.vatAmount.toLocaleString('en-IN')}
                     </span>
                   </div>
 
                   {/* Step 3: Total Amount with TAX (Gross) */}
-                  <div className="flex justify-between items-center p-3 border-t border-white/10">
-                    <span className="font-medium text-[var(--color-text-primary)]">
+                  <div className="flex justify-between items-center gap-4 p-3 border-t border-white/10">
+                    <span className="font-medium text-[var(--color-text-primary)] min-w-0">
                       Total Amount with TAX
                     </span>
-                    <span className="font-bold text-[16px] text-[var(--color-text-primary)]">
+                    <span className="font-bold text-[16px] text-[var(--color-text-primary)] whitespace-nowrap shrink-0">
                       ৳ {results.grossAmount.toLocaleString('en-IN')}
                     </span>
                   </div>
 
                   {/* Step 4: Less TAX */}
-                  <div className="flex justify-between items-center p-3 bg-red-500/5 rounded-lg border border-red-500/20">
-                    <span className="text-red-500 flex items-center gap-2">
-                      <LucideIcons.MinusCircle size={16} />
+                  <div className="flex justify-between items-center gap-4 p-3 bg-red-500/5 rounded-lg border border-red-500/20">
+                    <span className="text-red-500 flex items-center gap-2 min-w-0">
+                      <LucideIcons.MinusCircle size={16} className="shrink-0" />
                       Less: TAX/TDS ({taxRate === "" ? "0" : taxRate}%)
                     </span>
-                    <span className="font-semibold text-red-500">
+                    <span className="font-semibold text-red-500 whitespace-nowrap shrink-0">
                       - ৳ {results.taxAmount.toLocaleString('en-IN')}
                     </span>
                   </div>
 
                   {/* Step 5: Final Net */}
-                  <div className="flex justify-between items-center p-3 border-t border-white/10">
-                    <span className="font-medium text-[var(--color-text-primary)]">
+                  <div className="flex justify-between items-center gap-4 p-3 border-t border-white/10">
+                    <span className="font-medium text-[var(--color-text-primary)] min-w-0">
                       Net Payable to Consultant
                     </span>
-                    <span className="font-bold text-[16px] text-[var(--color-text-primary)]">
+                    <span className="font-bold text-[16px] text-[var(--color-text-primary)] whitespace-nowrap shrink-0">
                       ৳ {results.netPayable.toLocaleString('en-IN')}
                     </span>
                   </div>
