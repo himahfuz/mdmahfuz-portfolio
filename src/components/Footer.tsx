@@ -1,4 +1,4 @@
-import { Mail, Globe, Link2, MessageCircle, Send } from "lucide-react";
+import { Mail, Globe, Link2, MessageCircle } from "lucide-react";
 import Link from "next/link";
 
 export default function Footer() {
@@ -15,15 +15,24 @@ export default function Footer() {
 
         {/* Center */}
         <div className="flex items-center gap-3">
-          <Link href="#" className="w-10 h-10 rounded-full bg-[var(--color-brand-primary)] text-white flex items-center justify-center hover:scale-110 hover:shadow-[0_4px_16px_rgba(0,201,127,0.3)] transition-all">
+          <a
+            href="https://linkedin.com/in/mdmahfuzurali"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="w-10 h-10 rounded-full bg-[var(--color-brand-primary)] text-white flex items-center justify-center hover:scale-110 hover:shadow-[0_4px_16px_rgba(0,201,127,0.3)] transition-all"
+            aria-label="LinkedIn"
+          >
             <Link2 size={18} />
-          </Link>
-          <Link href="#" className="w-10 h-10 rounded-full bg-[var(--color-brand-primary)] text-white flex items-center justify-center hover:scale-110 hover:shadow-[0_4px_16px_rgba(0,201,127,0.3)] transition-all">
+          </a>
+          <a
+            href="https://wa.me/8801303819419"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="w-10 h-10 rounded-full bg-[var(--color-brand-primary)] text-white flex items-center justify-center hover:scale-110 hover:shadow-[0_4px_16px_rgba(0,201,127,0.3)] transition-all"
+            aria-label="WhatsApp"
+          >
             <MessageCircle size={18} />
-          </Link>
-          <Link href="#" className="w-10 h-10 rounded-full bg-[var(--color-brand-primary)] text-white flex items-center justify-center hover:scale-110 hover:shadow-[0_4px_16px_rgba(0,201,127,0.3)] transition-all">
-            <Send size={18} />
-          </Link>
+          </a>
         </div>
 
         {/* Right */}

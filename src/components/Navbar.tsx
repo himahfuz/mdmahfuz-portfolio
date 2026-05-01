@@ -54,9 +54,12 @@ export default function Navbar() {
         </div>
 
         {/* Right: CTA (Desktop) */}
-        <button className="btn-primary py-2 px-5 text-sm rounded-[30px] items-center gap-1 hidden lg:flex">
-          Let's Work Together <span className="text-lg leading-none">↗</span>
-        </button>
+        <a
+          href="mailto:hello@mdmahfuz.com"
+          className="btn-primary py-2 px-5 text-sm rounded-[30px] items-center gap-1 hidden lg:flex"
+        >
+          Let&apos;s Work Together <span className="text-lg leading-none">↗</span>
+        </a>
 
         {/* Hamburger Toggle (Mobile) */}
         <button 
@@ -95,9 +98,12 @@ export default function Navbar() {
               })}
             </div>
             <div className="w-full h-[1px] bg-white/40 my-1"></div>
-            <button className="btn-primary py-3 w-full justify-center text-sm rounded-[30px] flex items-center gap-2">
-              Let's Work Together <span className="text-lg leading-none">↗</span>
-            </button>
+            <a
+              href="mailto:hello@mdmahfuz.com"
+              className="btn-primary py-3 w-full justify-center text-sm rounded-[30px] flex items-center gap-2"
+            >
+              Let&apos;s Work Together <span className="text-lg leading-none">↗</span>
+            </a>
           </div>
         </div>
       </div>
