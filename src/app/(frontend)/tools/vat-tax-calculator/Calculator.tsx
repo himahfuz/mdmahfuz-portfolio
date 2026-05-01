@@ -17,6 +17,8 @@ export default function Calculator() {
     netPayable: 0,
   });
 
+  const [showExplanation, setShowExplanation] = useState(false);
+
   useEffect(() => {
     calculate();
   }, [mode, amount, taxRate, vatRate]);
@@ -56,6 +58,10 @@ export default function Calculator() {
       netPayable: Math.round(netPayable),
     });
   };
+
+  const amtNum = parseFloat(amount.toString()) || 0;
+  const taxRNum = parseFloat(taxRate.toString()) || 0;
+  const vatRNum = parseFloat(vatRate.toString()) || 0;
 
   return (
     <div className="pb-20">
@@ -166,8 +172,8 @@ export default function Calculator() {
         </div>
 
         {/* Results Section */}
-        <div className="lg:col-span-7">
-          <div className="glass-panel p-6 md:p-8 h-full flex flex-col border-t-4 border-t-[var(--color-brand-primary)] shadow-lg bg-gradient-to-b from-white/5 to-transparent">
+        <div className="lg:col-span-7 flex flex-col gap-6">
+          <div className="glass-panel p-6 md:p-8 flex-1 flex flex-col border-t-4 border-t-[var(--color-brand-primary)] shadow-lg bg-gradient-to-b from-white/5 to-transparent">
             <div className="flex items-center justify-between mb-8 pb-4 border-b border-white/10">
               <h2 className="font-poppins font-bold text-[22px] text-[var(--color-text-primary)]">
                 Calculation Summary
@@ -320,6 +326,74 @@ export default function Calculator() {
                 Calculations based on standard accounting practices. Please verify with the latest NBR Statutory Rules and Orders (SROs) for applicable rates for your specific service category.
               </p>
             </div>
+          </div>
+
+          {/* Explanation Block */}
+          <div className="bg-blue-50 dark:bg-slate-800/60 rounded-xl border border-blue-100 dark:border-slate-700/60 overflow-hidden shadow-sm transition-all duration-300">
+            <button
+              onClick={() => setShowExplanation(!showExplanation)}
+              className="w-full p-4 flex items-center justify-between hover:bg-blue-100/50 dark:hover:bg-slate-700/50 transition-colors"
+            >
+              <div className="flex items-center gap-3">
+                <span className="text-[20px]">💡</span>
+                <span className="font-poppins font-semibold text-[15px] text-blue-900 dark:text-blue-50">
+                  How did we calculate this? (Understand the Math)
+                </span>
+              </div>
+              <LucideIcons.ChevronDown
+                size={20}
+                className={`text-blue-600 dark:text-blue-400 transition-transform duration-300 ${
+                  showExplanation ? "rotate-180" : ""
+                }`}
+              />
+            </button>
+
+            {showExplanation && (
+              <div className="p-5 border-t border-blue-100 dark:border-slate-700/60 text-[14px] text-blue-800 dark:text-slate-300 space-y-3 font-inter leading-relaxed">
+                {mode === "net" ? (
+                  <>
+                    <p>
+                      You requested a net amount of <strong>{amtNum.toLocaleString("en-IN")}</strong>. However, standard tax rules require tax to be deducted from the <em>Gross</em> amount, not the Net.
+                      Therefore, your Net amount represents <strong>{100 - taxRNum}%</strong> of the total Gross.
+                    </p>
+                    <ol className="list-decimal pl-5 space-y-2 mt-3">
+                      <li>
+                        <strong>Gross Amount</strong> = {amtNum.toLocaleString("en-IN")} ÷ {100 - taxRNum}% = <strong>{results.grossAmount.toLocaleString("en-IN")}</strong>
+                      </li>
+                      <li>
+                        <strong>Tax ({taxRNum}%)</strong> = {results.grossAmount.toLocaleString("en-IN")} × {taxRNum}% = <strong>{results.taxAmount.toLocaleString("en-IN")}</strong>
+                      </li>
+                      <li>
+                        <strong>VAT ({vatRNum}%)</strong> = {results.grossAmount.toLocaleString("en-IN")} × {vatRNum}% = <strong>{results.vatAmount.toLocaleString("en-IN")}</strong>
+                        <div className="text-[13px] opacity-75 mt-0.5">(VAT is always added on top of the Gross amount)</div>
+                      </li>
+                    </ol>
+                  </>
+                ) : (
+                  <>
+                    <p>
+                      You entered a total inclusive budget of <strong>{amtNum.toLocaleString("en-IN")}</strong>. We need to extract the VAT and Tax from this to find the actual payable amount.
+                    </p>
+                    <ol className="list-decimal pl-5 space-y-2 mt-3">
+                      <li>
+                        First, we separate the VAT. <br />
+                        <strong>Gross Amount</strong> = {amtNum.toLocaleString("en-IN")} ÷ (100% + {vatRNum}%) = <strong>{results.grossAmount.toLocaleString("en-IN")}</strong>
+                      </li>
+                      <li>
+                        <strong>VAT ({vatRNum}%)</strong> = {amtNum.toLocaleString("en-IN")} - {results.grossAmount.toLocaleString("en-IN")} = <strong>{results.vatAmount.toLocaleString("en-IN")}</strong>
+                      </li>
+                      <li>
+                        Next, we deduct the Tax from the Gross. <br />
+                        <strong>Tax ({taxRNum}%)</strong> = {results.grossAmount.toLocaleString("en-IN")} × {taxRNum}% = <strong>{results.taxAmount.toLocaleString("en-IN")}</strong>
+                      </li>
+                      <li>
+                        Finally, your Net Payable is {results.grossAmount.toLocaleString("en-IN")} - {results.taxAmount.toLocaleString("en-IN")} = <strong>{results.netPayable.toLocaleString("en-IN")}</strong>.
+                      </li>
+                    </ol>
+                  </>
+                )}
+              </div>
+            )}
           </div>
         </div>
       </div>
