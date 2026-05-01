@@ -1,8 +1,14 @@
 import { client } from "@/sanity/lib/client";
 import * as LucideIcons from "lucide-react";
 import Link from "next/link";
+import type { Metadata } from "next";
 
 export const revalidate = 60; // Revalidate every 60 seconds
+
+export const metadata: Metadata = {
+  title: "Professional Accounting VAT & Tax Tools",
+  description: "A collection of smart calculators and tools for accounting professionals in Bangladesh, including VAT and TDS calculators.",
+};
 
 // Hardcoded local tools for scalability
 const localTools = [
