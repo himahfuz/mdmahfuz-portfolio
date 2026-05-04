@@ -304,17 +304,19 @@ export default function Calculator() {
                   <span className="font-medium text-[var(--color-text-secondary)]">
                     Net Payable to Consultant
                   </span>
-                  <span className="font-bold text-[24px] text-[var(--color-text-primary)]">
-                    ৳ {results.netPayable.toLocaleString('en-IN')}
-                  </span>
+                  <div className="flex flex-row items-baseline gap-1 font-bold text-2xl md:text-3xl text-[var(--color-text-primary)] whitespace-nowrap">
+                    <span>৳</span>
+                    <span>{results.netPayable.toLocaleString('en-IN')}</span>
+                  </div>
                 </div>
                 <div className="flex justify-between items-center pt-3 border-t border-[var(--color-brand-primary)]/10">
                   <span className="font-medium text-[var(--color-text-secondary)]">
                     Total Payable by Client (Budget)
                   </span>
-                  <span className="font-bold text-[20px] text-[var(--color-brand-primary)]">
-                    ৳ {results.totalPayable.toLocaleString('en-IN')}
-                  </span>
+                  <div className="flex flex-row items-baseline gap-1 font-bold text-xl md:text-2xl text-[var(--color-brand-primary)] whitespace-nowrap">
+                    <span>৳</span>
+                    <span>{results.totalPayable.toLocaleString('en-IN')}</span>
+                  </div>
                 </div>
               </div>
             </div>

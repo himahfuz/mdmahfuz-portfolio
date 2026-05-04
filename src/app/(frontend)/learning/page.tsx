@@ -1,6 +1,13 @@
 import { client } from "@/sanity/lib/client";
 import LearningTabs from "./LearningTabs";
 
+import { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: 'Learning Notes | MD Mahfuzur Rahman',
+  description: 'Academic notes and study materials for CA Certificate Level exams.',
+};
+
 export const revalidate = 60; // Revalidate every 60 seconds
 
 export default async function Learning() {

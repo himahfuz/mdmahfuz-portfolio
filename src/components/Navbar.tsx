@@ -21,14 +21,14 @@ export default function Navbar() {
     <nav className="relative z-50 flex flex-col items-center w-[90vw] max-w-5xl mx-auto transition-all">
       <div className="glass-panel h-[56px] px-6 rounded-[50px] flex items-center justify-between w-full">
         {/* Left: Logo */}
-        <div className="flex items-center gap-3">
+        <Link href="/" className="flex items-center gap-3 cursor-pointer">
           <div className="w-8 h-8 rounded-full bg-[var(--color-brand-primary)] text-white flex items-center justify-center font-bold text-lg">
             M
           </div>
           <span className="font-semibold text-sm tracking-wider hidden lg:block">
             MD MAHFUZUR RAHMAN
           </span>
-        </div>
+        </Link>
 
         {/* Center: Desktop Links */}
         <div className="hidden lg:flex items-center gap-6">

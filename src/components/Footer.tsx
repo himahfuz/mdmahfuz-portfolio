@@ -1,5 +1,24 @@
-import { Mail, Globe, Link2, MessageCircle } from "lucide-react";
+import { Mail, MessageCircle } from "lucide-react";
 import Link from "next/link";
+
+const LinkedinIcon = ({ size = 24, className = "" }: { size?: number, className?: string }) => (
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    width={size}
+    height={size}
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    strokeWidth="2"
+    strokeLinecap="round"
+    strokeLinejoin="round"
+    className={className}
+  >
+    <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
+    <rect width="4" height="12" x="2" y="9" />
+    <circle cx="4" cy="4" r="2" />
+  </svg>
+);
 
 export default function Footer() {
   return (
@@ -22,7 +41,7 @@ export default function Footer() {
             className="w-10 h-10 rounded-full bg-[var(--color-brand-primary)] text-white flex items-center justify-center hover:scale-110 hover:shadow-[0_4px_16px_rgba(0,201,127,0.3)] transition-all"
             aria-label="LinkedIn"
           >
-            <Link2 size={18} />
+            <LinkedinIcon size={18} />
           </a>
           <a
             href="https://wa.me/8801303819419"
@@ -37,9 +56,8 @@ export default function Footer() {
 
         {/* Right */}
         <div className="flex flex-col items-center gap-1 lg:flex-row lg:gap-2 text-[var(--color-text-secondary)] text-sm">
-          {/* Globe + Copyright grouped */}
-          <div className="flex items-center gap-2">
-            <Globe size={18} />
+          {/* Copyright */}
+          <div className="flex items-center">
             <span>© 2026 mdmahfuz.com</span>
           </div>
           {/* Separator — hidden on mobile, visible on lg */}

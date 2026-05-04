@@ -3,6 +3,13 @@ import Link from "next/link";
 import Image from "next/image";
 import { ArrowRight, Calendar, Clock } from "lucide-react";
 
+import { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: 'Blog & Articles | MD Mahfuzur Rahman',
+  description: 'Insights on Accounting, VAT, and Tax management in Bangladesh.',
+};
+
 export const revalidate = 60; // Revalidate every 60 seconds
 
 export default async function BlogList() {

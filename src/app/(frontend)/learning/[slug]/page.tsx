@@ -3,7 +3,26 @@ import { notFound } from "next/navigation";
 import Link from "next/link";
 import { ArrowLeft, BookOpen, Clock } from "lucide-react";
 
+import { Metadata } from 'next';
+
 export const revalidate = 60; // Revalidate every 60 seconds
+
+type Props = {
+  params: Promise<{ slug: string }>
+};
+
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const { slug } = await params;
+  const formattedTitle = slug
+    .split('-')
+    .map(word => word.charAt(0).toUpperCase() + word.slice(1))
+    .join(' ');
+
+  return {
+    title: `${formattedTitle} | CA Study Notes - MD Mahfuzur Rahman`,
+    description: `Read my detailed study notes and chapter summaries on ${formattedTitle}.`,
+  };
+}
 
 export default async function LearningPost({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;

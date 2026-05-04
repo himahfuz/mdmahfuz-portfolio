@@ -6,6 +6,14 @@ import { PortableText } from "@portabletext/react";
 
 export const revalidate = 60; // Revalidate every 60 seconds
 
+export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }) {
+  const { slug } = await params;
+  const title = slug.split('-').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ');
+  return {
+    title: `${title} | MD Mahfuzur Rahman`,
+  };
+}
+
 // In Next.js 15, `params` in dynamic routes is treated as a Promise.
 // It's strongly recommended to await `params` before using its properties.
 export default async function BlogPost({ params }: { params: Promise<{ slug: string }> }) {
