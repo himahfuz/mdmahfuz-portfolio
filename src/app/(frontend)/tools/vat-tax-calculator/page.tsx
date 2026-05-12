@@ -3,11 +3,11 @@ import Script from "next/script";
 import Calculator from "./Calculator";
 
 export const metadata: Metadata = {
-  title: "Consultant VAT & Tax Calculator (BD)",
-  description: "Easily calculate Gross, VAT, and TDS on consultant fees. Supports both Including and Excluding calculation methods as per NBR standard rules.",
+  title: "VAT & Tax Calculator Bangladesh - Free Online Tool",
+  description: "A free and universal online tool to easily calculate VAT, Tax (TDS), gross bills, and net payable amounts in Bangladesh.",
   openGraph: {
-    title: "Consultant VAT & Tax Calculator (BD)",
-    description: "Easily calculate Gross, VAT, and TDS on consultant fees. Supports both Including and Excluding calculation methods as per NBR standard rules.",
+    title: "VAT & Tax Calculator Bangladesh - Free Online Tool",
+    description: "A free and universal online tool to easily calculate VAT, Tax (TDS), gross bills, and net payable amounts in Bangladesh.",
     url: "https://mdmahfuz.com/tools/vat-tax-calculator",
   },
 };
@@ -15,10 +15,10 @@ export const metadata: Metadata = {
 const jsonLd = {
   "@context": "https://schema.org",
   "@type": "WebApplication",
-  name: "Consultant VAT & Tax Calculator BD",
+  name: "VAT & Tax Calculator (Bangladesh)",
   url: "https://mdmahfuz.com/tools/vat-tax-calculator",
   description:
-    "Free online calculator to compute VAT (15%) and TDS/Tax (7.5%) on consultant fees in Bangladesh. Supports Net-to-Gross and Gross-to-Net calculation modes as per NBR rules.",
+    "Free online calculator to compute VAT (15%) and TDS/Tax (7.5%) for any service or supply in Bangladesh. Supports Net-to-Gross and Gross-to-Net calculation modes as per NBR rules.",
   applicationCategory: "FinanceApplication",
   operatingSystem: "All",
   browserRequirements: "Requires JavaScript",

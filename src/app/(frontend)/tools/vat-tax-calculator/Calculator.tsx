@@ -72,11 +72,11 @@ export default function Calculator() {
             <LucideIcons.Calculator size={24} />
           </div>
           <h1 className="font-poppins font-bold text-[30px] md:text-[36px] text-[var(--color-text-primary)] leading-tight">
-            Consultant VAT & Tax Calculator
+            VAT & Tax Calculator (Bangladesh)
           </h1>
         </div>
         <p className="font-inter text-[15px] text-[var(--color-text-secondary)] mt-4">
-          Calculate Gross, VAT, and Tax amounts based on standard professional services rates in Bangladesh.
+          Calculate Gross, VAT, and Tax amounts based on standard rates for various services and supplies in Bangladesh.
         </p>
       </div>
 
@@ -287,7 +287,7 @@ export default function Calculator() {
                   {/* Step 5: Final Net */}
                   <div className="flex justify-between items-center gap-4 p-3 border-t border-white/10">
                     <span className="font-medium text-[var(--color-text-primary)] min-w-0">
-                      Net Payable to Consultant
+                      Net Payable Amount
                     </span>
                     <span className="font-bold text-[16px] text-[var(--color-text-primary)] whitespace-nowrap shrink-0">
                       ৳ {results.netPayable.toLocaleString('en-IN')}
@@ -302,7 +302,7 @@ export default function Calculator() {
               <div className="bg-[var(--color-brand-primary)]/10 rounded-xl p-6 border border-[var(--color-brand-primary)]/20">
                 <div className="flex justify-between items-center mb-3">
                   <span className="font-medium text-[var(--color-text-secondary)]">
-                    Net Payable to Consultant
+                    Net Payable Amount
                   </span>
                   <div className="flex flex-row items-baseline gap-1 font-bold text-2xl md:text-3xl text-[var(--color-text-primary)] whitespace-nowrap">
                     <span>৳</span>

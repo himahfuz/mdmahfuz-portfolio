@@ -14,9 +14,9 @@ export const metadata: Metadata = {
 const localTools = [
   {
     _id: "local-vat-tax-calculator",
-    title: "Consultant VAT & Tax Calculator",
+    title: "VAT & Tax Calculator (Bangladesh)",
     icon: "Calculator",
-    description: "Quickly calculate Gross, VAT, and Tax amounts for professional consultancy services. Supports both Net and Total calculation modes.",
+    description: "Quickly calculate Gross, VAT, Tax, and Net Payable amounts for any service or supply in Bangladesh.",
     link: "/tools/vat-tax-calculator",
   }
 ];
