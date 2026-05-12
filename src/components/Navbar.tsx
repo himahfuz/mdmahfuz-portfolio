@@ -1,7 +1,6 @@
 "use client";
 
 import Link from "next/link";
-import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
 import { Menu, X } from "lucide-react";
@@ -23,15 +22,8 @@ export default function Navbar() {
       <div className="glass-panel h-[56px] px-6 rounded-[50px] flex items-center justify-between w-full">
         {/* Left: Logo */}
         <Link href="/" className="flex items-center gap-3 cursor-pointer">
-          <div className="relative w-9 h-9">
-            <Image 
-              src="/logo.png" 
-              alt="MR Logo" 
-              fill
-              sizes="36px"
-              className="object-contain scale-[1.8]"
-              priority
-            />
+          <div className="w-8 h-8 rounded-full bg-[var(--color-brand-primary)] text-white flex items-center justify-center font-bold text-[15px] tracking-tighter">
+            MR
           </div>
           <span className="font-semibold text-sm tracking-wider hidden lg:block">
             MD MAHFUZUR RAHMAN
