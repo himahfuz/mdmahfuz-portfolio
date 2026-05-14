@@ -22,7 +22,7 @@ const LinkedinIcon = ({ size = 24, className = "" }: { size?: number, className?
 
 export default function Footer() {
   return (
-    <footer className="relative w-full px-6 mt-10 pb-8 z-50 lg:px-0 lg:mt-0 lg:pb-8 lg:max-w-5xl lg:mx-auto">
+    <footer className="relative w-full px-6 mt-8 pb-8 z-50 lg:px-0 lg:mt-8 lg:max-w-5xl lg:mx-auto">
       <div className="glass-panel min-h-[60px] py-4 lg:py-0 px-6 lg:px-10 flex flex-col lg:flex-row items-center text-center justify-between gap-4 lg:gap-0 rounded-[24px]">
         {/* Left */}
         <div className="flex items-center gap-2 text-[var(--color-text-primary)] font-medium text-sm">

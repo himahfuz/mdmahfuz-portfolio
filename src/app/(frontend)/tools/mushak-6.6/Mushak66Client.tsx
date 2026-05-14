@@ -142,7 +142,7 @@ export default function Mushak66Client() {
   const totalVatDeducted = invoices.reduce((sum, inv) => sum + (Number(inv.vatDeducted) || 0), 0);
 
   return (
-    <div className="min-h-screen bg-neutral-50 p-4 md:p-8 pt-10 md:pt-14">
+    <div className="w-full bg-neutral-50 p-4 md:p-8 pt-10 md:pt-14 rounded-[2rem]">
       <div className="max-w-7xl mx-auto space-y-8">
         
         {/* Header Section */}
