@@ -18,6 +18,13 @@ const localTools = [
     icon: "Calculator",
     description: "Quickly calculate Gross, VAT, Tax, and Net Payable amounts for any service or supply in Bangladesh.",
     link: "/tools/vat-tax-calculator",
+  },
+  {
+    _id: "local-mushak-66-generator",
+    title: "Mushak 6.6 Generator (VDS)",
+    icon: "FileText",
+    description: "Generate NBR standard Mushak 6.6 (Certificate of Tax Deduction at Source) with auto-calculation and 1-click PDF export.",
+    link: "/tools/mushak-6.6",
   }
 ];
 
