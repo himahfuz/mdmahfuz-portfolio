@@ -27,6 +27,11 @@ export const metadata: Metadata = {
     locale: 'en_US',
     type: 'website',
   },
+  verification: {
+    other: {
+      "msvalidate.01": "E42C0124B7DDE5231B37197BA6FBBAF7"
+    }
+  }
 };
 export default function Home() {
   const testimonials = [
