@@ -1,8 +1,8 @@
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'Accounting Professional Digital CV | MD Mahfuzur Rahman',
-  description: 'Detailed professional resume of MD Mahfuzur Rahman, Senior Auditor at Islam Quazi Shafique & Co.',
+  title: 'Digital CV | MD Mahfuzur Rahman',
+  description: 'Digital CV of MD Mahfuzur Rahman, Senior Auditor at Islam Quazi Shafique & Co.',
   keywords: [
     'MD Mahfuzur Rahman CV',
     'Senior Auditor Bangladesh',
@@ -14,10 +14,10 @@ export const metadata: Metadata = {
     'Financial Auditor CV'
   ],
   openGraph: {
-    title: 'Accounting Professional Digital CV | MD Mahfuzur Rahman',
-    description: 'Detailed professional resume of MD Mahfuzur Rahman, Senior Auditor at Islam Quazi Shafique & Co.',
+    title: 'Digital CV | MD Mahfuzur Rahman',
+    description: 'Digital CV of MD Mahfuzur Rahman, Senior Auditor at Islam Quazi Shafique & Co.',
     url: 'https://mdmahfuz.com/cv',
-    siteName: 'MD Mahfuzur Rahman CV',
+    siteName: 'Digital CV | MD Mahfuzur Rahman',
     images: [
       {
         url: 'https://mdmahfuz.com/images/og-image.jpg',

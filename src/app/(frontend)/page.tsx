@@ -8,7 +8,7 @@ import { JobAvailabilityBadge } from "@/components/ui/JobAvailabilityBadge";
 
 export const metadata: Metadata = {
   title: 'MD Mahfuzur Rahman | Accounting Professional Bangladesh',
-  description: 'Welcome to the digital portfolio of MD Mahfuzur Rahman, an accounting professional, a professional auditor, CA student, and tech enthusiast from Bangladesh. Explore professional VAT/Tax tools and accounting insights.',
+  description: 'Digital portfolio of MD Mahfuzur Rahman, a professional auditor, CA student, and tech enthusiast in Bangladesh. Explore VAT/Tax tools and insights.',
   keywords: [
     'MD Mahfuzur Rahman',
     'MD Mahfuzur Rahman Portfolio',
@@ -21,11 +21,14 @@ export const metadata: Metadata = {
   ],
   openGraph: {
     title: 'MD Mahfuzur Rahman | Accounting Professional Bangladesh',
-    description: 'Welcome to the digital portfolio of MD Mahfuzur Rahman, an accounting professional, a professional auditor, CA student, and tech enthusiast from Bangladesh.',
+    description: 'Digital portfolio of MD Mahfuzur Rahman, a professional auditor, CA student, and tech enthusiast in Bangladesh. Explore VAT/Tax tools and insights.',
     url: 'https://mdmahfuz.com',
-    siteName: 'MD Mahfuzur Rahman Portfolio',
+    siteName: 'MD Mahfuzur Rahman',
     locale: 'en_US',
     type: 'website',
+  },
+  alternates: {
+    canonical: 'https://mdmahfuz.com',
   },
   verification: {
     other: {
