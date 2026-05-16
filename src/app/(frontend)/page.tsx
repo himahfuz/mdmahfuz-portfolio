@@ -1,10 +1,33 @@
 
+import { Metadata } from 'next';
 import { TestimonialCard } from "@/components/ui/TestimonialCard";
 import Image from "next/image";
 import portraitHome from "../../../public/images/portrait-home.jpg";
 import { Typewriter } from "@/components/ui/Typewriter";
 import { JobAvailabilityBadge } from "@/components/ui/JobAvailabilityBadge";
 
+export const metadata: Metadata = {
+  title: 'MD Mahfuzur Rahman | Accounting Professional Bangladesh',
+  description: 'Welcome to the digital portfolio of MD Mahfuzur Rahman, an accounting professional, a professional auditor, CA student, and tech enthusiast from Bangladesh. Explore professional VAT/Tax tools and accounting insights.',
+  keywords: [
+    'MD Mahfuzur Rahman',
+    'MD Mahfuzur Rahman Portfolio',
+    'Best Accountant in Bangladesh',
+    'Tax Expert in Bangladesh',
+    'CA Student Bangladesh',
+    'VAT Expert in Bangladesh',
+    'Senior Auditor in Bangladesh',
+    'Islam Quazi Shafique & Co Auditor'
+  ],
+  openGraph: {
+    title: 'MD Mahfuzur Rahman | Accounting Professional Bangladesh',
+    description: 'Welcome to the digital portfolio of MD Mahfuzur Rahman, an accounting professional, a professional auditor, CA student, and tech enthusiast from Bangladesh.',
+    url: 'https://mdmahfuz.com',
+    siteName: 'MD Mahfuzur Rahman Portfolio',
+    locale: 'en_US',
+    type: 'website',
+  },
+};
 export default function Home() {
   const testimonials = [
     {
@@ -29,12 +52,12 @@ export default function Home() {
         <div className="flex items-center gap-3 mb-6">
           <div className="w-5 h-[2px] bg-[var(--color-brand-primary)]"></div>
           <span className="uppercase text-[12px] font-medium tracking-[0.1em] text-[var(--color-brand-primary)] inline-block min-h-[18px]">
-            <Typewriter 
+            <Typewriter
               texts={[
                 "Accounting Professional",
                 "VAT & TAX Expert",
                 "Chartered Accountancy Student"
-              ]} 
+              ]}
             />
           </span>
         </div>
