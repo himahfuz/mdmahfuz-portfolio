@@ -95,21 +95,19 @@ export default function Calculator() {
               <div className="flex flex-col sm:flex-row gap-3 bg-white/5 p-1 rounded-xl border border-white/10">
                 <button
                   onClick={() => setMode("net")}
-                  className={`flex-1 py-3 px-4 text-[14px] font-medium rounded-lg transition-all duration-200 ${
-                    mode === "net"
+                  className={`flex-1 py-3 px-4 text-[14px] font-medium rounded-lg transition-all duration-200 ${mode === "net"
                       ? "bg-[var(--color-brand-primary)] text-white shadow-md"
                       : "text-[var(--color-text-secondary)] hover:bg-white/5"
-                  }`}
+                    }`}
                 >
                   Excluding VAT & Tax (Net)
                 </button>
                 <button
                   onClick={() => setMode("total")}
-                  className={`flex-1 py-3 px-4 text-[14px] font-medium rounded-lg transition-all duration-200 ${
-                    mode === "total"
+                  className={`flex-1 py-3 px-4 text-[14px] font-medium rounded-lg transition-all duration-200 ${mode === "total"
                       ? "bg-[var(--color-brand-primary)] text-white shadow-md"
                       : "text-[var(--color-text-secondary)] hover:bg-white/5"
-                  }`}
+                    }`}
                 >
                   Including VAT & Tax (Total)
                 </button>
@@ -304,7 +302,7 @@ export default function Calculator() {
                   <span className="font-medium text-[var(--color-text-secondary)]">
                     Net Payable Amount
                   </span>
-                  <div className="flex flex-row items-baseline gap-1 font-bold text-2xl md:text-3xl text-[var(--color-text-primary)] whitespace-nowrap">
+                  <div className="flex flex-row items-baseline gap-1 font-bold text-xl md:text-2xl text-[var(--color-text-primary)] whitespace-nowrap">
                     <span>৳</span>
                     <span>{results.netPayable.toLocaleString('en-IN')}</span>
                   </div>
@@ -313,7 +311,7 @@ export default function Calculator() {
                   <span className="font-medium text-[var(--color-text-secondary)]">
                     Total Payable by Client (Budget)
                   </span>
-                  <div className="flex flex-row items-baseline gap-1 font-bold text-xl md:text-2xl text-[var(--color-brand-primary)] whitespace-nowrap">
+                  <div className="flex flex-row items-baseline gap-1 font-bold text-lg md:text-xl text-[var(--color-brand-primary)] whitespace-nowrap">
                     <span>৳</span>
                     <span>{results.totalPayable.toLocaleString('en-IN')}</span>
                   </div>
@@ -344,9 +342,8 @@ export default function Calculator() {
               </div>
               <LucideIcons.ChevronDown
                 size={20}
-                className={`text-blue-600 dark:text-blue-400 transition-transform duration-300 ${
-                  showExplanation ? "rotate-180" : ""
-                }`}
+                className={`text-blue-600 dark:text-blue-400 transition-transform duration-300 ${showExplanation ? "rotate-180" : ""
+                  }`}
               />
             </button>
 

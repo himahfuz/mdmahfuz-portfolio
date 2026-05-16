@@ -5,6 +5,16 @@ import Calculator from "./Calculator";
 export const metadata: Metadata = {
   title: "VAT & Tax Calculator Bangladesh - Free Online Tool",
   description: "A free and universal online tool to easily calculate VAT, Tax (TDS), gross bills, and net payable amounts in Bangladesh.",
+  keywords: [
+    "VAT calculator BD",
+    "Tax calculator Bangladesh",
+    "TDS calculator BD",
+    "Gross to net calculator Bangladesh",
+    "NBR VAT calculation",
+    "VDS calculator",
+    "Free online VAT calculator",
+    "Bangladesh tax deduction calculator"
+  ],
   openGraph: {
     title: "VAT & Tax Calculator Bangladesh - Free Online Tool",
     description: "A free and universal online tool to easily calculate VAT, Tax (TDS), gross bills, and net payable amounts in Bangladesh.",
