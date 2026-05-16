@@ -3,8 +3,8 @@ import Script from "next/script";
 import Calculator from "./Calculator";
 
 export const metadata: Metadata = {
-  title: "VAT & Tax Calculator Bangladesh - Free Online Tool",
-  description: "A free and universal online tool to easily calculate VAT, Tax (TDS), gross bills, and net payable amounts in Bangladesh.",
+  title: "VAT & Tax Calculator BD - Free Online Tool",
+  description: "Free online calculator to easily compute VAT, VDS, Tax, TDS, gross bills, and net payable amounts for Bangladesh. Fast, accurate, and NBR compliant.",
   keywords: [
     "VAT calculator BD",
     "Tax calculator Bangladesh",
@@ -16,9 +16,12 @@ export const metadata: Metadata = {
     "Bangladesh tax deduction calculator"
   ],
   openGraph: {
-    title: "VAT & Tax Calculator Bangladesh - Free Online Tool",
-    description: "A free and universal online tool to easily calculate VAT, Tax (TDS), gross bills, and net payable amounts in Bangladesh.",
+    title: "VAT & Tax Calculator BD - Free Online Tool",
+    description: "Free online calculator to compute VAT, VDS, Tax, TDS, gross bills, and net payable amounts for Bangladesh. Fast, accurate, and NBR compliant.",
     url: "https://mdmahfuz.com/tools/vat-tax-calculator",
+  },
+  alternates: {
+    canonical: "https://mdmahfuz.com/tools/vat-tax-calculator",
   },
 };
 
