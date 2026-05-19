@@ -4,6 +4,10 @@ import { useState } from "react";
 import { PostCard } from "@/components/ui/PostCard";
 import { Clock } from "lucide-react";
 
+const getPlainText = (description: any) => {
+  if (typeof description === "string") return description; // যদি আগে থেকেই টেক্সট থাকে
+  if (!description || !Array.isArray(description)) return "";
+  
 export default function LearningTabs({ learningData }: { learningData: any[] }) {
   const [activeTab, setActiveTab] = useState(learningData[0]?.category || "Accounting");
 
@@ -32,7 +36,14 @@ export default function LearningTabs({ learningData }: { learningData: any[] }) 
         {learningData
           .find((d) => d.category === activeTab)
           ?.posts.map((post: any) => (
-            <PostCard key={post._id} {...post} id={post._id} hrefPrefix="/learning" />
+            <PostCard 
+              key={post._id} 
+              {...post} 
+              id={post._id} 
+              hrefPrefix="/learning" 
+              // 👈 এখানে রিচ-টেক্সটকে প্লেন-টেক্সটে কনভার্ট করে ওভাররাইড করে দেওয়া হচ্ছে
+              description={getPlainText(post.description)} 
+            />
           ))}
         {learningData.find((d) => d.category === activeTab)?.posts.length === 0 && (
           <div className="col-span-full py-20 flex flex-col items-center justify-center opacity-70">
