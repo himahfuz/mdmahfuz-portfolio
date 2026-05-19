@@ -63,7 +63,16 @@ export default async function LearningPost({ params }: { params: Promise<{ slug:
           {post.date && <span className="flex items-center gap-2"><Clock size={16} /> Updated: {post.date}</span>}
         </div>
 
-        <div className="prose prose-sm md:prose-base max-w-none prose-p:text-[var(--color-text-secondary)] prose-headings:text-[var(--color-text-primary)] prose-strong:text-[var(--color-text-primary)]">
+        <div className="
+          max-w-none 
+          text-[16px] leading-relaxed text-[var(--color-text-secondary)] 
+          [&>p]:mb-6 
+          [&>h2]:text-[24px] [&>h2]:font-bold [&>h2]:text-[var(--color-text-primary)] [&>h2]:mt-10 [&>h2]:mb-4 
+          [&>h3]:text-[20px] [&>h3]:font-semibold [&>h3]:text-[var(--color-text-primary)] [&>h3]:mt-8 [&>h3]:mb-3 
+          [&>ul]:list-disc [&>ul]:ml-6 [&>ul]:mb-6 [&>li]:mb-2 
+          [&>ol]:list-decimal [&>ol]:ml-6 [&>ol]:mb-6 [&>li]:mb-2
+          [&>strong]:text-[var(--color-text-primary)]
+        ">
           {post.description ? (
             <PortableText value={post.description} />
           ) : (
