@@ -37,8 +37,9 @@ export const learningType = defineType({
     }),
     defineField({
       name: 'description',
-      title: 'Description',
-      type: 'text',
+      title: 'Description / Content',
+      type: 'array', // text-এর বদলে array দেওয়া হলো
+      of: [{ type: 'block' }], // block টাইপ দেওয়ার কারণে এখানে রিচ-টেক্সট এডিটর চালু হবে
       validation: (Rule) => Rule.required(),
     }),
     defineField({
