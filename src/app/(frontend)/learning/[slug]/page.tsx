@@ -4,6 +4,7 @@ import Link from "next/link";
 import { ArrowLeft, BookOpen, Clock } from "lucide-react";
 
 import { Metadata } from 'next';
+import { PortableText } from '@portabletext/react';
 
 export const revalidate = 60; // Revalidate every 60 seconds
 
@@ -19,8 +20,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     .join(' ');
 
   return {
-    title: `${formattedTitle} | CA Study Notes - MD Mahfuzur Rahman`,
-    description: `Read my detailed study notes and chapter summaries on ${formattedTitle}.`,
+    title: `${formattedTitle} | CA Study Notes`,
+    description: `${formattedTitle}`,
   };
 }
 
@@ -63,12 +64,11 @@ export default async function LearningPost({ params }: { params: Promise<{ slug:
         </div>
 
         <div className="prose prose-sm md:prose-base max-w-none prose-p:text-[var(--color-text-secondary)] prose-headings:text-[var(--color-text-primary)] prose-strong:text-[var(--color-text-primary)]">
-          <p className="lead text-[16px] text-[var(--color-text-primary)] font-medium mb-8">
-            {post.description}
-          </p>
-          <p>
-            Detailed study notes and analysis will appear here. This section tracks ongoing professional development and knowledge sharing.
-          </p>
+          {post.description ? (
+            <PortableText value={post.description} />
+          ) : (
+            <p>Detailed study notes and analysis will appear here. This section tracks ongoing professional development and knowledge sharing.</p>
+          )}
         </div>
       </div>
     </div>
