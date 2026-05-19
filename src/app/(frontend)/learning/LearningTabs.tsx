@@ -4,10 +4,17 @@ import { useState } from "react";
 import { PostCard } from "@/components/ui/PostCard";
 import { Clock } from "lucide-react";
 
+// 💡 Sanity-র রিচ-টেক্সট থেকে সাধারণ টেক্সট বের করার ফাংশন
 const getPlainText = (description: any) => {
-  if (typeof description === "string") return description; // যদি আগে থেকেই টেক্সট থাকে
+  if (typeof description === "string") return description; 
   if (!description || !Array.isArray(description)) return "";
   
+  return description
+    .filter((block: any) => block._type === "block" && block.children)
+    .map((block: any) => block.children.map((child: any) => child.text).join(""))
+    .join(" ");
+}; // 👈 এই ব্র্যাকেটটাই মূলত মিসিং ছিল!
+
 export default function LearningTabs({ learningData }: { learningData: any[] }) {
   const [activeTab, setActiveTab] = useState(learningData[0]?.category || "Accounting");
 
@@ -41,7 +48,6 @@ export default function LearningTabs({ learningData }: { learningData: any[] }) 
               {...post} 
               id={post._id} 
               hrefPrefix="/learning" 
-              // 👈 এখানে রিচ-টেক্সটকে প্লেন-টেক্সটে কনভার্ট করে ওভাররাইড করে দেওয়া হচ্ছে
               description={getPlainText(post.description)} 
             />
           ))}
