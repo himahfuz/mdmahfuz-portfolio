@@ -14,14 +14,35 @@ type Props = {
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
-  const formattedTitle = slug
+  
+  const post = await client.fetch(`*[_type == "learning" && slug.current == $slug][0] {
+    title,
+    category,
+    seo
+  }`, { slug });
+
+  const fallbackTitle = slug
     .split('-')
     .map(word => word.charAt(0).toUpperCase() + word.slice(1))
     .join(' ');
 
+  const title = post?.seo?.metaTitle || (post?.title ? `${post.title} | CA Study Notes` : `${fallbackTitle} | CA Study Notes`);
+  const description = post?.seo?.metaDescription || (post?.title ? `Study notes on ${post.title} (${post.category || 'CA Exam'}). Read online on MD Mahfuzur Rahman's learning portal.` : `Study notes and analysis on ${fallbackTitle}.`);
+  const canonicalUrl = `https://mdmahfuz.com/learning/${slug}`;
+
   return {
-    title: `${formattedTitle} | CA Study Notes`,
-    description: `${formattedTitle}`,
+    title,
+    description,
+    keywords: post?.seo?.keywords || [],
+    alternates: {
+      canonical: canonicalUrl,
+    },
+    openGraph: {
+      title,
+      description,
+      url: canonicalUrl,
+      type: 'article',
+    },
   };
 }
 

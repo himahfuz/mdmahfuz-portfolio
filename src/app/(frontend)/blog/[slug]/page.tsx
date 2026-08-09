@@ -4,13 +4,40 @@ import Link from "next/link";
 import { ArrowLeft, Calendar, Clock } from "lucide-react";
 import { PortableText } from "@portabletext/react";
 
+import { Metadata } from "next";
+
 export const revalidate = 60; // Revalidate every 60 seconds
 
-export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }) {
+export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
   const { slug } = await params;
-  const title = slug.split('-').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ');
+  
+  const post = await client.fetch(`*[_type == "blog" && slug.current == $slug][0] {
+    title,
+    category,
+    excerpt,
+    "thumbnail": mainImage.asset->url,
+    seo
+  }`, { slug });
+
+  const fallbackTitle = slug.split('-').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ');
+  const title = post?.seo?.metaTitle || (post?.title ? `${post.title} | MD Mahfuzur Rahman` : `${fallbackTitle} | MD Mahfuzur Rahman`);
+  const description = post?.seo?.metaDescription || post?.excerpt || `Read article on ${post?.title || fallbackTitle} by MD Mahfuzur Rahman.`;
+  const canonicalUrl = `https://mdmahfuz.com/blog/${slug}`;
+
   return {
-    title: `${title} | MD Mahfuzur Rahman`,
+    title,
+    description,
+    keywords: post?.seo?.keywords || [],
+    alternates: {
+      canonical: canonicalUrl,
+    },
+    openGraph: {
+      title,
+      description,
+      url: canonicalUrl,
+      type: 'article',
+      images: post?.thumbnail ? [{ url: post.thumbnail }] : undefined,
+    },
   };
 }
 

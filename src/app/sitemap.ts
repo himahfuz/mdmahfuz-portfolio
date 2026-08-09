@@ -1,20 +1,20 @@
 import fs from 'fs';
 import path from 'path';
 import { MetadataRoute } from 'next';
+import { client } from '@/sanity/lib/client';
 
 /**
- * 100% Automated Sitemap for mdmahfuz.com
- * This script reads the filesystem to automatically discover tools, blog posts, and learning notes.
+ * Automated Sitemap for mdmahfuz.com
+ * Fetches static pages, filesystem tool routes, and dynamic blog/learning content from Sanity CMS.
  */
 
 const BASE_URL = 'https://mdmahfuz.com';
 
 /**
- * Helper function to automatically retrieve slugs from the file system.
- * It reads the directories within a target path and filters out Next.js special folders.
+ * Helper function to automatically retrieve slugs from local file system.
+ * Used for local static folder routes like `/tools`.
  */
 function getSlugsFromDirectory(relativeDirPath: string): string[] {
-  // Path is adjusted to match your project structure: src/app/(frontend)/[dir]
   const fullPath = path.join(process.cwd(), 'src', 'app', '(frontend)', relativeDirPath);
 
   if (!fs.existsSync(fullPath)) {
@@ -27,22 +27,17 @@ function getSlugsFromDirectory(relativeDirPath: string): string[] {
     .filter((dirent) => dirent.isDirectory())
     .map((dirent) => dirent.name)
     .filter((name) => {
-      // Exclude special Next.js folders and generic templates:
-      // - [slug] (Dynamic templates)
-      // - (group) (Route groups)
-      // - _private (Private folders)
-      // - api (API routes)
       return (
         !name.startsWith('[') &&
         !name.startsWith('(') &&
         !name.startsWith('_') &&
         name !== 'api' &&
-        name !== 'components' // Optional: exclude local component folders if they exist
+        name !== 'components'
       );
     });
 }
 
-// 1. Static Routes Configuration
+// Static Routes Configuration
 const staticRoutes = [
   '',                // Home
   '/cv',             // CV / Resume
@@ -52,13 +47,8 @@ const staticRoutes = [
   '/privacy-policy', // Privacy Policy
 ];
 
-export default function sitemap(): MetadataRoute.Sitemap {
-  // 2. Automatically generate dynamic slugs from the filesystem
-  const toolSlugs = getSlugsFromDirectory('tools');
-  const blogSlugs = getSlugsFromDirectory('blog');
-  const learningSlugs = getSlugsFromDirectory('learning');
-
-  // 3. Map Static Routes
+export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
+  // 1. Static Routes
   const staticEntries: MetadataRoute.Sitemap = staticRoutes.map((route) => ({
     url: `${BASE_URL}${route}`,
     lastModified: new Date(),
@@ -66,7 +56,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: route === '' ? 1.0 : 0.8,
   }));
 
-  // 4. Map Dynamic Tools (Priority: 0.9)
+  // 2. Local File System Dynamic Tools (Priority: 0.9)
+  const toolSlugs = getSlugsFromDirectory('tools');
   const toolEntries: MetadataRoute.Sitemap = toolSlugs.map((slug) => ({
     url: `${BASE_URL}/tools/${slug}`,
     lastModified: new Date(),
@@ -74,23 +65,47 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.9,
   }));
 
-  // 5. Map Dynamic Blog Posts (Priority: 0.8)
-  const blogEntries: MetadataRoute.Sitemap = blogSlugs.map((slug) => ({
-    url: `${BASE_URL}/blog/${slug}`,
-    lastModified: new Date(),
+  // 3. Dynamic Learning Notes from Sanity CMS (Priority: 0.8)
+  let learningPosts: Array<{ slug: string; _updatedAt?: string }> = [];
+  try {
+    learningPosts = await client.fetch(`
+      *[_type == "learning" && !(_id in path("drafts.**")) && defined(slug.current)] {
+        "slug": slug.current,
+        _updatedAt
+      }
+    `);
+  } catch (error) {
+    console.error('Sitemap error fetching learning posts from Sanity:', error);
+  }
+
+  const learningEntries: MetadataRoute.Sitemap = learningPosts.map((post) => ({
+    url: `${BASE_URL}/learning/${post.slug}`,
+    lastModified: post._updatedAt ? new Date(post._updatedAt) : new Date(),
     changeFrequency: 'weekly',
     priority: 0.8,
   }));
 
-  // 6. Map Dynamic Learning Notes (Priority: 0.7)
-  const learningEntries: MetadataRoute.Sitemap = learningSlugs.map((slug) => ({
-    url: `${BASE_URL}/learning/${slug}`,
-    lastModified: new Date(),
+  // 4. Dynamic Blog Posts from Sanity CMS (Priority: 0.8)
+  let blogPosts: Array<{ slug: string; _updatedAt?: string }> = [];
+  try {
+    blogPosts = await client.fetch(`
+      *[_type == "blog" && !(_id in path("drafts.**")) && defined(slug.current)] {
+        "slug": slug.current,
+        _updatedAt
+      }
+    `);
+  } catch (error) {
+    console.error('Sitemap error fetching blog posts from Sanity:', error);
+  }
+
+  const blogEntries: MetadataRoute.Sitemap = blogPosts.map((post) => ({
+    url: `${BASE_URL}/blog/${post.slug}`,
+    lastModified: post._updatedAt ? new Date(post._updatedAt) : new Date(),
     changeFrequency: 'weekly',
-    priority: 0.7,
+    priority: 0.8,
   }));
 
-  // Combine and return all entries
+  // Combine and return all sitemap entries
   return [
     ...staticEntries,
     ...toolEntries,
@@ -98,3 +113,4 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ...learningEntries,
   ];
 }
+
