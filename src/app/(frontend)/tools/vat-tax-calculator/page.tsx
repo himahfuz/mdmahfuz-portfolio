@@ -28,7 +28,7 @@ export const metadata: Metadata = {
 const jsonLd = {
   "@context": "https://schema.org",
   "@type": "WebApplication",
-  name: "VAT & Tax Calculator (Bangladesh)",
+  name: "VAT Tax Calculator (Bangladesh)",
   url: "https://mdmahfuz.com/tools/vat-tax-calculator",
   description:
     "Free online calculator to compute VAT and TDS/Tax for any service or supply in Bangladesh. Supports Net-to-Gross and Gross-to-Net calculation modes as per NBR rules.",

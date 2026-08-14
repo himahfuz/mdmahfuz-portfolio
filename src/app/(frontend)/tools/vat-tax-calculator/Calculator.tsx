@@ -72,7 +72,7 @@ export default function Calculator() {
             <LucideIcons.Calculator size={24} />
           </div>
           <h1 className="font-poppins font-bold text-[30px] md:text-[36px] text-[var(--color-text-primary)] leading-tight">
-            VAT & Tax Calculator (Bangladesh)
+            VAT Tax Calculator (Bangladesh)
           </h1>
         </div>
         <p className="font-inter text-[15px] text-[var(--color-text-secondary)] mt-4">
@@ -96,8 +96,8 @@ export default function Calculator() {
                 <button
                   onClick={() => setMode("net")}
                   className={`flex-1 py-3 px-4 text-[14px] font-medium rounded-lg transition-all duration-200 ${mode === "net"
-                      ? "bg-[var(--color-brand-primary)] text-white shadow-md"
-                      : "text-[var(--color-text-secondary)] hover:bg-white/5"
+                    ? "bg-[var(--color-brand-primary)] text-white shadow-md"
+                    : "text-[var(--color-text-secondary)] hover:bg-white/5"
                     }`}
                 >
                   Excluding VAT & Tax (Net)
@@ -105,8 +105,8 @@ export default function Calculator() {
                 <button
                   onClick={() => setMode("total")}
                   className={`flex-1 py-3 px-4 text-[14px] font-medium rounded-lg transition-all duration-200 ${mode === "total"
-                      ? "bg-[var(--color-brand-primary)] text-white shadow-md"
-                      : "text-[var(--color-text-secondary)] hover:bg-white/5"
+                    ? "bg-[var(--color-brand-primary)] text-white shadow-md"
+                    : "text-[var(--color-text-secondary)] hover:bg-white/5"
                     }`}
                 >
                   Including VAT & Tax (Total)

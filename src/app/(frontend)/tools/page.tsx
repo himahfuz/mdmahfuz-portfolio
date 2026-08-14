@@ -6,7 +6,7 @@ import type { Metadata } from "next";
 export const revalidate = 60; // Revalidate every 60 seconds
 
 export const metadata: Metadata = {
-  title: "Professional Accounting VAT & Tax Tools",
+  title: "Professional Accounting VAT Tax Tools",
   description: "A collection of smart calculators and tools for accounting professionals in Bangladesh, including VAT and TDS calculators.",
 };
 
@@ -14,7 +14,7 @@ export const metadata: Metadata = {
 const localTools = [
   {
     _id: "local-vat-tax-calculator",
-    title: "VAT & Tax Calculator (Bangladesh)",
+    title: "VAT Tax Calculator (Bangladesh)",
     icon: "Calculator",
     description: "Quickly calculate Gross, VAT, Tax, and Net Payable amounts for any service or supply in Bangladesh.",
     link: "/tools/vat-tax-calculator",
@@ -42,7 +42,7 @@ export default async function Tools() {
 
   return (
     <div className="pb-20">
-      
+
       {/* Hero Section */}
       <div className="glass-panel p-10 md:p-12 w-full mb-10 text-center md:text-left">
         <h1 className="font-poppins font-bold text-[36px] text-[var(--color-text-primary)] leading-tight mb-2">
@@ -73,15 +73,15 @@ export default async function Tools() {
                 <div className="w-12 h-12 rounded-full bg-white/50 flex items-center justify-center mb-4 text-[var(--color-brand-primary)] border border-white/60">
                   <IconComponent size={24} />
                 </div>
-                
+
                 <h3 className="font-semibold text-[16px] text-[var(--color-text-primary)] mb-2">
                   {tool.title}
                 </h3>
-                
+
                 <p className="text-[13px] text-[var(--color-text-secondary)] flex-1 mb-6">
                   {tool.description}
                 </p>
-                
+
                 <Link href={tool.link} className="btn-glass justify-center mt-auto text-center w-full">
                   Use Tool
                 </Link>
