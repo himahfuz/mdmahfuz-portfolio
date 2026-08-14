@@ -19,16 +19,16 @@ export default function CV() {
 
   return (
     <div className="flex flex-col lg:flex-row gap-8 pb-10 min-h-screen lg:min-h-0 overflow-x-hidden">
-      
+
       {/* LEFT SIDEBAR */}
       <div className="w-full lg:w-[350px] shrink-0">
         <div className="glass-panel p-7 lg:sticky lg:top-5">
           <div className="w-40 h-40 mx-auto rounded-full border-[3px] border-white/70 overflow-hidden mb-5">
-            <Image 
-              src={portraitCv} 
-              alt="MD Mahfuzur Rahman" 
-              width={160} 
-              height={160} 
+            <Image
+              src={portraitCv}
+              alt="MD Mahfuzur Rahman"
+              width={160}
+              height={160}
               className="object-cover w-full h-full"
             />
           </div>
@@ -80,7 +80,7 @@ export default function CV() {
 
       {/* RIGHT CONTENT AREA */}
       <div className="flex-1 flex flex-col gap-6">
-        
+
         {/* A. Career Objective */}
         <section>
           <h3 className="font-poppins font-semibold text-[20px] text-[var(--color-text-primary)] flex items-center gap-2 mb-3">
@@ -100,7 +100,7 @@ export default function CV() {
           </h3>
           <div className="glass-panel p-6 relative">
             <div className="absolute left-8 top-8 bottom-8 w-[2px] bg-[var(--color-brand-accent)] hidden md:block"></div>
-            
+
             <div className="flex gap-4 md:gap-6 mb-8 relative">
               <div className="w-2.5 h-2.5 rounded-full border-2 border-[var(--color-brand-primary)] bg-white mt-2 shrink-0 hidden md:block relative -left-[18px] z-10"></div>
               <div className="flex-1">
@@ -114,9 +114,13 @@ export default function CV() {
                 </div>
                 <div className="font-semibold text-[13px] text-[var(--color-brand-primary)] mb-3">Auditor (Articleship Student)</div>
                 <ul className="list-disc list-outside ml-4 text-[14px] leading-[1.6] text-[var(--color-text-secondary)] space-y-1">
-                  <li>Reviewed organization invoices/vouchers, receives and payments, transactions, bank statements, cash books, ledger books, income statements, cash flow, advance payments and receipts.</li>
-                  <li>Prepared audit report & financial statement as per IAS – 1.</li>
-                  <li>Experienced in statutory audit.</li>
+                  <li>Conducted statutory audits, internal audits, corporate governance audits, fund audits, and tax audits across a diverse range of organizations. </li>
+                  <li>Prepared comprehensive audit working papers and drafted detailed audit reports in accordance with auditing standards.</li>
+                  <li>Identified discrepancies, non-compliance issues, and control weaknesses, and reported findings with actionable recommendations.</li>
+                  <li>Assisted in the preparation and submission of Income Tax Returns for both individuals and corporate entities.</li>
+                  <li>Supported TDS and VDS compliance activities, including accurate calculation, timely deduction, and documentation.</li>
+                  <li>Assisted in the preparation and finalization of financial statements in compliance with International Accounting Standards (IAS), International Financial Reporting Standards (IFRS), and local regulations.</li>
+                  <li>Liaised with clients to collect necessary information, clarify audit queries, and ensure smooth audit execution.</li>
                 </ul>
               </div>
             </div>
@@ -151,6 +155,11 @@ export default function CV() {
           <div className="glass-panel p-6 overflow-x-auto">
             <table className="w-full min-w-[500px]">
               <tbody>
+                <tr className="border-b border-white/40">
+                  <td className="py-3 font-semibold text-[14px] text-[var(--color-brand-primary)] w-[25%]">MBA (2023)</td>
+                  <td className="py-3 text-[14px] text-[var(--color-text-primary)] w-[35%]">Accounting</td>
+                  <td className="py-3 text-[13px] text-[var(--color-text-secondary)]">National University (Bhawal Badre Alam Govt. College)</td>
+                </tr>
                 <tr className="border-b border-white/40">
                   <td className="py-3 font-semibold text-[14px] text-[var(--color-brand-primary)] w-[25%]">BBA (2021)</td>
                   <td className="py-3 text-[14px] text-[var(--color-text-primary)] w-[35%]">Accounting</td>
@@ -211,77 +220,92 @@ export default function CV() {
             <Award size={20} className="text-[var(--color-brand-primary)]" /> Course & Certificate
           </h3>
           <div className="glass-panel p-6 flex flex-col gap-4">
-            
             <div className="border border-white/50 rounded-lg overflow-hidden accordion-item bg-white/20">
-              <button 
+              <button
                 className="w-full flex items-center justify-between p-4 text-left"
                 onClick={() => toggleCert(0)}
               >
                 <div className="flex items-center gap-3">
                   <Award size={18} className="text-[var(--color-brand-primary)]" />
-                  <span className="font-semibold text-[15px] text-[var(--color-text-primary)]">Practical VAT Management</span>
+                  <span className="font-semibold text-[15px] text-[var(--color-text-primary)]">CA Articleship</span>
                 </div>
                 <ChevronDown size={18} className={`transition-transform duration-300 ${certOpen === 0 ? 'rotate-180' : ''}`} />
               </button>
               <div className={`px-4 text-[13px] text-[var(--color-text-secondary)] transition-all duration-300 overflow-hidden ${certOpen === 0 ? 'max-h-[700px] pb-4 opacity-100' : 'max-h-0 opacity-0'}`}>
-                <p className="mb-4">VAT Registration | All Mushak Hands on Practice | VAT Return Submission | VAT Rates</p>
-                <div className="relative w-full sm:w-[350px] md:w-[400px] max-w-full aspect-[0.707] rounded-lg overflow-hidden border border-white/20 shadow-md">
-                  <Image 
-                    src="/images/certificates/vat-management.jpg" 
-                    alt="Practical VAT Management Certificate" 
-                    fill 
-                    sizes="(max-width: 768px) 100vw, 400px"
-                    className="object-cover hover:scale-105 transition-transform duration-500" 
-                  />
-                </div>
+                <p className="mb-4">Passed Assurance, Business Law, Information Technology and Business Finance & Technology in Certificate level exam.</p>
               </div>
             </div>
 
             <div className="border border-white/50 rounded-lg overflow-hidden accordion-item bg-white/20">
-              <button 
+              <button
                 className="w-full flex items-center justify-between p-4 text-left"
                 onClick={() => toggleCert(1)}
               >
                 <div className="flex items-center gap-3">
                   <Award size={18} className="text-[var(--color-brand-primary)]" />
-                  <span className="font-semibold text-[15px] text-[var(--color-text-primary)]">Business Intelligence with Excel (Ostad)</span>
+                  <span className="font-semibold text-[15px] text-[var(--color-text-primary)]">Practical VAT Management</span>
                 </div>
                 <ChevronDown size={18} className={`transition-transform duration-300 ${certOpen === 1 ? 'rotate-180' : ''}`} />
               </button>
-              <div className={`px-4 text-[13px] text-[var(--color-text-secondary)] transition-all duration-300 overflow-hidden ${certOpen === 1 ? 'max-h-[600px] pb-4 opacity-100' : 'max-h-0 opacity-0'}`}>
-                <p className="mb-4">Manage Data Model | Data relationship | Advance formula (Vlookup, Index, Match etc) | Power Pivot | Power Query</p>
-                <div className="relative w-full sm:w-[350px] md:w-[400px] max-w-full aspect-[1.414] rounded-lg overflow-hidden border border-white/20 shadow-md">
-                  <Image 
-                    src="/images/certificates/excel.jpg" 
-                    alt="Business Intelligence with Excel Certificate" 
-                    fill 
-                    sizes="(max-width: 768px) 100vw, 384px"
-                    className="object-cover hover:scale-105 transition-transform duration-500" 
+              <div className={`px-4 text-[13px] text-[var(--color-text-secondary)] transition-all duration-300 overflow-hidden ${certOpen === 1 ? 'max-h-[700px] pb-4 opacity-100' : 'max-h-0 opacity-0'}`}>
+                <p className="mb-4">VAT Registration | All Mushak Hands on Practice | VAT Return Submission | VAT Rates</p>
+                <div className="relative w-full sm:w-[350px] md:w-[400px] max-w-full aspect-[0.707] rounded-lg overflow-hidden border border-white/20 shadow-md">
+                  <Image
+                    src="/images/certificates/vat-management.jpg"
+                    alt="Practical VAT Management Certificate"
+                    fill
+                    sizes="(max-width: 768px) 100vw, 400px"
+                    className="object-cover hover:scale-105 transition-transform duration-500"
                   />
                 </div>
               </div>
             </div>
 
             <div className="border border-white/50 rounded-lg overflow-hidden accordion-item bg-white/20">
-              <button 
+              <button
                 className="w-full flex items-center justify-between p-4 text-left"
                 onClick={() => toggleCert(2)}
               >
                 <div className="flex items-center gap-3">
                   <Award size={18} className="text-[var(--color-brand-primary)]" />
-                  <span className="font-semibold text-[15px] text-[var(--color-text-primary)]">Power BI for Professionals (Ostad)</span>
+                  <span className="font-semibold text-[15px] text-[var(--color-text-primary)]">Business Intelligence with Excel (Ostad)</span>
                 </div>
                 <ChevronDown size={18} className={`transition-transform duration-300 ${certOpen === 2 ? 'rotate-180' : ''}`} />
               </button>
               <div className={`px-4 text-[13px] text-[var(--color-text-secondary)] transition-all duration-300 overflow-hidden ${certOpen === 2 ? 'max-h-[600px] pb-4 opacity-100' : 'max-h-0 opacity-0'}`}>
+                <p className="mb-4">Manage Data Model | Data relationship | Advance formula (Vlookup, Index, Match etc) | Power Pivot | Power Query</p>
+                <div className="relative w-full sm:w-[350px] md:w-[400px] max-w-full aspect-[1.414] rounded-lg overflow-hidden border border-white/20 shadow-md">
+                  <Image
+                    src="/images/certificates/excel.jpg"
+                    alt="Business Intelligence with Excel Certificate"
+                    fill
+                    sizes="(max-width: 768px) 100vw, 384px"
+                    className="object-cover hover:scale-105 transition-transform duration-500"
+                  />
+                </div>
+              </div>
+            </div>
+
+            <div className="border border-white/50 rounded-lg overflow-hidden accordion-item bg-white/20">
+              <button
+                className="w-full flex items-center justify-between p-4 text-left"
+                onClick={() => toggleCert(3)}
+              >
+                <div className="flex items-center gap-3">
+                  <Award size={18} className="text-[var(--color-brand-primary)]" />
+                  <span className="font-semibold text-[15px] text-[var(--color-text-primary)]">Power BI for Professionals (Ostad)</span>
+                </div>
+                <ChevronDown size={18} className={`transition-transform duration-300 ${certOpen === 3 ? 'rotate-180' : ''}`} />
+              </button>
+              <div className={`px-4 text-[13px] text-[var(--color-text-secondary)] transition-all duration-300 overflow-hidden ${certOpen === 3 ? 'max-h-[600px] pb-4 opacity-100' : 'max-h-0 opacity-0'}`}>
                 <p className="mb-4">Data transform | DAX Calculation | Interactive Reporting</p>
                 <div className="relative w-full sm:w-[350px] md:w-[400px] max-w-full aspect-[1.414] rounded-lg overflow-hidden border border-white/20 shadow-md">
-                  <Image 
-                    src="/images/certificates/power-bi.jpg" 
-                    alt="Power BI for Professionals Certificate" 
-                    fill 
+                  <Image
+                    src="/images/certificates/power-bi.jpg"
+                    alt="Power BI for Professionals Certificate"
+                    fill
                     sizes="(max-width: 768px) 100vw, 384px"
-                    className="object-cover hover:scale-105 transition-transform duration-500" 
+                    className="object-cover hover:scale-105 transition-transform duration-500"
                   />
                 </div>
               </div>
@@ -301,24 +325,24 @@ export default function CV() {
               <div className="flex-1 w-full">
                 <h4 className="font-semibold text-[15px] text-[var(--color-text-primary)]">Awarded Employee of the Q3 FY23</h4>
                 <p className="text-[13px] text-[var(--color-text-secondary)] italic mt-1">"Daraz Bangladesh Ltd" for consistently innovate and exceeding team performance metric. – Feb 2023</p>
-                
+
                 <div className="mt-3">
-                  <button 
-                    onClick={() => toggleAward(0)} 
+                  <button
+                    onClick={() => toggleAward(0)}
                     className="text-[13px] font-semibold text-[var(--color-brand-primary)] flex items-center gap-1.5 hover:underline transition-all"
                   >
-                    <ImageIcon size={14} /> 
+                    <ImageIcon size={14} />
                     {awardOpen === 0 ? "Hide Certificate" : "View Certificate"}
                   </button>
                   <div className={`transition-all duration-300 overflow-hidden ${awardOpen === 0 ? 'max-h-[600px] mt-4 opacity-100' : 'max-h-0 opacity-0'}`}>
                     <div className="relative w-full sm:w-[350px] md:w-[400px] aspect-[1.414] rounded-lg overflow-hidden border-2 border-white/20 shadow-md">
-                      <Image 
-                        src="/images/certificates/daraz-q3-award.jpg" 
-                        alt="Daraz Employee of the Quarter Q3 FY23" 
-                        fill 
+                      <Image
+                        src="/images/certificates/daraz-q3-award.jpg"
+                        alt="Daraz Employee of the Quarter Q3 FY23"
+                        fill
                         sizes="(max-width: 768px) 100vw, 400px"
                         priority
-                        className="object-cover hover:scale-105 transition-transform duration-500" 
+                        className="object-cover hover:scale-105 transition-transform duration-500"
                       />
                     </div>
                   </div>
@@ -341,16 +365,33 @@ export default function CV() {
           <h3 className="font-poppins font-semibold text-[20px] text-[var(--color-text-primary)] flex items-center gap-2 mb-3">
             <Users size={20} className="text-[var(--color-brand-primary)]" /> Reference
           </h3>
-          <div className="glass-panel p-6 flex gap-4 items-center">
-            <div className="w-16 h-16 rounded-full bg-[#e6efe9] overflow-hidden shrink-0 flex items-center justify-center relative">
-              <Image src="/images/avatars/avatar-tanveer.jpg" alt="Tanveer Hossain" fill sizes="64px" className="object-cover" />
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div className="glass-panel p-6 flex gap-4 items-center">
+              <div className="w-16 h-16 rounded-full bg-[#e6efe9] overflow-hidden shrink-0 flex items-center justify-center relative">
+                <Image src="/images/avatars/avatar-biplab.jpg" alt="Biplab Hossain" fill sizes="64px" className="object-cover" />
+              </div>
+              <div>
+                <h4 className="font-semibold text-[16px] text-[var(--color-text-primary)]">Biplab Hossain FCA (ICAB), ACA (ICAEW)</h4>
+                <p className="text-[13px] text-[var(--color-text-secondary)] mb-1">Managing Partner</p>
+                <p className="text-[13px] text-[var(--color-text-secondary)] mb-1">Islam Quazi Shafique & Co.</p>
+                <div className="flex items-center gap-2 text-[13px] text-[var(--color-text-primary)]">
+                  <Phone size={14} className="text-[var(--color-brand-primary)]" />
+                  <span>+8801717322693</span>
+                </div>
+              </div>
             </div>
-            <div>
-              <h4 className="font-semibold text-[16px] text-[var(--color-text-primary)]">Tanveer Hossain</h4>
-              <p className="text-[13px] text-[var(--color-text-secondary)] mb-1">Head of Customer Experience, Cartup (US-Bangla)</p>
-              <div className="flex items-center gap-2 text-[13px] text-[var(--color-text-primary)]">
-                <Phone size={14} className="text-[var(--color-brand-primary)]" />
-                <span>+8801711506533</span>
+            <div className="glass-panel p-6 flex gap-4 items-center">
+              <div className="w-16 h-16 rounded-full bg-[#e6efe9] overflow-hidden shrink-0 flex items-center justify-center relative">
+                <Image src="/images/avatars/avatar-tanveer.jpg" alt="Tanveer Hossain" fill sizes="64px" className="object-cover" />
+              </div>
+              <div>
+                <h4 className="font-semibold text-[16px] text-[var(--color-text-primary)]">Tanveer Hossain</h4>
+                <p className="text-[13px] text-[var(--color-text-secondary)] mb-1">Head of Customer Experience</p>
+                <p className="text-[13px] text-[var(--color-text-secondary)] mb-1">Cartup (US-Bangla)</p>
+                <div className="flex items-center gap-2 text-[13px] text-[var(--color-text-primary)]">
+                  <Phone size={14} className="text-[var(--color-brand-primary)]" />
+                  <span>+8801711506533</span>
+                </div>
               </div>
             </div>
           </div>
