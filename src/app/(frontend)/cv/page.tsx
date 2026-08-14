@@ -3,7 +3,7 @@
 import { MapPin, Phone, Mail, Link2, Download, User, Briefcase, GraduationCap, List, Award, ChevronDown, Trophy, Users, Image as ImageIcon } from "lucide-react";
 import Image from "next/image";
 import { useState } from "react";
-import portraitCv from "../../../../public/images/portrait-cv.jpeg";
+import portraitCv from "../../../../public/images/portrait-cv.jpg";
 
 export default function CV() {
   const [certOpen, setCertOpen] = useState<number | null>(null);
