@@ -72,9 +72,15 @@ export default function CV() {
             </div>
           </div>
 
-          <button className="btn-primary w-full flex justify-center mt-5">
+          <a
+            href="https://drive.google.com/uc?export=download&id=1vMD0U7pncsOdSwcEPUWNzQ7RZbKU-mXU"
+            target="_blank"
+            rel="noopener noreferrer"
+            download
+            className="btn-primary w-full flex items-center justify-center mt-5"
+          >
             <Download size={16} className="mr-2" /> Download CV (PDF)
-          </button>
+          </a>
         </div>
       </div>
 
