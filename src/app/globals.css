@@ -136,6 +136,25 @@
     display: none;
   }
 
+  /* Custom thin scrollbar for testimonials */
+  .custom-scrollbar {
+    scrollbar-width: thin;
+    scrollbar-color: rgba(31, 122, 99, 0.3) transparent;
+  }
+  .custom-scrollbar::-webkit-scrollbar {
+    width: 4px;
+  }
+  .custom-scrollbar::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  .custom-scrollbar::-webkit-scrollbar-thumb {
+    background: rgba(31, 122, 99, 0.3);
+    border-radius: 10px;
+  }
+  .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+    background: rgba(31, 122, 99, 0.6);
+  }
+
   /* Animations */
   @keyframes fadeSlideUp {
     from {

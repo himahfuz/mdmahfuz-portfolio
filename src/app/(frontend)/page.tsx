@@ -50,14 +50,20 @@ export default function Home() {
       review: "I am delighted to recommend Mahfuz based on his outstanding contributions during his tenure at Daraz. As Mahfuz's line manager, I had the pleasure of witnessing his exceptional skills firsthand, and I can confidently attest to his sharp intellect, creativity, and expertise in Excel and report submission.\n\nMahfuz's role as a Team Leader in Daraz Quality Assurance and Learning & Development departments was marked by his remarkable ability to lead his team with precision and efficiency. His strategic thinking and problem-solving skills were evident in the innovative solutions he implemented to streamline processes and improve overall performance.\n\nAs Mahfuz moves forward in his career, I have no doubt that he will continue to achieve great success. It was a pleasure working with Mahfuz, and I wholeheartedly recommend him for any opportunity he pursues. He is truly a standout professional with a bright future ahead.",
       avatarSrc: "/images/avatars/avatar-tazin.jpg",
     },
+    {
+      name: "Imran Khan",
+      designation: "Operations Executive - Shamolima Limited | Ex-Daraz",
+      review: "I had the pleasure of working with MD Mahfuzur Rahman during our time at Daraz. At the time, I was leading the Quality Assurance team, while Mahfuzur was working as a Partner Support Agent/Executive.\n\nWhat particularly stood out to me was his exceptional knowledge of Excel, strong analytical ability, and, most importantly, his genuine willingness to learn and continuously improve himself. Even though he was working in Partner Support, his skills and potential were evident, and I strongly believed he could take on greater responsibilities.\n\nBased on his capabilities and learning mindset, I recommended him for an opportunity within the Quality Assurance team, where he was subsequently promoted to Assistant Team Lead. He went on to prove that the trust placed in him was well deserved through his dedication, attention to detail, problem-solving skills, and ability to quickly adapt to new responsibilities.\n\nMD Mahfuzur Rahman is someone who is not only capable but also eager to learn, grow, and take on new challenges. I would gladly recommend him to any organization looking for a hardworking, analytical, and growth-oriented professional. I am confident he will continue to make a positive impact wherever he goes.",
+      avatarSrc: "/images/avatars/avatar-imran.jpg",
+    },
   ];
 
   return (
-    <div className="w-full min-h-screen lg:min-h-0 lg:h-auto flex flex-col lg:flex-row items-center justify-between gap-10 overflow-x-hidden relative mt-8 lg:mt-0 lg:py-8">
+    <div className="w-full flex flex-col lg:flex-row items-center justify-between gap-6 lg:gap-10 overflow-x-hidden relative my-4 lg:my-0 lg:h-[calc(100vh-170px)] lg:max-h-[540px] lg:min-h-[460px]">
 
       {/* Left Column */}
-      <div className="flex-1 lg:flex-[0.3] flex flex-col justify-center hero-left z-10 w-full">
-        <div className="flex items-center gap-3 mb-6">
+      <div className="flex-1 lg:flex-[0.3] flex flex-col justify-center hero-left z-10 w-full lg:h-full">
+        <div className="flex items-center gap-3 mb-4 lg:mb-6">
           <div className="w-5 h-[2px] bg-[var(--color-brand-primary)]"></div>
           <span className="uppercase text-[12px] font-medium tracking-[0.1em] text-[var(--color-brand-primary)] inline-block min-h-[18px]">
             <Typewriter
@@ -70,13 +76,13 @@ export default function Home() {
           </span>
         </div>
 
-        <h1 className="font-poppins font-extrabold text-5xl lg:text-[72px] leading-[1.1] text-[var(--color-text-primary)]">
+        <h1 className="font-poppins font-extrabold text-5xl lg:text-[68px] leading-[1.1] text-[var(--color-text-primary)]">
           MD<br />
           <span className="text-[var(--color-brand-primary)]">Mahfuzur</span><br />
           Rahman
         </h1>
 
-        <div className="w-10 h-[2px] bg-[var(--color-brand-primary)] my-6"></div>
+        <div className="w-10 h-[2px] bg-[var(--color-brand-primary)] my-4 lg:my-6"></div>
 
         <p className="text-[var(--color-text-secondary)] text-[16px] max-w-[300px] leading-relaxed">
           <strong className="font-bold text-[var(--color-brand-primary)]">Innovation</strong> Anything for <strong className="font-bold text-[var(--color-brand-primary)]">Automation</strong> Everything
@@ -86,12 +92,12 @@ export default function Home() {
       </div>
 
       {/* Center Column */}
-      <div className="flex-1 lg:flex-[0.35] relative flex items-center justify-center h-[400px] lg:h-full w-full max-w-[400px] lg:max-w-none mx-auto hero-center">
+      <div className="flex-1 lg:flex-[0.35] relative flex items-center justify-center h-[380px] lg:h-full w-full max-w-[380px] lg:max-w-none mx-auto hero-center">
         {/* Glow */}
-        <div className="absolute w-[320px] h-[320px] rounded-full bg-[image:var(--background-image-glow)] z-0"></div>
+        <div className="absolute w-[300px] h-[300px] lg:w-[320px] lg:h-[320px] rounded-full bg-[image:var(--background-image-glow)] z-0"></div>
 
         {/* Portrait Card */}
-        <div className="glass-panel w-full lg:w-[340px] h-[400px] lg:h-[480px] z-10 overflow-hidden relative">
+        <div className="glass-panel w-full lg:w-[340px] h-[380px] lg:h-full lg:max-h-[480px] z-10 overflow-hidden relative">
           <Image
             src={portraitHome}
             alt="MD Mahfuzur Rahman"
@@ -112,8 +118,8 @@ export default function Home() {
       </div>
 
       {/* Right Column */}
-      <div className="flex-1 lg:flex-[0.3] flex flex-col gap-3 justify-center w-full hero-right lg:max-h-full pb-8 lg:pb-0">
-        <div className="flex flex-col gap-3 lg:overflow-y-auto lg:pr-2 hide-scrollbar">
+      <div className="flex-1 lg:flex-[0.3] flex flex-col justify-center w-full hero-right lg:h-full lg:max-h-full pb-8 lg:pb-0 min-h-0">
+        <div className="flex flex-col gap-3 lg:h-full lg:max-h-full overflow-y-auto lg:pr-2 custom-scrollbar">
           {testimonials.map((t, idx) => (
             <TestimonialCard key={idx} {...t} />
           ))}
