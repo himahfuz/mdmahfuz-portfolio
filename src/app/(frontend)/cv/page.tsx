@@ -233,12 +233,12 @@ export default function CV() {
               >
                 <div className="flex items-center gap-3">
                   <Award size={18} className="text-[var(--color-brand-primary)]" />
-                  <span className="font-semibold text-[15px] text-[var(--color-text-primary)]">CA Articleship</span>
+                  <span className="font-semibold text-[15px] text-[var(--color-text-primary)]">CA Articleship (Registration number: 39303)</span>
                 </div>
                 <ChevronDown size={18} className={`transition-transform duration-300 ${certOpen === 0 ? 'rotate-180' : ''}`} />
               </button>
               <div className={`px-4 text-[13px] text-[var(--color-text-secondary)] transition-all duration-300 overflow-hidden ${certOpen === 0 ? 'max-h-[700px] pb-4 opacity-100' : 'max-h-0 opacity-0'}`}>
-                <p className="mb-4">Passed Accounting, Assurance, Business Law, Information Technology and Business Finance & Technology in Certificate level exam.</p>
+                <p className="mb-4">Passed Accounting, Assurance, Business Law and Information Technology in Certificate level exam.</p>
               </div>
             </div>
 
