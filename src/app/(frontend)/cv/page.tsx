@@ -238,7 +238,7 @@ export default function CV() {
                 <ChevronDown size={18} className={`transition-transform duration-300 ${certOpen === 0 ? 'rotate-180' : ''}`} />
               </button>
               <div className={`px-4 text-[13px] text-[var(--color-text-secondary)] transition-all duration-300 overflow-hidden ${certOpen === 0 ? 'max-h-[700px] pb-4 opacity-100' : 'max-h-0 opacity-0'}`}>
-                <p className="mb-4">Passed Assurance, Business Law, Information Technology and Business Finance & Technology in Certificate level exam.</p>
+                <p className="mb-4">Passed Accounting, Assurance, Business Law, Information Technology and Business Finance & Technology in Certificate level exam.</p>
               </div>
             </div>
 
