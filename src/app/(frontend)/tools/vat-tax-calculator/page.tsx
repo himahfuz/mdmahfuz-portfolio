@@ -31,7 +31,7 @@ const jsonLd = {
   name: "VAT Tax Calculator (Bangladesh)",
   url: "https://mdmahfuz.com/tools/vat-tax-calculator",
   description:
-    "Free online calculator to compute VAT and TDS/Tax for any service or supply in Bangladesh. Supports Net-to-Gross and Gross-to-Net calculation modes as per NBR rules.",
+    "Free online calculator to compute VAT and TDS/Tax for any service or supply in Bangladesh. Supports 4 calculation modes: Net-to-Gross, Total Budget, Contract Base, and Reverse VAT as per NBR rules.",
   applicationCategory: "FinanceApplication",
   operatingSystem: "All",
   browserRequirements: "Requires JavaScript",
