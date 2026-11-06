@@ -52,7 +52,7 @@ export default async function BlogList() {
               <img
                 src={featuredPost.thumbnail}
                 alt={featuredPost.title}
-                className="absolute inset-0 h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+                className="absolute inset-0 h-full w-full object-contain transition-transform duration-500 group-hover:scale-[1.02]"
                 loading="eager"
               />
             ) : (
