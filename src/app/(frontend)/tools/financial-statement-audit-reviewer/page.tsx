@@ -30,10 +30,15 @@ export default function FinancialStatementAuditReviewerPage() {
         <h1 className="font-poppins font-bold text-3xl md:text-5xl text-[var(--color-text-primary)] leading-tight mb-5">
           Financial Statement Audit Reviewer
         </h1>
-        <p className="text-base md:text-lg text-[var(--color-text-secondary)] leading-relaxed mb-7">
+        <p className="text-base md:text-lg text-[var(--color-text-secondary)] leading-relaxed mb-4">
           An AI-assisted pre-sign review tool designed to help accounting and audit
           professionals identify calculation issues, inconsistencies and presentation
           concerns in financial statements before finalisation.
+        </p>
+        <p className="text-sm md:text-base text-[var(--color-text-secondary)] leading-relaxed mb-7">
+          This is a downloadable AI assistant/plugin bundle for your ChatGPT workspace,
+          not a web tool that runs directly in your browser. Download the ZIP package
+          and follow the setup guide below.
         </p>
         <div className="flex flex-wrap gap-3">
           <a href={downloadUrl} className="btn-glass" download>
@@ -43,8 +48,15 @@ export default function FinancialStatementAuditReviewerPage() {
             View GitHub Repository
           </a>
         </div>
-        <p className="text-xs text-[var(--color-text-secondary)] mt-4">
-          Package version is the ZIP currently published in the public GitHub repository.
+        <p className="text-xs text-[var(--color-text-secondary)] mt-4 leading-relaxed">
+          The package contains the skill configuration files. See the{" "}
+          <Link
+            href="/blog/financial-statement-audit-reviewer"
+            className="font-semibold text-[var(--color-brand-primary)] underline underline-offset-2 hover:opacity-80"
+          >
+            step-by-step installation guide
+          </Link>{" "}
+          to set it up in your ChatGPT workspace.
         </p>
       </header>
 
