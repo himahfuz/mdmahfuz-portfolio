@@ -1,6 +1,5 @@
 import { client } from "@/sanity/lib/client";
 import Link from "next/link";
-import Image from "next/image";
 import { ArrowRight, Calendar, Clock } from "lucide-react";
 
 import { Metadata } from 'next';
@@ -50,11 +49,11 @@ export default async function BlogList() {
         <div className="glass-panel w-full flex flex-col md:flex-row overflow-hidden group">
           <div className="w-full md:w-[50%] h-[300px] md:h-auto relative overflow-hidden bg-white/20">
             {featuredPost.thumbnail ? (
-              <Image 
-                src={featuredPost.thumbnail} 
-                alt={featuredPost.title} 
-                fill 
-                className="object-cover transition-transform duration-500 group-hover:scale-105" 
+              <img
+                src={featuredPost.thumbnail}
+                alt={featuredPost.title}
+                className="absolute inset-0 h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+                loading="eager"
               />
             ) : (
               <div className="w-full h-full bg-[var(--color-brand-primary)] opacity-10"></div>
