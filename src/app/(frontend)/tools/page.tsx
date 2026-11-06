@@ -25,6 +25,13 @@ const localTools = [
     icon: "FileText",
     description: "Generate NBR standard Mushak 6.6 (Certificate of Tax Deduction at Source) with auto-calculation and 1-click PDF export.",
     link: "/tools/mushak-6.6",
+  },
+  {
+    _id: "local-financial-statement-audit-reviewer",
+    title: "Financial Statement Audit Reviewer",
+    icon: "ClipboardCheck",
+    description: "AI-assisted pre-sign review for PDF and Excel financial statements, with English and Bangla-English DOCX reports.",
+    link: "/tools/financial-statement-audit-reviewer",
   }
 ];
 
