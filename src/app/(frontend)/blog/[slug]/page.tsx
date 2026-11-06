@@ -2,24 +2,22 @@ import { client } from "@/sanity/lib/client";
 import { notFound } from "next/navigation";
 import Link from "next/link";
 import { ArrowLeft, Calendar, Clock } from "lucide-react";
-import { PortableText } from "@portabletext/react";
+import { PortableText, type PortableTextComponents } from "@portabletext/react";
+import type { Metadata } from "next";
 
-import { Metadata } from "next";
-
-export const revalidate = 60; // Revalidate every 60 seconds
+export const revalidate = 60;
 
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
   const { slug } = await params;
-  
+
   const post = await client.fetch(`*[_type == "blog" && slug.current == $slug][0] {
     title,
-    category,
     excerpt,
     "thumbnail": mainImage.asset->url,
     seo
   }`, { slug });
 
-  const fallbackTitle = slug.split('-').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ');
+  const fallbackTitle = slug.split("-").map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(" ");
   const title = post?.seo?.metaTitle || (post?.title ? `${post.title} | MD Mahfuzur Rahman` : `${fallbackTitle} | MD Mahfuzur Rahman`);
   const description = post?.seo?.metaDescription || post?.excerpt || `Read article on ${post?.title || fallbackTitle} by MD Mahfuzur Rahman.`;
   const canonicalUrl = `https://mdmahfuz.com/blog/${slug}`;
@@ -28,65 +26,147 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
     title,
     description,
     keywords: post?.seo?.keywords || [],
-    alternates: {
-      canonical: canonicalUrl,
-    },
+    alternates: { canonical: canonicalUrl },
     openGraph: {
       title,
       description,
       url: canonicalUrl,
-      type: 'article',
+      type: "article",
       images: post?.thumbnail ? [{ url: post.thumbnail }] : undefined,
     },
   };
 }
 
-// In Next.js 15, `params` in dynamic routes is treated as a Promise.
-// It's strongly recommended to await `params` before using its properties.
+const portableTextComponents: PortableTextComponents = {
+  block: {
+    h2: ({ children }) => (
+      <h2 className="mt-12 mb-5 font-poppins text-2xl md:text-[28px] font-bold leading-tight text-[var(--color-text-primary)]">
+        {children}
+      </h2>
+    ),
+    h3: ({ children }) => (
+      <h3 className="mt-8 mb-3 font-poppins text-xl md:text-2xl font-semibold text-[var(--color-text-primary)]">
+        {children}
+      </h3>
+    ),
+    normal: ({ children }) => (
+      <p className="mb-5 text-[15px] md:text-base leading-8 text-[var(--color-text-secondary)]">
+        {children}
+      </p>
+    ),
+  },
+  list: {
+    bullet: ({ children }) => (
+      <ul className="my-6 ml-6 list-disc space-y-3 text-[15px] md:text-base leading-7 text-[var(--color-text-secondary)] marker:text-[var(--color-brand-primary)]">
+        {children}
+      </ul>
+    ),
+    number: ({ children }) => (
+      <ol className="my-6 ml-6 list-decimal space-y-3 text-[15px] md:text-base leading-7 text-[var(--color-text-secondary)] marker:font-semibold marker:text-[var(--color-brand-primary)]">
+        {children}
+      </ol>
+    ),
+  },
+  listItem: {
+    bullet: ({ children }) => <li className="pl-2">{children}</li>,
+    number: ({ children }) => <li className="pl-2">{children}</li>,
+  },
+  marks: {
+    strong: ({ children }) => <strong className="font-semibold text-[var(--color-text-primary)]">{children}</strong>,
+    link: ({ children, value }) => (
+      <a href={value?.href} target={value?.href?.startsWith("http") ? "_blank" : undefined} rel={value?.href?.startsWith("http") ? "noopener noreferrer" : undefined} className="font-semibold text-[var(--color-brand-primary)] underline underline-offset-4 hover:opacity-80">
+        {children}
+      </a>
+    ),
+  },
+  types: {
+    image: ({ value }) => {
+      const imageUrl = value?.asset?.url;
+      if (!imageUrl) return null;
+
+      return (
+        <figure className="my-8">
+          <img
+            src={imageUrl}
+            alt={value?.alt || value?.caption || "Financial Statement Audit Reviewer guide"}
+            loading="lazy"
+            className="block h-auto w-full rounded-2xl border border-black/5 shadow-sm"
+          />
+          {value?.caption ? (
+            <figcaption className="mt-3 text-center text-sm leading-6 text-[var(--color-text-secondary)]">
+              {value.caption}
+            </figcaption>
+          ) : null}
+        </figure>
+      );
+    },
+  },
+};
+
 export default async function BlogPost({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
-  
+
   const post = await client.fetch(`*[_type == "blog" && slug.current == $slug][0] {
     title,
     category,
     excerpt,
     "date": publishedAt,
     readTime,
-    body
+    "heroImage": mainImage.asset->url,
+    body[]{
+      ...,
+      _type == "image" => {
+        ...,
+        "asset": asset->{url, metadata}
+      }
+    }
   }`, { slug });
 
-  if (!post) {
-    notFound();
-  }
+  if (!post) notFound();
 
   return (
-    <div className="max-w-3xl mx-auto pb-20">
-      <Link href="/blog" className="inline-flex items-center gap-2 text-[13px] text-[var(--color-text-secondary)] hover:text-[var(--color-brand-primary)] mb-8 transition-colors">
+    <article className="mx-auto max-w-4xl pb-20">
+      <Link href="/blog" className="mb-8 inline-flex items-center gap-2 text-[13px] text-[var(--color-text-secondary)] transition-colors hover:text-[var(--color-brand-primary)]">
         <ArrowLeft size={16} /> Back to Blog
       </Link>
 
-      <div className="glass-panel p-8 md:p-12">
-        <span className="badge badge-technical mb-4 inline-block">{post.category}</span>
-        <h1 className="font-poppins font-bold text-[32px] md:text-[40px] text-[var(--color-text-primary)] leading-tight mb-6">
-          {post.title}
-        </h1>
-        
-        <div className="flex items-center gap-6 text-[13px] text-[var(--color-text-secondary)] mb-10 pb-6 border-b border-white/20">
-          <span className="flex items-center gap-2"><Calendar size={16} /> {post.date}</span>
-          <span className="flex items-center gap-2"><Clock size={16} /> {post.readTime}</span>
-        </div>
+      <div className="glass-panel overflow-hidden">
+        <header className="px-6 pt-8 md:px-12 md:pt-12">
+          <span className="badge badge-technical mb-5 inline-block">{post.category}</span>
+          <h1 className="mb-6 font-poppins text-[30px] font-bold leading-[1.16] text-[var(--color-text-primary)] md:text-[42px]">
+            {post.title}
+          </h1>
+          <div className="mb-8 flex flex-wrap items-center gap-5 border-b border-black/5 pb-7 text-[13px] text-[var(--color-text-secondary)]">
+            <span className="flex items-center gap-2"><Calendar size={16} /> {post.date}</span>
+            <span className="flex items-center gap-2"><Clock size={16} /> {post.readTime}</span>
+          </div>
+        </header>
 
-        <div className="prose prose-sm md:prose-base max-w-none prose-p:text-[var(--color-text-secondary)] prose-headings:text-[var(--color-text-primary)] prose-strong:text-[var(--color-text-primary)]">
-          <p className="lead text-[16px] text-[var(--color-text-primary)] font-medium mb-8">
+        {post.heroImage ? (
+          <div className="px-6 md:px-12">
+            <img
+              src={post.heroImage}
+              alt={post.title}
+              className="block max-h-[480px] w-full rounded-2xl object-cover"
+              fetchPriority="high"
+            />
+          </div>
+        ) : null}
+
+        <div className="px-6 pb-10 pt-8 md:px-12 md:pb-14">
+          <p className="mb-9 border-l-4 border-[var(--color-brand-primary)] pl-5 text-base font-medium leading-8 text-[var(--color-text-primary)] md:text-lg">
             {post.excerpt}
           </p>
-          {post.body ? (
-            <PortableText value={post.body} />
+
+          {post.body?.length ? (
+            <div className="blog-article-content">
+              <PortableText value={post.body} components={portableTextComponents} />
+            </div>
           ) : (
-            <p>No content available.</p>
+            <p className="text-[var(--color-text-secondary)]">No content available.</p>
           )}
         </div>
       </div>
-    </div>
+    </article>
   );
 }
