@@ -17,7 +17,6 @@ const poppins = Poppins({
 export const metadata: Metadata = {
   title: {
     default: 'MD Mahfuzur Rahman - Accounting VAT & Tax Expert',
-    template: '%s | MD Mahfuzur Rahman',
   },
   description: 'Accounting Professional, VAT & TAX Expert associated with Islam Quazi Shafique & Co. Chartered Accountants. Specialized in Auditing, VAT, and Tax services in Bangladesh.',
   keywords: [
@@ -32,7 +31,6 @@ export const metadata: Metadata = {
   openGraph: {
     title: {
       default: 'MD Mahfuzur Rahman - Accounting VAT & Tax Expert',
-      template: '%s | MD Mahfuzur Rahman',
     },
     description: 'Expertise in Auditing, VAT, and Tax services. Associated with Islam Quazi Shafique & Co.',
     url: 'https://mdmahfuz.com',
