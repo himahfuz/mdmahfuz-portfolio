@@ -18,12 +18,12 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   }`, { slug });
 
   const fallbackTitle = slug.split("-").map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(" ");
-  const title = post?.seo?.metaTitle || (post?.title ? `${post.title} | MD Mahfuzur Rahman` : `${fallbackTitle} | MD Mahfuzur Rahman`);
+  const title = post?.seo?.metaTitle || post?.title || fallbackTitle;
   const description = post?.seo?.metaDescription || post?.excerpt || `Read article on ${post?.title || fallbackTitle} by MD Mahfuzur Rahman.`;
   const canonicalUrl = `https://mdmahfuz.com/blog/${slug}`;
 
   return {
-    title,
+    title: { absolute: title },
     description,
     keywords: post?.seo?.keywords || [],
     alternates: { canonical: canonicalUrl },
