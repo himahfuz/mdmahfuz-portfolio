@@ -33,11 +33,11 @@ export default function VatTaxContent() {
                 Select Your Mode
               </h3>
               <p className="text-[14px] text-[var(--color-text-secondary)] leading-relaxed">
-                Choose the calculation mode matching your contract: Desired Net Amount, Total Budget, Base Contract Amount, or Amount with VAT.
+                Choose the calculation mode matching your contract: Excluding VAT & Tax, Including VAT & Tax, Exclusive VAT, Inclusive Tax, or Inclusive VAT, Exclusive Tax.
               </p>
             </div>
             <div className="mt-4 pt-3 border-t border-black/5 dark:border-white/5 text-[12.5px] text-[var(--color-brand-primary)] font-medium">
-              4 Specialized Commercial Modes
+              4 Commercial Calculation Modes
             </div>
           </div>
 
@@ -77,7 +77,7 @@ export default function VatTaxContent() {
         </div>
       </section>
 
-      {/* 2. How to Calculate VAT in Bangladesh */}
+      {/* 2. How to Calculate VAT in Bangladesh (4 Modes with Formulas & Calculation Examples) */}
       <section aria-labelledby="how-to-calc-vat-heading" className="space-y-6">
         <div className="flex items-center gap-3 pb-2 border-b border-black/10 dark:border-white/10">
           <div className="w-10 h-10 rounded-xl bg-[var(--color-brand-primary)]/10 text-[var(--color-brand-primary)] flex items-center justify-center font-bold">
@@ -91,62 +91,170 @@ export default function VatTaxContent() {
               How to Calculate VAT in Bangladesh
             </h2>
             <p className="text-[14px] text-[var(--color-text-secondary)]">
-              Core mathematical formulas for exclusive, inclusive, and fractional VAT calculations.
+              Mathematical formulas and practical calculation examples for the 4 commercial calculation modes.
             </p>
           </div>
         </div>
 
         <p className="text-[15px] text-[var(--color-text-secondary)] leading-relaxed">
-          In commercial accounting, VAT calculations fall into two primary scenarios: calculating VAT on top of a net base amount (VAT-exclusive) or extracting the base and VAT from a gross total (VAT-inclusive). The formulas below illustrate the universal mathematics. <em>(Note: Percentage rates shown in examples are purely illustrative).</em>
+          Depending on the contractual terms agreed with your client or supplier, commercial calculations follow one of the four specific modes below. <em>(Note: Percentage rates shown in examples are purely illustrative).</em>
         </p>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          <div className="glass-panel p-6 space-y-3">
-            <h3 className="font-poppins font-semibold text-[17px] text-[var(--color-text-primary)]">
-              1. VAT-Exclusive Formula
-            </h3>
-            <p className="text-[13.5px] text-[var(--color-text-secondary)]">
-              Used when you have agreed on a base price and need to add VAT to determine the total invoice.
-            </p>
-            <div className="bg-black/5 dark:bg-white/5 p-3 rounded-lg font-mono text-[13px] space-y-1">
-              <div>VAT Amount = Base × (Rate ÷ 100)</div>
-              <div>Total = Base + VAT Amount</div>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          {/* Mode 1 */}
+          <div className="glass-panel p-6 space-y-4 flex flex-col justify-between">
+            <div>
+              <div className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-[var(--color-brand-primary)]/10 text-[var(--color-brand-primary)] text-[12px] font-semibold mb-2">
+                Mode 1
+              </div>
+              <h3 className="font-poppins font-semibold text-[18px] text-[var(--color-text-primary)] mb-1">
+                1. Excluding VAT & Tax
+              </h3>
+              <p className="text-[13.5px] text-[var(--color-text-secondary)] leading-relaxed mb-3">
+                Used when you know the desired net cash amount you want to receive, and need to reverse-calculate the required gross contract and VAT so tax deductions do not reduce your take-home pay.
+              </p>
+
+              <div className="bg-black/5 dark:bg-white/5 p-3.5 rounded-xl font-mono text-[13px] space-y-1.5 border border-black/5 dark:border-white/5">
+                <div><strong>Gross Base</strong> = Net ÷ (1 − Tax Rate ÷ 100)</div>
+                <div><strong>Tax Deduction</strong> = Gross Base × (Tax Rate ÷ 100)</div>
+                <div><strong>VAT Amount</strong> = Gross Base × (VAT Rate ÷ 100)</div>
+                <div><strong>Total Client Invoice</strong> = Gross Base + VAT Amount</div>
+                <div><strong>Net Take-Home</strong> = Gross Base − Tax Deduction</div>
+              </div>
             </div>
-            <p className="text-[13px] text-[var(--color-text-secondary)] bg-emerald-500/10 dark:bg-green-500/10 p-3 rounded-lg border border-emerald-500/20">
-              <strong>Illustrative Example:</strong> On a base of 100,000 with an illustrative 15% rate, VAT is 15,000 and total invoice is 115,000.
-            </p>
+
+            <div className="bg-emerald-500/10 dark:bg-green-500/10 p-4 rounded-xl border border-emerald-500/20 text-[13px] space-y-1.5 mt-2">
+              <div className="font-semibold text-emerald-800 dark:text-green-300">
+                Illustrative Calculation Example:
+              </div>
+              <p className="text-emerald-950 dark:text-emerald-200">
+                Desired Net = <strong>100,000</strong>, Tax Rate = <strong>7.5%</strong>, VAT Rate = <strong>15%</strong>:
+              </p>
+              <ul className="list-disc pl-5 mt-1 space-y-1 text-emerald-900 dark:text-emerald-300 font-mono text-[12.5px]">
+                <li>Gross Base: 100,000 ÷ (1 − 0.075) = <strong>108,108</strong></li>
+                <li>Tax Deduction: 108,108 × 7.5% = <strong>8,108</strong></li>
+                <li>VAT Addition: 108,108 × 15% = <strong>16,216</strong></li>
+                <li>Total Billed to Client: 108,108 + 16,216 = <strong>124,324</strong></li>
+                <li>Net Received: 108,108 − 8,108 = <strong>100,000</strong></li>
+              </ul>
+            </div>
           </div>
 
-          <div className="glass-panel p-6 space-y-3">
-            <h3 className="font-poppins font-semibold text-[17px] text-[var(--color-text-primary)]">
-              2. VAT-Inclusive Formula
-            </h3>
-            <p className="text-[13.5px] text-[var(--color-text-secondary)]">
-              Used when a client provides a total inclusive budget and you must separate the base from VAT.
-            </p>
-            <div className="bg-black/5 dark:bg-white/5 p-3 rounded-lg font-mono text-[13px] space-y-1">
-              <div>Base = Total ÷ (1 + Rate ÷ 100)</div>
-              <div>VAT Amount = Total − Base</div>
+          {/* Mode 2 */}
+          <div className="glass-panel p-6 space-y-4 flex flex-col justify-between">
+            <div>
+              <div className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-[var(--color-brand-primary)]/10 text-[var(--color-brand-primary)] text-[12px] font-semibold mb-2">
+                Mode 2
+              </div>
+              <h3 className="font-poppins font-semibold text-[18px] text-[var(--color-text-primary)] mb-1">
+                2. Including VAT & Tax
+              </h3>
+              <p className="text-[13.5px] text-[var(--color-text-secondary)] leading-relaxed mb-3">
+                Used when a client provides a fixed all-inclusive total budget, and you need to separate the VAT portion, calculate tax deductions, and determine your actual net earnings.
+              </p>
+
+              <div className="bg-black/5 dark:bg-white/5 p-3.5 rounded-xl font-mono text-[13px] space-y-1.5 border border-black/5 dark:border-white/5">
+                <div><strong>Gross Base</strong> = Total Budget ÷ (1 + VAT Rate ÷ 100)</div>
+                <div><strong>VAT Amount</strong> = Total Budget − Gross Base</div>
+                <div><strong>Tax Deduction</strong> = Gross Base × (Tax Rate ÷ 100)</div>
+                <div><strong>Net Take-Home</strong> = Gross Base − Tax Deduction</div>
+                <div><strong>Total Client Budget</strong> = Gross Base + VAT Amount</div>
+              </div>
             </div>
-            <p className="text-[13px] text-[var(--color-text-secondary)] bg-blue-500/10 dark:bg-blue-500/10 p-3 rounded-lg border border-blue-500/20">
-              <strong>Illustrative Example:</strong> On an inclusive total of 115,000 at 15%, Base is 115,000 ÷ 1.15 = 100,000 and VAT is 15,000.
-            </p>
+
+            <div className="bg-blue-500/10 dark:bg-blue-500/10 p-4 rounded-xl border border-blue-500/20 text-[13px] space-y-1.5 mt-2">
+              <div className="font-semibold text-blue-900 dark:text-blue-300">
+                Illustrative Calculation Example:
+              </div>
+              <p className="text-blue-950 dark:text-blue-200">
+                Total Budget = <strong>100,000</strong>, VAT Rate = <strong>15%</strong>, Tax Rate = <strong>7.5%</strong>:
+              </p>
+              <ul className="list-disc pl-5 mt-1 space-y-1 text-blue-900 dark:text-blue-300 font-mono text-[12.5px]">
+                <li>Gross Base: 100,000 ÷ (1 + 0.15) = <strong>86,957</strong></li>
+                <li>VAT Portion: 100,000 − 86,957 = <strong>13,043</strong></li>
+                <li>Tax Deduction: 86,957 × 7.5% = <strong>6,522</strong></li>
+                <li>Net Take-Home Pay: 86,957 − 6,522 = <strong>80,435</strong></li>
+                <li>Total Payable by Client: <strong>100,000</strong></li>
+              </ul>
+            </div>
           </div>
 
-          <div className="glass-panel p-6 space-y-3">
-            <h3 className="font-poppins font-semibold text-[17px] text-[var(--color-text-primary)]">
-              3. VAT Fraction Formula
-            </h3>
-            <p className="text-[13.5px] text-[var(--color-text-secondary)]">
-              Used to extract the exact VAT amount from a gross bill in a single direct multiplication step.
-            </p>
-            <div className="bg-black/5 dark:bg-white/5 p-3 rounded-lg font-mono text-[13px] space-y-1">
-              <div>VAT = Total × [Rate ÷ (100 + Rate)]</div>
-              <div>Base = Total − VAT Amount</div>
+          {/* Mode 3 */}
+          <div className="glass-panel p-6 space-y-4 flex flex-col justify-between">
+            <div>
+              <div className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-[var(--color-brand-primary)]/10 text-[var(--color-brand-primary)] text-[12px] font-semibold mb-2">
+                Mode 3
+              </div>
+              <h3 className="font-poppins font-semibold text-[18px] text-[var(--color-text-primary)] mb-1">
+                3. Exclusive VAT, Inclusive Tax
+              </h3>
+              <p className="text-[13.5px] text-[var(--color-text-secondary)] leading-relaxed mb-3">
+                Used in standard service contracts where the agreed amount is the gross contract base (includes income tax liability, excludes VAT). Tax is deducted, and VAT is added on top.
+              </p>
+
+              <div className="bg-black/5 dark:bg-white/5 p-3.5 rounded-xl font-mono text-[13px] space-y-1.5 border border-black/5 dark:border-white/5">
+                <div><strong>Gross Base</strong> = Entered Contract Base Amount</div>
+                <div><strong>Tax Deduction</strong> = Gross Base × (Tax Rate ÷ 100)</div>
+                <div><strong>Net Receivable</strong> = Gross Base − Tax Deduction</div>
+                <div><strong>VAT Amount</strong> = Gross Base × (VAT Rate ÷ 100)</div>
+                <div><strong>Total Client Invoice</strong> = Gross Base + VAT Amount</div>
+              </div>
             </div>
-            <p className="text-[13px] text-[var(--color-text-secondary)] bg-amber-500/10 dark:bg-amber-500/10 p-3 rounded-lg border border-amber-500/20">
-              <strong>Illustrative Example:</strong> At 15%, multiply by 15/115 (approx. ÷ 7.6667). At 10%, multiply by 10/110. At 5%, multiply by 5/105.
-            </p>
+
+            <div className="bg-amber-500/10 dark:bg-amber-500/10 p-4 rounded-xl border border-amber-500/20 text-[13px] space-y-1.5 mt-2">
+              <div className="font-semibold text-amber-900 dark:text-amber-300">
+                Illustrative Calculation Example:
+              </div>
+              <p className="text-amber-950 dark:text-amber-200">
+                Contract Base = <strong>100,000</strong>, Tax Rate = <strong>7.5%</strong>, VAT Rate = <strong>15%</strong>:
+              </p>
+              <ul className="list-disc pl-5 mt-1 space-y-1 text-amber-900 dark:text-amber-300 font-mono text-[12.5px]">
+                <li>Gross Base: <strong>100,000</strong></li>
+                <li>Tax Deduction: 100,000 × 7.5% = <strong>7,500</strong></li>
+                <li>Net Receivable: 100,000 − 7,500 = <strong>92,500</strong></li>
+                <li>VAT Addition: 100,000 × 15% = <strong>15,000</strong></li>
+                <li>Total Billed to Client: 100,000 + 15,000 = <strong>115,000</strong></li>
+              </ul>
+            </div>
+          </div>
+
+          {/* Mode 4 */}
+          <div className="glass-panel p-6 space-y-4 flex flex-col justify-between">
+            <div>
+              <div className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-[var(--color-brand-primary)]/10 text-[var(--color-brand-primary)] text-[12px] font-semibold mb-2">
+                Mode 4
+              </div>
+              <h3 className="font-poppins font-semibold text-[18px] text-[var(--color-text-primary)] mb-1">
+                4. Inclusive VAT, Exclusive Tax
+              </h3>
+              <p className="text-[13.5px] text-[var(--color-text-secondary)] leading-relaxed mb-3">
+                Used when an initial deal was quoted with VAT included, but Tax/TDS was overlooked. It extracts the base net, then reverse gross-ups for tax so your net receipt remains intact.
+              </p>
+
+              <div className="bg-black/5 dark:bg-white/5 p-3.5 rounded-xl font-mono text-[13px] space-y-1.5 border border-black/5 dark:border-white/5">
+                <div><strong>Base Net</strong> = Entered Amount ÷ (1 + VAT Rate ÷ 100)</div>
+                <div><strong>Gross Base</strong> = Base Net ÷ (1 − Tax Rate ÷ 100)</div>
+                <div><strong>Tax Deduction</strong> = Gross Base × (Tax Rate ÷ 100)</div>
+                <div><strong>VAT Amount</strong> = Gross Base × (VAT Rate ÷ 100)</div>
+                <div><strong>Total Client Invoice</strong> = Gross Base + VAT Amount</div>
+              </div>
+            </div>
+
+            <div className="bg-purple-500/10 dark:bg-purple-500/10 p-4 rounded-xl border border-purple-500/20 text-[13px] space-y-1.5 mt-2">
+              <div className="font-semibold text-purple-900 dark:text-purple-300">
+                Illustrative Calculation Example:
+              </div>
+              <p className="text-purple-950 dark:text-purple-200">
+                Amount with VAT = <strong>115,000</strong>, VAT Rate = <strong>15%</strong>, Tax Rate = <strong>7.5%</strong>:
+              </p>
+              <ul className="list-disc pl-5 mt-1 space-y-1 text-purple-900 dark:text-purple-300 font-mono text-[12.5px]">
+                <li>Target Base Net: 115,000 ÷ (1 + 0.15) = <strong>100,000</strong></li>
+                <li>Grossed-up Gross Base: 100,000 ÷ (1 − 0.075) = <strong>108,108</strong></li>
+                <li>Tax Deduction: 108,108 × 7.5% = <strong>8,108</strong> (Net = 100,000)</li>
+                <li>VAT Addition on Gross: 108,108 × 15% = <strong>16,216</strong></li>
+                <li>Total Billed to Client: 108,108 + 16,216 = <strong>124,324</strong></li>
+              </ul>
+            </div>
           </div>
         </div>
       </section>
@@ -212,160 +320,7 @@ export default function VatTaxContent() {
         </div>
       </section>
 
-      {/* 4. Four Calculation Modes Explained */}
-      <section aria-labelledby="modes-explained-heading" className="space-y-6">
-        <div className="flex items-center gap-3 pb-2 border-b border-black/10 dark:border-white/10">
-          <div className="w-10 h-10 rounded-xl bg-[var(--color-brand-primary)]/10 text-[var(--color-brand-primary)] flex items-center justify-center font-bold">
-            <LucideIcons.Layers size={22} />
-          </div>
-          <div>
-            <h2
-              id="modes-explained-heading"
-              className="font-poppins font-bold text-[22px] md:text-[26px] text-[var(--color-text-primary)]"
-            >
-              Four Calculation Modes Explained
-            </h2>
-            <p className="text-[14px] text-[var(--color-text-secondary)]">
-              Choose the exact mathematical model that matches your contract terms.
-            </p>
-          </div>
-        </div>
-
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          <div className="glass-panel p-6 space-y-3">
-            <h3 className="font-poppins font-semibold text-[17px] text-[var(--color-brand-primary)]">
-              Mode 1: Excluding VAT & Tax (Net-to-Gross Mode)
-            </h3>
-            <p className="text-[14px] text-[var(--color-text-secondary)] leading-relaxed">
-              <strong>When to use:</strong> When you agree on a fixed take-home amount that you must receive in your bank account without reduction from tax deductions.
-            </p>
-            <p className="text-[13.5px] text-[var(--color-text-secondary)] leading-relaxed">
-              <strong>Calculation Logic:</strong> The tool treats your input as the net receipt and reverse calculates the required Gross Base using <code className="px-1.5 py-0.5 rounded bg-black/5 dark:bg-white/5 font-mono text-[12.5px]">Gross = Net ÷ (1 − Tax%)</code>. It then adds VAT onto that gross base so your final take-home remains intact after TDS.
-            </p>
-          </div>
-
-          <div className="glass-panel p-6 space-y-3">
-            <h3 className="font-poppins font-semibold text-[17px] text-[var(--color-brand-primary)]">
-              Mode 2: Including VAT & Tax (Total Budget Mode)
-            </h3>
-            <p className="text-[14px] text-[var(--color-text-secondary)] leading-relaxed">
-              <strong>When to use:</strong> When a client provides a fixed, all-inclusive budget and you need to determine the maximum actual earnings after all taxes.
-            </p>
-            <p className="text-[13.5px] text-[var(--color-text-secondary)] leading-relaxed">
-              <strong>Calculation Logic:</strong> The calculator extracts the VAT portion first using <code className="px-1.5 py-0.5 rounded bg-black/5 dark:bg-white/5 font-mono text-[12.5px]">Gross = Total ÷ (1 + VAT%)</code>, then subtracts Tax/TDS from the gross base to reveal your net take-home receivable.
-            </p>
-          </div>
-
-          <div className="glass-panel p-6 space-y-3">
-            <h3 className="font-poppins font-semibold text-[17px] text-[var(--color-brand-primary)]">
-              Mode 3: Exclusive VAT, Inclusive Tax (Base Contract Mode)
-            </h3>
-            <p className="text-[14px] text-[var(--color-text-secondary)] leading-relaxed">
-              <strong>When to use:</strong> Standard service agreements where the quoted amount is the contract base (inclusive of your tax liability, but excluding VAT).
-            </p>
-            <p className="text-[13.5px] text-[var(--color-text-secondary)] leading-relaxed">
-              <strong>Calculation Logic:</strong> Your input serves as the Gross Base. The calculator deducts Tax/TDS to compute net receivable, and adds VAT on top of the gross base to calculate the client billing total.
-            </p>
-          </div>
-
-          <div className="glass-panel p-6 space-y-3">
-            <h3 className="font-poppins font-semibold text-[17px] text-[var(--color-brand-primary)]">
-              Mode 4: Inclusive VAT, Exclusive Tax (Reverse VAT Mode)
-            </h3>
-            <p className="text-[14px] text-[var(--color-text-secondary)] leading-relaxed">
-              <strong>When to use:</strong> When an initial deal was quoted with VAT included, but TDS withholding was overlooked during negotiations.
-            </p>
-            <p className="text-[13.5px] text-[var(--color-text-secondary)] leading-relaxed">
-              <strong>Calculation Logic:</strong> The tool extracts the base net by removing VAT, then reverse gross-ups that base for Tax/TDS so that when the client withholds income tax at source, your net income remains preserved.
-            </p>
-          </div>
-        </div>
-      </section>
-
-      {/* 5. Practical VAT and Tax Calculation Examples */}
-      <section aria-labelledby="examples-heading" className="space-y-6">
-        <div className="flex items-center gap-3 pb-2 border-b border-black/10 dark:border-white/10">
-          <div className="w-10 h-10 rounded-xl bg-[var(--color-brand-primary)]/10 text-[var(--color-brand-primary)] flex items-center justify-center font-bold">
-            <LucideIcons.Receipt size={22} />
-          </div>
-          <div>
-            <h2
-              id="examples-heading"
-              className="font-poppins font-bold text-[22px] md:text-[26px] text-[var(--color-text-primary)]"
-            >
-              Practical VAT and Tax Calculation Examples
-            </h2>
-            <p className="text-[14px] text-[var(--color-text-secondary)]">
-              Step-by-step arithmetic for all four modes with illustrative rates (7.5% Tax/TDS and 15% VAT).
-            </p>
-          </div>
-        </div>
-
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          <div className="glass-panel p-6 space-y-3">
-            <div className="font-semibold text-[15px] text-[var(--color-text-primary)] border-b border-black/10 dark:border-white/10 pb-2">
-              Example 1: Desired Net Take-Home (100,000 BDT)
-            </div>
-            <ul className="space-y-1.5 font-mono text-[13px] text-[var(--color-text-secondary)]">
-              <li>• Desired Net Amount: <strong>100,000</strong></li>
-              <li>• Gross Base: 100,000 ÷ (1 − 0.075) = <strong>108,108</strong></li>
-              <li>• Tax/TDS Deduction (7.5%): <strong>8,108</strong></li>
-              <li>• VAT Addition (15% on Gross): <strong>16,216</strong></li>
-              <li className="pt-2 border-t border-black/5 dark:border-white/5 text-[var(--color-text-primary)] font-semibold">
-                • Total Invoice Billed to Client: <strong>124,324</strong>
-              </li>
-            </ul>
-          </div>
-
-          <div className="glass-panel p-6 space-y-3">
-            <div className="font-semibold text-[15px] text-[var(--color-text-primary)] border-b border-black/10 dark:border-white/10 pb-2">
-              Example 2: Total Inclusive Budget (100,000 BDT)
-            </div>
-            <ul className="space-y-1.5 font-mono text-[13px] text-[var(--color-text-secondary)]">
-              <li>• Total Client Budget: <strong>100,000</strong></li>
-              <li>• Gross Base: 100,000 ÷ (1 + 0.15) = <strong>86,957</strong></li>
-              <li>• VAT Portion (15%): <strong>13,043</strong></li>
-              <li>• Tax/TDS Deduction (7.5% on Gross): <strong>6,522</strong></li>
-              <li className="pt-2 border-t border-black/5 dark:border-white/5 text-[var(--color-text-primary)] font-semibold">
-                • Net Take-Home Pay: 86,957 − 6,522 = <strong>80,435</strong>
-              </li>
-            </ul>
-          </div>
-
-          <div className="glass-panel p-6 space-y-3">
-            <div className="font-semibold text-[15px] text-[var(--color-text-primary)] border-b border-black/10 dark:border-white/10 pb-2">
-              Example 3: Base Contract Amount (100,000 BDT)
-            </div>
-            <ul className="space-y-1.5 font-mono text-[13px] text-[var(--color-text-secondary)]">
-              <li>• Contract Base Amount: <strong>100,000</strong></li>
-              <li>• Tax/TDS Deduction (7.5%): <strong>7,500</strong></li>
-              <li>• Net Payable to Vendor: 100,000 − 7,500 = <strong>92,500</strong></li>
-              <li>• VAT Addition (15% on Gross Base): <strong>15,000</strong></li>
-              <li className="pt-2 border-t border-black/5 dark:border-white/5 text-[var(--color-text-primary)] font-semibold">
-                • Total Invoice Payable by Client: <strong>115,000</strong>
-              </li>
-            </ul>
-          </div>
-
-          <div className="glass-panel p-6 space-y-3">
-            <div className="font-semibold text-[15px] text-[var(--color-text-primary)] border-b border-black/10 dark:border-white/10 pb-2">
-              Example 4: Amount with VAT (115,000 BDT)
-            </div>
-            <ul className="space-y-1.5 font-mono text-[13px] text-[var(--color-text-secondary)]">
-              <li>• Amount with VAT (Excl. Tax): <strong>115,000</strong></li>
-              <li>• Target Base Net: 115,000 ÷ 1.15 = <strong>100,000</strong></li>
-              <li>• Grossed-up Gross Base: 100,000 ÷ 0.925 = <strong>108,108</strong></li>
-              <li>• Tax/TDS Deduction (7.5%): <strong>8,108</strong></li>
-              <li>• VAT Addition (15% on Gross): <strong>16,216</strong></li>
-              <li className="pt-2 border-t border-black/5 dark:border-white/5 text-[var(--color-text-primary)] font-semibold">
-                • Total Invoice Billed to Client: <strong>124,324</strong>
-              </li>
-            </ul>
-          </div>
-        </div>
-      </section>
-
-      {/* 6. Frequently Asked Questions (Native details/summary for 100% crawlable initial HTML) */}
+      {/* 4. Frequently Asked Questions (Native details/summary for 100% crawlable initial HTML) */}
       <section aria-labelledby="faq-section-heading" className="space-y-6">
         <div className="flex items-center gap-3 pb-2 border-b border-black/10 dark:border-white/10">
           <div className="w-10 h-10 rounded-xl bg-[var(--color-brand-primary)]/10 text-[var(--color-brand-primary)] flex items-center justify-center font-bold">
@@ -403,7 +358,7 @@ export default function VatTaxContent() {
             </div>
           </details>
 
-          {/* FAQ 2 - New Primary Search Intent */}
+          {/* FAQ 2 - Primary Search Intent */}
           <details className="group glass-panel rounded-xl border border-black/10 dark:border-white/10 overflow-hidden">
             <summary className="flex items-center justify-between p-5 cursor-pointer list-none select-none font-poppins font-semibold text-[15px] md:text-[16px] text-[var(--color-text-primary)] hover:text-[var(--color-brand-primary)] transition-colors">
               <span>How do I calculate VAT in Bangladesh?</span>
@@ -486,7 +441,7 @@ export default function VatTaxContent() {
             </div>
           </details>
 
-          {/* FAQ 6 - New Rate Nuance Question */}
+          {/* FAQ 6 */}
           <details className="group glass-panel rounded-xl border border-black/10 dark:border-white/10 overflow-hidden">
             <summary className="flex items-center justify-between p-5 cursor-pointer list-none select-none font-poppins font-semibold text-[15px] md:text-[16px] text-[var(--color-text-primary)] hover:text-[var(--color-brand-primary)] transition-colors">
               <span>Is 15% VAT applicable to all goods and services in Bangladesh?</span>
@@ -567,7 +522,7 @@ export default function VatTaxContent() {
             </div>
           </details>
 
-          {/* FAQ 10 - New Limitation Clarification */}
+          {/* FAQ 10 */}
           <details className="group glass-panel rounded-xl border border-black/10 dark:border-white/10 overflow-hidden">
             <summary className="flex items-center justify-between p-5 cursor-pointer list-none select-none font-poppins font-semibold text-[15px] md:text-[16px] text-[var(--color-text-primary)] hover:text-[var(--color-brand-primary)] transition-colors">
               <span>Can this calculator automatically determine the applicable VAT and TDS rates?</span>
@@ -595,8 +550,8 @@ export default function VatTaxContent() {
             </summary>
             <div className="px-5 pb-5 pt-1 text-[14px] text-[var(--color-text-secondary)] border-t border-black/5 dark:border-white/5 leading-relaxed space-y-2">
               <ul className="list-disc pl-5 space-y-1">
-                <li><strong>Excluding VAT & Tax (Net):</strong> You input desired net cash; it reverse-calculates gross invoice, tax deduction, and VAT.</li>
-                <li><strong>Including VAT & Tax (Total):</strong> You input total client budget; it extracts VAT and deducts tax to reveal net take-home pay.</li>
+                <li><strong>Excluding VAT & Tax:</strong> You input desired net cash; it reverse-calculates gross invoice, tax deduction, and VAT.</li>
+                <li><strong>Including VAT & Tax:</strong> You input total client budget; it extracts VAT and deducts tax to reveal net take-home pay.</li>
                 <li><strong>Exclusive VAT, Inclusive Tax:</strong> You input gross contract base; it calculates tax deduction and adds VAT.</li>
                 <li><strong>Inclusive VAT, Exclusive Tax:</strong> You input an amount with VAT; it extracts net base and reverse grosses for tax.</li>
               </ul>
@@ -607,4 +562,3 @@ export default function VatTaxContent() {
     </article>
   );
 }
-

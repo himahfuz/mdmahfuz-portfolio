@@ -132,7 +132,7 @@ export default function Calculator() {
           </h1>
         </div>
         <p className="font-inter text-[15px] text-[var(--color-text-secondary)] mt-4 leading-relaxed max-w-3xl">
-          A fast mathematical calculation tool for accountants, businesses, consultants, and service providers in Bangladesh. Input your contract or invoice amount along with applicable VAT and Tax/TDS rates to instantly compute Gross Base, statutory deductions, client billing totals, and net take-home pay across 4 distinct billing modes.
+          Input your transaction amount and applicable VAT and Tax/TDS rates to calculate Gross Base, user-entered tax deductions, VAT amounts, client billing totals, and net payable.
         </p>
       </div>
 
