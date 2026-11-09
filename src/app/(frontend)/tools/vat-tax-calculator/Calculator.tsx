@@ -120,7 +120,7 @@ export default function Calculator() {
   const currentModeConfig = MODES.find((m) => m.id === mode) || MODES[0];
 
   return (
-    <div className="pb-20">
+    <div className="pb-10">
       {/* Hero Section */}
       <div className="glass-panel p-10 md:p-12 w-full mb-10 text-center md:text-left">
         <div className="flex items-center justify-center md:justify-start gap-4 mb-2">

@@ -1,31 +1,46 @@
 import type { Metadata } from "next";
 import Script from "next/script";
 import Calculator from "./Calculator";
+import VatTaxFaq from "./VatTaxFaq";
+import { FAQ_STEPS } from "./faqData";
 
 export const metadata: Metadata = {
-  title: "VAT Tax Calculator BD - Free Online Tool",
-  description: "Free online calculator to easily compute VAT, VDS, Tax, TDS, gross bills, and net payable amounts for Bangladesh. Fast, accurate, and NBR compliant.",
+  title: "VAT Tax Calculator BD - Free Online TDS & VDS Calculation Tool",
+  description:
+    "Free online VAT & Tax calculator for Bangladesh. Calculate Gross bills, Net payable, VAT (15%, 10%, 7.5%, 5%), and TDS under NBR laws. Complete with FAQ guide on VAT, Tax, TDS, and VDS.",
   keywords: [
     "VAT calculator BD",
     "Tax calculator Bangladesh",
     "TDS calculator BD",
+    "VDS calculator Bangladesh",
     "Gross to net calculator Bangladesh",
     "NBR VAT calculation",
-    "VDS calculator",
-    "Free online VAT calculator",
-    "Bangladesh tax deduction calculator"
+    "Mushak 6.6 calculation",
+    "Bangladesh tax deduction calculator",
+    "VAT inclusive exclusive formula",
+    "VAT Tax FAQ Bangladesh",
+    "Value Added Tax Bangladesh 2023 2024",
   ],
   openGraph: {
-    title: "VAT Tax Calculator BD - Free Online Tool",
-    description: "Free online calculator to compute VAT, VDS, Tax, TDS, gross bills, and net payable amounts for Bangladesh. Fast, accurate, and NBR compliant.",
+    title: "VAT Tax Calculator BD - Free Online TDS & VDS Calculation Tool",
+    description:
+      "Free online VAT & Tax calculator for Bangladesh. Calculate Gross bills, Net payable, VAT, and TDS under NBR laws with 4 calculation modes and detailed FAQ guide.",
     url: "https://mdmahfuz.com/tools/vat-tax-calculator",
+    type: "website",
+    siteName: "Md. Mahfuzur Rahman - Audit & Tax Consultant",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "VAT Tax Calculator BD - Free Online TDS & VDS Calculation Tool",
+    description:
+      "Calculate Gross bills, Net payable, VAT, and TDS under Bangladesh NBR laws with 4 calculation modes and comprehensive FAQ.",
   },
   alternates: {
     canonical: "https://mdmahfuz.com/tools/vat-tax-calculator",
   },
 };
 
-const jsonLd = {
+const webAppSchema = {
   "@context": "https://schema.org",
   "@type": "WebApplication",
   name: "VAT Tax Calculator (Bangladesh)",
@@ -48,16 +63,40 @@ const jsonLd = {
   },
 };
 
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: FAQ_STEPS.flatMap((step) =>
+    step.items.map((item) => ({
+      "@type": "Question",
+      name: item.question,
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: item.rawAnswer,
+      },
+    }))
+  ),
+};
+
 export default function Page() {
   return (
     <>
       <Script
-        id="vat-calculator-schema"
+        id="vat-calculator-webapp-schema"
         type="application/ld+json"
         strategy="afterInteractive"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(webAppSchema) }}
       />
-      <Calculator />
+      <Script
+        id="vat-calculator-faq-schema"
+        type="application/ld+json"
+        strategy="afterInteractive"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+      />
+      <div className="pb-16">
+        <Calculator />
+        <VatTaxFaq />
+      </div>
     </>
   );
 }
