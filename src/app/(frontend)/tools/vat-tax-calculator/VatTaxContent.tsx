@@ -114,7 +114,7 @@ export default function VatTaxContent() {
                 Used when you know the desired net cash amount you want to receive, and need to reverse-calculate the required gross contract and VAT so tax deductions do not reduce your take-home pay.
               </p>
 
-              <div className="bg-black/5 dark:bg-white/5 p-3.5 rounded-xl font-mono text-[13px] space-y-1.5 border border-black/5 dark:border-white/5">
+              <div className="bg-black/5 dark:bg-white/5 p-3.5 rounded-xl font-mono text-[13px] space-y-1.5 border border-black/5 dark:border-white/5 text-gray-900">
                 <div><strong>Gross Base</strong> = Net ÷ (1 − Tax Rate ÷ 100)</div>
                 <div><strong>Tax Deduction</strong> = Gross Base × (Tax Rate ÷ 100)</div>
                 <div><strong>VAT Amount</strong> = Gross Base × (VAT Rate ÷ 100)</div>
@@ -123,19 +123,19 @@ export default function VatTaxContent() {
               </div>
             </div>
 
-            <div className="bg-emerald-500/10 dark:bg-green-500/10 p-4 rounded-xl border border-emerald-500/20 text-[13px] space-y-1.5 mt-2">
-              <div className="font-semibold text-emerald-800 dark:text-green-300">
+            <div className="bg-emerald-500/10 dark:bg-emerald-500/10 p-4 rounded-xl border border-emerald-500/20 text-[13px] space-y-1.5 mt-2 text-black">
+              <div className="font-semibold text-black">
                 Illustrative Calculation Example:
               </div>
-              <p className="text-emerald-950 dark:text-emerald-200">
-                Desired Net = <strong>100,000</strong>, Tax Rate = <strong>7.5%</strong>, VAT Rate = <strong>15%</strong>:
+              <p className="text-black">
+                Desired Net = <strong className="text-black">100,000</strong>, Tax Rate = <strong className="text-black">7.5%</strong>, VAT Rate = <strong className="text-black">15%</strong>:
               </p>
-              <ul className="list-disc pl-5 mt-1 space-y-1 text-emerald-900 dark:text-emerald-300 font-mono text-[12.5px]">
-                <li>Gross Base: 100,000 ÷ (1 − 0.075) = <strong>108,108</strong></li>
-                <li>Tax Deduction: 108,108 × 7.5% = <strong>8,108</strong></li>
-                <li>VAT Addition: 108,108 × 15% = <strong>16,216</strong></li>
-                <li>Total Billed to Client: 108,108 + 16,216 = <strong>124,324</strong></li>
-                <li>Net Received: 108,108 − 8,108 = <strong>100,000</strong></li>
+              <ul className="list-disc pl-5 mt-1 space-y-1 text-black font-mono text-[12.5px]">
+                <li>Gross Base: 100,000 ÷ (1 − 0.075) = <strong className="text-black">108,108</strong></li>
+                <li>Tax Deduction: 108,108 × 7.5% = <strong className="text-black">8,108</strong></li>
+                <li>VAT Addition: 108,108 × 15% = <strong className="text-black">16,216</strong></li>
+                <li>Total Billed to Client: 108,108 + 16,216 = <strong className="text-black">124,324</strong></li>
+                <li>Net Received: 108,108 − 8,108 = <strong className="text-black">100,000</strong></li>
               </ul>
             </div>
           </div>
@@ -153,7 +153,7 @@ export default function VatTaxContent() {
                 Used when a client provides a fixed all-inclusive total budget, and you need to separate the VAT portion, calculate tax deductions, and determine your actual net earnings.
               </p>
 
-              <div className="bg-black/5 dark:bg-white/5 p-3.5 rounded-xl font-mono text-[13px] space-y-1.5 border border-black/5 dark:border-white/5">
+              <div className="bg-black/5 dark:bg-white/5 p-3.5 rounded-xl font-mono text-[13px] space-y-1.5 border border-black/5 dark:border-white/5 text-gray-900">
                 <div><strong>Gross Base</strong> = Total Budget ÷ (1 + VAT Rate ÷ 100)</div>
                 <div><strong>VAT Amount</strong> = Total Budget − Gross Base</div>
                 <div><strong>Tax Deduction</strong> = Gross Base × (Tax Rate ÷ 100)</div>
@@ -162,19 +162,19 @@ export default function VatTaxContent() {
               </div>
             </div>
 
-            <div className="bg-blue-500/10 dark:bg-blue-500/10 p-4 rounded-xl border border-blue-500/20 text-[13px] space-y-1.5 mt-2">
-              <div className="font-semibold text-blue-900 dark:text-blue-300">
+            <div className="bg-blue-500/10 dark:bg-blue-500/10 p-4 rounded-xl border border-blue-500/20 text-[13px] space-y-1.5 mt-2 text-black">
+              <div className="font-semibold text-black">
                 Illustrative Calculation Example:
               </div>
-              <p className="text-blue-950 dark:text-blue-200">
-                Total Budget = <strong>100,000</strong>, VAT Rate = <strong>15%</strong>, Tax Rate = <strong>7.5%</strong>:
+              <p className="text-black">
+                Total Budget = <strong className="text-black">100,000</strong>, VAT Rate = <strong className="text-black">15%</strong>, Tax Rate = <strong className="text-black">7.5%</strong>:
               </p>
-              <ul className="list-disc pl-5 mt-1 space-y-1 text-blue-900 dark:text-blue-300 font-mono text-[12.5px]">
-                <li>Gross Base: 100,000 ÷ (1 + 0.15) = <strong>86,957</strong></li>
-                <li>VAT Portion: 100,000 − 86,957 = <strong>13,043</strong></li>
-                <li>Tax Deduction: 86,957 × 7.5% = <strong>6,522</strong></li>
-                <li>Net Take-Home Pay: 86,957 − 6,522 = <strong>80,435</strong></li>
-                <li>Total Payable by Client: <strong>100,000</strong></li>
+              <ul className="list-disc pl-5 mt-1 space-y-1 text-black font-mono text-[12.5px]">
+                <li>Gross Base: 100,000 ÷ (1 + 0.15) = <strong className="text-black">86,957</strong></li>
+                <li>VAT Portion: 100,000 − 86,957 = <strong className="text-black">13,043</strong></li>
+                <li>Tax Deduction: 86,957 × 7.5% = <strong className="text-black">6,522</strong></li>
+                <li>Net Take-Home Pay: 86,957 − 6,522 = <strong className="text-black">80,435</strong></li>
+                <li>Total Payable by Client: <strong className="text-black">100,000</strong></li>
               </ul>
             </div>
           </div>
@@ -192,7 +192,7 @@ export default function VatTaxContent() {
                 Used in standard service contracts where the agreed amount is the gross contract base (includes income tax liability, excludes VAT). Tax is deducted, and VAT is added on top.
               </p>
 
-              <div className="bg-black/5 dark:bg-white/5 p-3.5 rounded-xl font-mono text-[13px] space-y-1.5 border border-black/5 dark:border-white/5">
+              <div className="bg-black/5 dark:bg-white/5 p-3.5 rounded-xl font-mono text-[13px] space-y-1.5 border border-black/5 dark:border-white/5 text-gray-900">
                 <div><strong>Gross Base</strong> = Entered Contract Base Amount</div>
                 <div><strong>Tax Deduction</strong> = Gross Base × (Tax Rate ÷ 100)</div>
                 <div><strong>Net Receivable</strong> = Gross Base − Tax Deduction</div>
@@ -201,19 +201,19 @@ export default function VatTaxContent() {
               </div>
             </div>
 
-            <div className="bg-amber-500/10 dark:bg-amber-500/10 p-4 rounded-xl border border-amber-500/20 text-[13px] space-y-1.5 mt-2">
-              <div className="font-semibold text-amber-900 dark:text-amber-300">
+            <div className="bg-amber-500/10 dark:bg-amber-500/10 p-4 rounded-xl border border-amber-500/20 text-[13px] space-y-1.5 mt-2 text-black">
+              <div className="font-semibold text-black">
                 Illustrative Calculation Example:
               </div>
-              <p className="text-amber-950 dark:text-amber-200">
-                Contract Base = <strong>100,000</strong>, Tax Rate = <strong>7.5%</strong>, VAT Rate = <strong>15%</strong>:
+              <p className="text-black">
+                Contract Base = <strong className="text-black">100,000</strong>, Tax Rate = <strong className="text-black">7.5%</strong>, VAT Rate = <strong className="text-black">15%</strong>:
               </p>
-              <ul className="list-disc pl-5 mt-1 space-y-1 text-amber-900 dark:text-amber-300 font-mono text-[12.5px]">
-                <li>Gross Base: <strong>100,000</strong></li>
-                <li>Tax Deduction: 100,000 × 7.5% = <strong>7,500</strong></li>
-                <li>Net Receivable: 100,000 − 7,500 = <strong>92,500</strong></li>
-                <li>VAT Addition: 100,000 × 15% = <strong>15,000</strong></li>
-                <li>Total Billed to Client: 100,000 + 15,000 = <strong>115,000</strong></li>
+              <ul className="list-disc pl-5 mt-1 space-y-1 text-black font-mono text-[12.5px]">
+                <li>Gross Base: <strong className="text-black">100,000</strong></li>
+                <li>Tax Deduction: 100,000 × 7.5% = <strong className="text-black">7,500</strong></li>
+                <li>Net Receivable: 100,000 − 7,500 = <strong className="text-black">92,500</strong></li>
+                <li>VAT Addition: 100,000 × 15% = <strong className="text-black">15,000</strong></li>
+                <li>Total Billed to Client: 100,000 + 15,000 = <strong className="text-black">115,000</strong></li>
               </ul>
             </div>
           </div>
@@ -231,7 +231,7 @@ export default function VatTaxContent() {
                 Used when an initial deal was quoted with VAT included, but Tax/TDS was overlooked. It extracts the base net, then reverse gross-ups for tax so your net receipt remains intact.
               </p>
 
-              <div className="bg-black/5 dark:bg-white/5 p-3.5 rounded-xl font-mono text-[13px] space-y-1.5 border border-black/5 dark:border-white/5">
+              <div className="bg-black/5 dark:bg-white/5 p-3.5 rounded-xl font-mono text-[13px] space-y-1.5 border border-black/5 dark:border-white/5 text-gray-900">
                 <div><strong>Base Net</strong> = Entered Amount ÷ (1 + VAT Rate ÷ 100)</div>
                 <div><strong>Gross Base</strong> = Base Net ÷ (1 − Tax Rate ÷ 100)</div>
                 <div><strong>Tax Deduction</strong> = Gross Base × (Tax Rate ÷ 100)</div>
@@ -240,19 +240,19 @@ export default function VatTaxContent() {
               </div>
             </div>
 
-            <div className="bg-purple-500/10 dark:bg-purple-500/10 p-4 rounded-xl border border-purple-500/20 text-[13px] space-y-1.5 mt-2">
-              <div className="font-semibold text-purple-900 dark:text-purple-300">
+            <div className="bg-purple-500/10 dark:bg-purple-500/10 p-4 rounded-xl border border-purple-500/20 text-[13px] space-y-1.5 mt-2 text-black">
+              <div className="font-semibold text-black">
                 Illustrative Calculation Example:
               </div>
-              <p className="text-purple-950 dark:text-purple-200">
-                Amount with VAT = <strong>115,000</strong>, VAT Rate = <strong>15%</strong>, Tax Rate = <strong>7.5%</strong>:
+              <p className="text-black">
+                Amount with VAT = <strong className="text-black">115,000</strong>, VAT Rate = <strong className="text-black">15%</strong>, Tax Rate = <strong className="text-black">7.5%</strong>:
               </p>
-              <ul className="list-disc pl-5 mt-1 space-y-1 text-purple-900 dark:text-purple-300 font-mono text-[12.5px]">
-                <li>Target Base Net: 115,000 ÷ (1 + 0.15) = <strong>100,000</strong></li>
-                <li>Grossed-up Gross Base: 100,000 ÷ (1 − 0.075) = <strong>108,108</strong></li>
-                <li>Tax Deduction: 108,108 × 7.5% = <strong>8,108</strong> (Net = 100,000)</li>
-                <li>VAT Addition on Gross: 108,108 × 15% = <strong>16,216</strong></li>
-                <li>Total Billed to Client: 108,108 + 16,216 = <strong>124,324</strong></li>
+              <ul className="list-disc pl-5 mt-1 space-y-1 text-black font-mono text-[12.5px]">
+                <li>Target Base Net: 115,000 ÷ (1 + 0.15) = <strong className="text-black">100,000</strong></li>
+                <li>Grossed-up Gross Base: 100,000 ÷ (1 − 0.075) = <strong className="text-black">108,108</strong></li>
+                <li>Tax Deduction: 108,108 × 7.5% = <strong className="text-black">8,108</strong> (Net = <strong className="text-black">100,000</strong>)</li>
+                <li>VAT Addition on Gross: 108,108 × 15% = <strong className="text-black">16,216</strong></li>
+                <li>Total Billed to Client: 108,108 + 16,216 = <strong className="text-black">124,324</strong></li>
               </ul>
             </div>
           </div>
