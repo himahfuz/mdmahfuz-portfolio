@@ -60,6 +60,7 @@ export default function RootLayout({
             __html: JSON.stringify({
               "@context": "https://schema.org",
               "@type": "Person",
+              "@id": "https://mdmahfuz.com/#person",
               "name": "MD Mahfuzur Rahman",
               "alternateName": "Mahfuzur Rahman",
               "description": "Accounting Professional and VAT & TAX Expert in Bangladesh.",
@@ -89,7 +90,7 @@ export default function RootLayout({
                 "https://github.com/himahfuz",
                 "https://linkedin.com/in/mdmahfuzurali" 
               ]
-            })
+            }).replace(/</g, '\\u003c')
           }}
         />
       </body>
