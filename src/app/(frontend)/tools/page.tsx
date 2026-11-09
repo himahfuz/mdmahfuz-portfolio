@@ -6,8 +6,29 @@ import type { Metadata } from "next";
 export const revalidate = 60; // Revalidate every 60 seconds
 
 export const metadata: Metadata = {
-  title: "Professional Accounting VAT Tax Tools",
-  description: "A collection of smart calculators and tools for accounting professionals in Bangladesh, including VAT and TDS calculators.",
+  title: "Accounting, Audit & Finance Tools | MD Mahfuzur Rahman",
+  description:
+    "Explore practical online tools for accounting, auditing, tax compliance, and financial reporting in Bangladesh. Built for finance and accounting professionals.",
+  keywords: [
+    "accounting tools Bangladesh",
+    "audit tools Bangladesh",
+    "online finance tools",
+    "financial reporting tools",
+    "accounting tools for professionals",
+    "tax compliance tools Bangladesh",
+  ],
+  alternates: {
+    canonical: "https://mdmahfuz.com/tools",
+  },
+  openGraph: {
+    title: "Accounting, Audit & Finance Tools | MD Mahfuzur Rahman",
+    description:
+      "Explore practical online tools for accounting, auditing, tax compliance, and financial reporting in Bangladesh. Built for finance and accounting professionals.",
+    url: "https://mdmahfuz.com/tools",
+    siteName: "MD Mahfuzur Rahman",
+    locale: "en_US",
+    type: "website",
+  },
 };
 
 // Hardcoded local tools for scalability
@@ -53,10 +74,10 @@ export default async function Tools() {
       {/* Hero Section */}
       <div className="glass-panel p-10 md:p-12 w-full mb-10 text-center md:text-left">
         <h1 className="font-poppins font-bold text-[36px] text-[var(--color-text-primary)] leading-tight mb-2">
-          Professional Audit & Tax Tools
+          Accounting, Audit & Finance Tools
         </h1>
         <p className="font-inter text-[15px] text-[var(--color-text-secondary)]">
-          Web applications and calculators designed for accounting, auditing, and finance professionals.
+          Practical online tools for accounting, auditing, tax compliance, and financial reporting professionals in Bangladesh.
         </p>
       </div>
 
