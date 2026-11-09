@@ -131,8 +131,8 @@ export default function Calculator() {
             VAT Tax Calculator (Bangladesh)
           </h1>
         </div>
-        <p className="font-inter text-[15px] text-[var(--color-text-secondary)] mt-4">
-          Calculate Gross, VAT, and Tax amounts based on standard rates for various services and supplies in Bangladesh.
+        <p className="font-inter text-[15px] text-[var(--color-text-secondary)] mt-4 leading-relaxed max-w-3xl">
+          A fast mathematical calculation tool for accountants, businesses, consultants, and service providers in Bangladesh. Input your contract or invoice amount along with applicable VAT and Tax/TDS rates to instantly compute Gross Base, statutory deductions, client billing totals, and net take-home pay across 4 distinct billing modes.
         </p>
       </div>
 
@@ -511,7 +511,7 @@ export default function Calculator() {
             <div className="mt-6 flex items-start gap-2 text-[12px] text-[var(--color-text-secondary)] opacity-85">
               <LucideIcons.Info size={14} className="mt-0.5 shrink-0" />
               <p>
-                Calculations based on standard Bangladesh accounting practices. Please verify with the latest NBR Statutory Rules and Orders (SROs) for applicable rates for your specific service or supply category.
+                Disclaimer: This tool calculates mathematical breakdowns based on user-supplied rates and amounts. It does not determine statutory rates under the VAT & SD Act 2012 or Income Tax Act 2023. Always verify applicable rates with official NBR SROs or a certified tax consultant.
               </p>
             </div>
           </div>

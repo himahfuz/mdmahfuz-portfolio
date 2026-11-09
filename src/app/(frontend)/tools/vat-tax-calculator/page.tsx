@@ -1,39 +1,25 @@
 import type { Metadata } from "next";
 import Script from "next/script";
 import Calculator from "./Calculator";
-import VatTaxFaq from "./VatTaxFaq";
-import { FAQ_STEPS } from "./faqData";
+import VatTaxContent from "./VatTaxContent";
 
 export const metadata: Metadata = {
-  title: "VAT Tax Calculator BD - Free Online TDS & VDS Calculation Tool",
+  title: "VAT Tax Calculator Bangladesh",
   description:
-    "Free online VAT & Tax calculator for Bangladesh. Calculate Gross bills, Net payable, VAT (15%, 10%, 7.5%, 5%), and TDS under NBR laws. Complete with FAQ guide on VAT, Tax, TDS, and VDS.",
-  keywords: [
-    "VAT calculator BD",
-    "Tax calculator Bangladesh",
-    "TDS calculator BD",
-    "VDS calculator Bangladesh",
-    "Gross to net calculator Bangladesh",
-    "NBR VAT calculation",
-    "Mushak 6.6 calculation",
-    "Bangladesh tax deduction calculator",
-    "VAT inclusive exclusive formula",
-    "VAT Tax FAQ Bangladesh",
-    "Value Added Tax Bangladesh 2023 2024",
-  ],
+    "Free online VAT and Tax calculator for Bangladesh. Compute Gross Base, Net Payable, VAT, and Tax/TDS deductions across 4 billing modes with comprehensive calculation guides and FAQ.",
   openGraph: {
-    title: "VAT Tax Calculator BD - Free Online TDS & VDS Calculation Tool",
+    title: "VAT Tax Calculator Bangladesh",
     description:
-      "Free online VAT & Tax calculator for Bangladesh. Calculate Gross bills, Net payable, VAT, and TDS under NBR laws with 4 calculation modes and detailed FAQ guide.",
+      "Free online VAT and Tax calculator for Bangladesh. Compute Gross Base, Net Payable, VAT, and Tax/TDS deductions across 4 billing modes with comprehensive calculation guides and FAQ.",
     url: "https://mdmahfuz.com/tools/vat-tax-calculator",
     type: "website",
-    siteName: "Md. Mahfuzur Rahman - Audit & Tax Consultant",
+    siteName: "MD Mahfuzur Rahman",
   },
   twitter: {
     card: "summary_large_image",
-    title: "VAT Tax Calculator BD - Free Online TDS & VDS Calculation Tool",
+    title: "VAT Tax Calculator Bangladesh",
     description:
-      "Calculate Gross bills, Net payable, VAT, and TDS under Bangladesh NBR laws with 4 calculation modes and comprehensive FAQ.",
+      "Compute Gross Base, Net Payable, VAT, and Tax/TDS deductions across 4 commercial billing modes with comprehensive guides.",
   },
   alternates: {
     canonical: "https://mdmahfuz.com/tools/vat-tax-calculator",
@@ -43,10 +29,10 @@ export const metadata: Metadata = {
 const webAppSchema = {
   "@context": "https://schema.org",
   "@type": "WebApplication",
-  name: "VAT Tax Calculator (Bangladesh)",
+  name: "VAT Tax Calculator Bangladesh",
   url: "https://mdmahfuz.com/tools/vat-tax-calculator",
   description:
-    "Free online calculator to compute VAT and TDS/Tax for any service or supply in Bangladesh. Supports 4 calculation modes: Net-to-Gross, Total Budget, Contract Base, and Reverse VAT as per NBR rules.",
+    "Free online VAT and Tax calculator for Bangladesh. Compute Gross Base, Net Payable, VAT, and Tax/TDS deductions across 4 billing modes.",
   applicationCategory: "FinanceApplication",
   operatingSystem: "All",
   browserRequirements: "Requires JavaScript",
@@ -58,24 +44,9 @@ const webAppSchema = {
   },
   author: {
     "@type": "Person",
-    name: "Md. Mahfuzur Rahman",
+    name: "MD Mahfuzur Rahman",
     url: "https://mdmahfuz.com",
   },
-};
-
-const faqSchema = {
-  "@context": "https://schema.org",
-  "@type": "FAQPage",
-  mainEntity: FAQ_STEPS.flatMap((step) =>
-    step.items.map((item) => ({
-      "@type": "Question",
-      name: item.question,
-      acceptedAnswer: {
-        "@type": "Answer",
-        text: item.rawAnswer,
-      },
-    }))
-  ),
 };
 
 export default function Page() {
@@ -87,15 +58,9 @@ export default function Page() {
         strategy="afterInteractive"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(webAppSchema) }}
       />
-      <Script
-        id="vat-calculator-faq-schema"
-        type="application/ld+json"
-        strategy="afterInteractive"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
-      />
       <div className="pb-16">
         <Calculator />
-        <VatTaxFaq />
+        <VatTaxContent />
       </div>
     </>
   );
