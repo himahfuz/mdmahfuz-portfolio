@@ -42,8 +42,11 @@ export function Typewriter({
 
   return (
     <span>
-      {text}
-      <span className="animate-[pulse_1s_ease-in-out_infinite] font-light opacity-70">|</span>
+      <span aria-hidden="true">
+        {text}
+        <span className="animate-[pulse_1s_ease-in-out_infinite] font-light opacity-70">|</span>
+      </span>
+      <span className="sr-only">{texts.join(", ")}</span>
     </span>
   );
 }

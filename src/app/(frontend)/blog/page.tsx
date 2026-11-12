@@ -61,7 +61,7 @@ export default async function BlogList() {
         <div className="w-16 h-16 bg-[var(--color-brand-primary)]/10 rounded-full flex items-center justify-center mb-4 text-[var(--color-brand-primary)]">
           <Clock size={28} />
         </div>
-        <h3 className="font-poppins font-semibold text-xl text-[var(--color-text-primary)] mb-2">Coming Soon</h3>
+        <h2 className="font-poppins font-semibold text-xl text-[var(--color-text-primary)] mb-2">Coming Soon</h2>
         <p className="text-[14px] text-[var(--color-text-secondary)] text-center w-full max-w-[400px]">Blog articles are currently being prepared and will be published shortly.</p>
       </div>
     );

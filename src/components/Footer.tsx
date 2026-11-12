@@ -37,7 +37,7 @@ export default function Footer() {
           <a
             href="https://linkedin.com/in/mdmahfuzurali"
             target="_blank"
-            rel="noopener noreferrer"
+            rel="noopener noreferrer me"
             className="w-10 h-10 rounded-full bg-[var(--color-brand-primary)] text-white flex items-center justify-center hover:scale-110 hover:shadow-[0_4px_16px_rgba(0,201,127,0.3)] transition-all"
             aria-label="LinkedIn"
           >

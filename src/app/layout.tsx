@@ -22,10 +22,7 @@ export const metadata: Metadata = {
   },
   description: 'MD Mahfuzur Rahman is an Accounting Professional & CA Articled Student in Bangladesh specializing in Statutory Audit, VAT, Income Tax & AI automation.',
   openGraph: {
-    title: {
-      default: 'MD Mahfuzur Rahman | Accounting Professional in Bangladesh',
-      template: '%s | MD Mahfuzur Rahman',
-    },
+    title: 'MD Mahfuzur Rahman | Accounting Professional in Bangladesh',
     description: 'MD Mahfuzur Rahman is an Accounting Professional & CA Articled Student in Bangladesh specializing in Statutory Audit, VAT, Income Tax & AI automation.',
     url: 'https://mdmahfuz.com',
     siteName: 'MD Mahfuzur Rahman',
@@ -69,6 +66,7 @@ export default function RootLayout({
               "alternateName": "Mahfuzur Rahman",
               "description": "Accounting Professional and CA Articled Student in Bangladesh specializing in Statutory Audit, Bangladesh VAT, Income Tax Act 2023, and AI Audit Automation.",
               "url": "https://mdmahfuz.com",
+              "email": "mailto:hello@mdmahfuz.com",
               "jobTitle": [
                 "Accounting Professional",
                 "Audit Associate",

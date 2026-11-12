@@ -19,6 +19,7 @@ export default function CV() {
 
   return (
     <div className="flex flex-col lg:flex-row gap-8 pb-10 min-h-screen lg:min-h-0 overflow-x-hidden">
+      <h1 className="sr-only">MD Mahfuzur Rahman — Accounting Professional CV (CA)</h1>
 
       {/* LEFT SIDEBAR */}
       <div className="w-full lg:w-[350px] shrink-0">
@@ -330,7 +331,7 @@ export default function CV() {
               <span className="text-[#f59e0b] text-[24px] leading-none shrink-0">★</span>
               <div className="flex-1 w-full">
                 <h4 className="font-semibold text-[15px] text-[var(--color-text-primary)]">Awarded Employee of the Q3 FY23</h4>
-                <p className="text-[13px] text-[var(--color-text-secondary)] italic mt-1">"Daraz Bangladesh Ltd" for consistently innovate and exceeding team performance metric. – Feb 2023</p>
+                <p className="text-[13px] text-[var(--color-text-secondary)] italic mt-1">&quot;Daraz Bangladesh Ltd&quot; for consistently innovate and exceeding team performance metric. – Feb 2023</p>
 
                 <div className="mt-3">
                   <button
@@ -359,7 +360,7 @@ export default function CV() {
               <Trophy size={24} className="text-[var(--color-brand-primary)] shrink-0" />
               <div>
                 <h4 className="font-semibold text-[15px] text-[var(--color-text-primary)]">Top performers</h4>
-                <p className="text-[13px] text-[var(--color-text-secondary)] italic mt-1">"Genex Infosys" (Airtel Process) – Jan 2022</p>
+                <p className="text-[13px] text-[var(--color-text-secondary)] italic mt-1">&quot;Genex Infosys&quot; (Airtel Process) – Jan 2022</p>
               </div>
             </div>
           </div>

@@ -36,9 +36,80 @@ export const metadata: Metadata = {
   },
 };
 
+const jsonLdGraph = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebPage",
+      "@id": "https://mdmahfuz.com/tools/financial-statement-audit-reviewer#webpage",
+      "url": "https://mdmahfuz.com/tools/financial-statement-audit-reviewer",
+      "name": "AI Financial Statement Audit Reviewer",
+      "description":
+        "AI-assisted Financial Statement Audit Reviewer for PDF and Excel. Detect footing errors, cross-statement mismatches, schedule gaps & disclosures.",
+      "inLanguage": "en-US",
+      "breadcrumb": {
+        "@id": "https://mdmahfuz.com/tools/financial-statement-audit-reviewer#breadcrumb",
+      },
+      "mainEntity": {
+        "@id": "https://mdmahfuz.com/tools/financial-statement-audit-reviewer#webapp",
+      },
+    },
+    {
+      "@type": "WebApplication",
+      "@id": "https://mdmahfuz.com/tools/financial-statement-audit-reviewer#webapp",
+      "name": "AI Financial Statement Audit Reviewer",
+      "url": "https://mdmahfuz.com/tools/financial-statement-audit-reviewer",
+      "description":
+        "AI-assisted Financial Statement Audit Reviewer for PDF and Excel. Detect footing errors, cross-statement mismatches, schedule gaps & disclosures.",
+      "applicationCategory": "FinanceApplication",
+      "operatingSystem": "All",
+      "browserRequirements": "Requires JavaScript",
+      "inLanguage": "en-US",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "BDT",
+      },
+      "author": {
+        "@id": "https://mdmahfuz.com/#person",
+      },
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://mdmahfuz.com/tools/financial-statement-audit-reviewer#breadcrumb",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://mdmahfuz.com/",
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Tools",
+          "item": "https://mdmahfuz.com/tools",
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Financial Statement Audit Reviewer",
+          "item": "https://mdmahfuz.com/tools/financial-statement-audit-reviewer",
+        },
+      ],
+    },
+  ],
+};
+
 export default function FinancialStatementAuditReviewerPage() {
   return (
     <article className="w-full max-w-4xl mx-auto pb-20">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(jsonLdGraph).replace(/</g, "\\u003c"),
+        }}
+      />
       <header className="glass-panel p-8 md:p-12 mb-8">
         <p className="text-sm font-semibold tracking-wide uppercase text-[var(--color-brand-primary)] mb-3">
           Accounting · Auditing · AI Automation

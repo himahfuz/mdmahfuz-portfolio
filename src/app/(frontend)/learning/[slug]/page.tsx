@@ -85,8 +85,67 @@ export default async function LearningPost({ params }: { params: Promise<{ slug:
     notFound();
   }
 
+  const learningJsonLd = {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "TechArticle",
+        "@id": `https://mdmahfuz.com/learning/${slug}#article`,
+        "isPartOf": {
+          "@type": "WebPage",
+          "@id": `https://mdmahfuz.com/learning/${slug}`,
+          "url": `https://mdmahfuz.com/learning/${slug}`,
+          "name": post.title,
+        },
+        "headline": post.title,
+        "description": `Study notes on ${post.title} (${post.category || "CA Exam"}) by MD Mahfuzur Rahman.`,
+        "image": ["https://mdmahfuz.com/images/og-image.jpg"],
+        "datePublished": post.date || "2026-11-12T00:00:00.000Z",
+        "dateModified": post.date || "2026-11-12T00:00:00.000Z",
+        "author": {
+          "@id": "https://mdmahfuz.com/#person",
+        },
+        "publisher": {
+          "@id": "https://mdmahfuz.com/#person",
+        },
+        "mainEntityOfPage": `https://mdmahfuz.com/learning/${slug}`,
+        "inLanguage": "en-US",
+      },
+      {
+        "@type": "BreadcrumbList",
+        "@id": `https://mdmahfuz.com/learning/${slug}#breadcrumb`,
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "https://mdmahfuz.com/",
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Learning",
+            "item": "https://mdmahfuz.com/learning",
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "name": post.title,
+            "item": `https://mdmahfuz.com/learning/${slug}`,
+          },
+        ],
+      },
+    ],
+  };
+
   return (
     <div className="max-w-3xl mx-auto pb-20">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(learningJsonLd).replace(/</g, "\\u003c"),
+        }}
+      />
       <Link href="/learning" className="inline-flex items-center gap-2 text-[13px] text-[var(--color-text-secondary)] hover:text-[var(--color-brand-primary)] mb-8 transition-colors">
         <ArrowLeft size={16} /> Back to Learning
       </Link>
@@ -119,7 +178,14 @@ export default async function LearningPost({ params }: { params: Promise<{ slug:
           [&>strong]:text-[var(--color-text-primary)]
         ">
           {post.description ? (
-            <PortableText value={post.description} />
+            <PortableText 
+              value={post.description} 
+              components={{ 
+                block: { 
+                  h1: ({ children }) => <h2>{children}</h2> 
+                } 
+              }} 
+            />
           ) : (
             <p>Detailed study notes and analysis will appear here. This section tracks ongoing professional development and knowledge sharing.</p>
           )}

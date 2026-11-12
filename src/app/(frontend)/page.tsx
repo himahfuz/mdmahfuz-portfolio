@@ -42,6 +42,33 @@ export const metadata: Metadata = {
     }
   }
 };
+
+const homeJsonLd = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebSite",
+      "@id": "https://mdmahfuz.com/#website",
+      "url": "https://mdmahfuz.com",
+      "name": "MD Mahfuzur Rahman",
+      "description": "Portfolio of MD Mahfuzur Rahman, Accounting Professional & CA student in Bangladesh.",
+      "publisher": {
+        "@id": "https://mdmahfuz.com/#person",
+      },
+      "inLanguage": "en-US",
+    },
+    {
+      "@type": "ProfilePage",
+      "@id": "https://mdmahfuz.com/#profilepage",
+      "url": "https://mdmahfuz.com",
+      "name": "MD Mahfuzur Rahman | Accounting Professional in Bangladesh",
+      "mainEntity": {
+        "@id": "https://mdmahfuz.com/#person",
+      },
+    },
+  ],
+};
+
 export default function Home() {
   const testimonials = [
     {
@@ -66,6 +93,12 @@ export default function Home() {
 
   return (
     <div className="w-full flex flex-col lg:flex-row items-center justify-between gap-6 lg:gap-10 overflow-x-hidden relative my-4 lg:my-0 lg:h-[calc(100vh-170px)] lg:max-h-[540px] lg:min-h-[460px]">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(homeJsonLd).replace(/</g, "\\u003c"),
+        }}
+      />
 
       {/* Left Column */}
       <div className="flex-1 lg:flex-[0.3] flex flex-col justify-center hero-left z-10 w-full lg:h-full">

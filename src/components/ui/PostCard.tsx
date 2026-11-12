@@ -19,9 +19,9 @@ export function PostCard({
   return (
     <div className="glass-panel p-5 flex flex-col h-full hover:shadow-[0_12px_40px_rgba(31,38,135,0.1)] transition-all duration-300">
       <FileText size={24} className="text-[var(--color-brand-primary)] mb-4" />
-      <h3 className="font-semibold text-[15px] text-[var(--color-text-primary)] mb-2 line-clamp-2">
+      <h2 className="font-semibold text-[15px] text-[var(--color-text-primary)] mb-2 line-clamp-2">
         {title}
-      </h3>
+      </h2>
       <p className="text-[12px] text-[var(--color-text-secondary)] line-clamp-3 mb-4 flex-1">
         {description}
       </p>

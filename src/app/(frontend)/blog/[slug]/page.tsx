@@ -18,10 +18,32 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   }`, { slug });
 
   const fallbackTitle = slug.split("-").map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(" ");
-  const rawTitle = post?.seo?.metaTitle || post?.title || fallbackTitle;
-  const hasBrand = rawTitle.includes('MD Mahfuzur Rahman');
-  const title = hasBrand ? { absolute: rawTitle } : rawTitle;
-  const ogTitle = hasBrand ? rawTitle : `${rawTitle} | MD Mahfuzur Rahman`;
+  let rawTitle = post?.seo?.metaTitle || post?.title || fallbackTitle;
+  const BRAND_SUFFIX = " | MD Mahfuzur Rahman";
+  const hasBrand = rawTitle.includes("MD Mahfuzur Rahman");
+
+  let title: Metadata["title"];
+  let ogTitle: string;
+
+  if (hasBrand) {
+    if (rawTitle.length > 65) {
+      rawTitle = rawTitle.slice(0, 62).trim() + "...";
+    }
+    title = { absolute: rawTitle };
+    ogTitle = rawTitle;
+  } else {
+    if (rawTitle.length + BRAND_SUFFIX.length <= 65) {
+      title = rawTitle;
+      ogTitle = rawTitle + BRAND_SUFFIX;
+    } else if (rawTitle.length <= 65) {
+      title = { absolute: rawTitle };
+      ogTitle = rawTitle;
+    } else {
+      const truncated = rawTitle.slice(0, 62).trim() + "...";
+      title = { absolute: truncated };
+      ogTitle = truncated;
+    }
+  }
 
   const fallbackDesc = `Read article on ${post?.title || fallbackTitle} by MD Mahfuzur Rahman.`;
   const rawDesc = post?.seo?.metaDescription || post?.excerpt || fallbackDesc;
@@ -45,7 +67,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
           url: ogImageUrl,
           width: 1200,
           height: 630,
-          alt: rawTitle,
+          alt: typeof title === "string" ? title : ogTitle,
         },
       ],
     },
@@ -145,8 +167,67 @@ export default async function BlogPost({ params }: { params: Promise<{ slug: str
 
   if (!post) notFound();
 
+  const articleJsonLd = {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Article",
+        "@id": `https://mdmahfuz.com/blog/${slug}#article`,
+        "isPartOf": {
+          "@type": "WebPage",
+          "@id": `https://mdmahfuz.com/blog/${slug}`,
+          "url": `https://mdmahfuz.com/blog/${slug}`,
+          "name": post.title,
+        },
+        "headline": post.title,
+        "description": post.excerpt || `Article on ${post.title} by MD Mahfuzur Rahman.`,
+        "image": post.heroImage ? [post.heroImage] : ["https://mdmahfuz.com/images/og-image.jpg"],
+        "datePublished": post.date || "2026-11-12T00:00:00.000Z",
+        "dateModified": post.date || "2026-11-12T00:00:00.000Z",
+        "author": {
+          "@id": "https://mdmahfuz.com/#person",
+        },
+        "publisher": {
+          "@id": "https://mdmahfuz.com/#person",
+        },
+        "mainEntityOfPage": `https://mdmahfuz.com/blog/${slug}`,
+        "inLanguage": "en-US",
+      },
+      {
+        "@type": "BreadcrumbList",
+        "@id": `https://mdmahfuz.com/blog/${slug}#breadcrumb`,
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "https://mdmahfuz.com/",
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Blog",
+            "item": "https://mdmahfuz.com/blog",
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "name": post.title,
+            "item": `https://mdmahfuz.com/blog/${slug}`,
+          },
+        ],
+      },
+    ],
+  };
+
   return (
     <article className="mx-auto max-w-4xl pb-20">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(articleJsonLd).replace(/</g, "\\u003c"),
+        }}
+      />
       <Link href="/blog" className="mb-8 inline-flex items-center gap-2 text-[13px] text-[var(--color-text-secondary)] transition-colors hover:text-[var(--color-brand-primary)]">
         <ArrowLeft size={16} /> Back to Blog
       </Link>

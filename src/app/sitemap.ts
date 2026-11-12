@@ -38,6 +38,10 @@ function getSlugsFromDirectory(relativeDirPath: string): string[] {
 }
 
 // Static Routes Configuration
+export const revalidate = 86400;
+
+const FIXED_LAST_MODIFIED = new Date('2026-11-12T00:00:00.000Z');
+
 const staticRoutes = [
   '',                // Home
   '/cv',             // CV / Resume
@@ -51,7 +55,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   // 1. Static Routes
   const staticEntries: MetadataRoute.Sitemap = staticRoutes.map((route) => ({
     url: `${BASE_URL}${route}`,
-    lastModified: new Date(),
+    lastModified: FIXED_LAST_MODIFIED,
     changeFrequency: 'monthly',
     priority: route === '' ? 1.0 : 0.8,
   }));
@@ -60,7 +64,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const toolSlugs = getSlugsFromDirectory('tools');
   const toolEntries: MetadataRoute.Sitemap = toolSlugs.map((slug) => ({
     url: `${BASE_URL}/tools/${slug}`,
-    lastModified: new Date(),
+    lastModified: FIXED_LAST_MODIFIED,
     changeFrequency: 'weekly',
     priority: 0.9,
   }));
@@ -80,7 +84,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
 
   const learningEntries: MetadataRoute.Sitemap = learningPosts.map((post) => ({
     url: `${BASE_URL}/learning/${post.slug}`,
-    lastModified: post._updatedAt ? new Date(post._updatedAt) : new Date(),
+    lastModified: post._updatedAt ? new Date(post._updatedAt) : FIXED_LAST_MODIFIED,
     changeFrequency: 'weekly',
     priority: 0.8,
   }));
@@ -100,7 +104,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
 
   const blogEntries: MetadataRoute.Sitemap = blogPosts.map((post) => ({
     url: `${BASE_URL}/blog/${post.slug}`,
-    lastModified: post._updatedAt ? new Date(post._updatedAt) : new Date(),
+    lastModified: post._updatedAt ? new Date(post._updatedAt) : FIXED_LAST_MODIFIED,
     changeFrequency: 'weekly',
     priority: 0.8,
   }));
