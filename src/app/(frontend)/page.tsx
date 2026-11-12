@@ -7,25 +7,31 @@ import { Typewriter } from "@/components/ui/Typewriter";
 import { JobAvailabilityBadge } from "@/components/ui/JobAvailabilityBadge";
 
 export const metadata: Metadata = {
-  title: 'MD Mahfuzur Rahman | Accounting Professional Bangladesh',
-  description: 'Digital portfolio of MD Mahfuzur Rahman, a professional auditor, CA student, and tech enthusiast in Bangladesh. Explore VAT/Tax tools and insights.',
-  keywords: [
-    'MD Mahfuzur Rahman',
-    'MD Mahfuzur Rahman Portfolio',
-    'Best Accountant in Bangladesh',
-    'Tax Expert in Bangladesh',
-    'CA Student Bangladesh',
-    'VAT Expert in Bangladesh',
-    'Senior Auditor in Bangladesh',
-    'Islam Quazi Shafique & Co Auditor'
-  ],
+  title: {
+    absolute: 'MD Mahfuzur Rahman | Accounting Professional in Bangladesh',
+  },
+  description: 'Portfolio of MD Mahfuzur Rahman, Accounting Professional & CA student in Bangladesh. Explore statutory audit work, VAT/Tax calculators & Mushak 6.6.',
   openGraph: {
-    title: 'MD Mahfuzur Rahman | Accounting Professional Bangladesh',
-    description: 'Digital portfolio of MD Mahfuzur Rahman, a professional auditor, CA student, and tech enthusiast in Bangladesh. Explore VAT/Tax tools and insights.',
+    title: 'MD Mahfuzur Rahman | Accounting Professional in Bangladesh',
+    description: 'Portfolio of MD Mahfuzur Rahman, Accounting Professional & CA student in Bangladesh. Explore statutory audit work, VAT/Tax calculators & Mushak 6.6.',
     url: 'https://mdmahfuz.com',
     siteName: 'MD Mahfuzur Rahman',
     locale: 'en_US',
     type: 'website',
+    images: [
+      {
+        url: 'https://mdmahfuz.com/images/og-image.jpg',
+        width: 1200,
+        height: 630,
+        alt: 'MD Mahfuzur Rahman - Accounting Professional in Bangladesh',
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'MD Mahfuzur Rahman | Accounting Professional in Bangladesh',
+    description: 'Portfolio of MD Mahfuzur Rahman, Accounting Professional & CA student in Bangladesh. Explore statutory audit work, VAT/Tax calculators & Mushak 6.6.',
+    images: ['https://mdmahfuz.com/images/og-image.jpg'],
   },
   alternates: {
     canonical: 'https://mdmahfuz.com',
@@ -77,9 +83,9 @@ export default function Home() {
         </div>
 
         <h1 className="font-poppins font-extrabold text-5xl lg:text-[68px] leading-[1.1] text-[var(--color-text-primary)]">
-          MD<br />
-          <span className="text-[var(--color-brand-primary)]">Mahfuzur</span><br />
-          Rahman
+          <span className="block">MD</span>{" "}
+          <span className="block text-[var(--color-brand-primary)]">Mahfuzur</span>{" "}
+          <span className="block">Rahman</span>
         </h1>
 
         <div className="w-10 h-[2px] bg-[var(--color-brand-primary)] my-4 lg:my-6"></div>

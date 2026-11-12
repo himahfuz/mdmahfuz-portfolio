@@ -15,30 +15,34 @@ const poppins = Poppins({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL('https://mdmahfuz.com'),
   title: {
-    default: 'MD Mahfuzur Rahman - Accounting VAT & Tax Expert',
+    default: 'MD Mahfuzur Rahman | Accounting Professional in Bangladesh',
     template: '%s | MD Mahfuzur Rahman',
   },
-  description: 'Accounting Professional, VAT & TAX Expert associated with Islam Quazi Shafique & Co. Chartered Accountants. Specialized in Auditing, VAT, and Tax services in Bangladesh.',
-  keywords: [
-    'Accounting Professional Bangladesh',
-    'VAT Expert Gazipur',
-    'VAT Expert Uttara',
-    'TAX Expert Gazipur ',
-    'TAX Expert Uttara',
-    'Islam Quazi Shafique & Co',
-    'Chartered Accountancy Student'
-  ],
+  description: 'MD Mahfuzur Rahman is an Accounting Professional & CA Articled Student in Bangladesh specializing in Statutory Audit, VAT, Income Tax & AI automation.',
   openGraph: {
     title: {
-      default: 'MD Mahfuzur Rahman - Accounting VAT & Tax Expert',
+      default: 'MD Mahfuzur Rahman | Accounting Professional in Bangladesh',
       template: '%s | MD Mahfuzur Rahman',
     },
-    description: 'Expertise in Auditing, VAT, and Tax services. Associated with Islam Quazi Shafique & Co.',
+    description: 'MD Mahfuzur Rahman is an Accounting Professional & CA Articled Student in Bangladesh specializing in Statutory Audit, VAT, Income Tax & AI automation.',
     url: 'https://mdmahfuz.com',
     siteName: 'MD Mahfuzur Rahman',
     locale: 'en_US',
     type: 'website',
+    images: [
+      {
+        url: 'https://mdmahfuz.com/images/og-image.jpg',
+        width: 1200,
+        height: 630,
+        alt: 'MD Mahfuzur Rahman - Accounting Professional in Bangladesh',
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    images: ['https://mdmahfuz.com/images/og-image.jpg'],
   },
 };
 
@@ -63,13 +67,22 @@ export default function RootLayout({
               "@id": "https://mdmahfuz.com/#person",
               "name": "MD Mahfuzur Rahman",
               "alternateName": "Mahfuzur Rahman",
-              "description": "Accounting Professional and VAT & TAX Expert in Bangladesh.",
+              "description": "Accounting Professional and CA Articled Student in Bangladesh specializing in Statutory Audit, Bangladesh VAT, Income Tax Act 2023, and AI Audit Automation.",
               "url": "https://mdmahfuz.com",
               "jobTitle": [
-                "Audit Associate",
                 "Accounting Professional",
+                "Audit Associate",
                 "VAT Expert",
                 "TAX Expert"
+              ],
+              "knowsAbout": [
+                "Accounting",
+                "Statutory Audit",
+                "Value Added Tax (VAT)",
+                "Income Tax Act 2023",
+                "Power BI",
+                "Financial Statement Review",
+                "IFRS"
               ],
               "worksFor": {
                 "@type": "Organization",

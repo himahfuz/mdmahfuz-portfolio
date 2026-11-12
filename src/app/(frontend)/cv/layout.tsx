@@ -1,23 +1,13 @@
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'Digital CV | MD Mahfuzur Rahman',
-  description: 'Digital CV of MD Mahfuzur Rahman, Senior Auditor at Islam Quazi Shafique & Co.',
-  keywords: [
-    'MD Mahfuzur Rahman CV',
-    'Senior Auditor Bangladesh',
-    'CA Student Resume BD',
-    'Accounting Professional CV',
-    'Islam Quazi Shafique & Co Auditor',
-    'VAT expert Bangladesh',
-    'Tax expert Bangladesh',
-    'Financial Auditor CV'
-  ],
+  title: 'Accounting Professional CV (CA)',
+  description: 'CV of MD Mahfuzur Rahman, Accounting Professional & CA Articled Student at Islam Quazi Shafique & Co., skilled in Audit, IFRS, VAT, Tax & Power BI.',
   openGraph: {
-    title: 'Digital CV | MD Mahfuzur Rahman',
-    description: 'Digital CV of MD Mahfuzur Rahman, Senior Auditor at Islam Quazi Shafique & Co.',
+    title: 'Accounting Professional CV (CA) | MD Mahfuzur Rahman',
+    description: 'CV of MD Mahfuzur Rahman, Accounting Professional & CA Articled Student at Islam Quazi Shafique & Co., skilled in Audit, IFRS, VAT, Tax & Power BI.',
     url: 'https://mdmahfuz.com/cv',
-    siteName: 'Digital CV | MD Mahfuzur Rahman',
+    siteName: 'MD Mahfuzur Rahman',
     images: [
       {
         url: 'https://mdmahfuz.com/images/og-image.jpg',
@@ -27,6 +17,12 @@ export const metadata: Metadata = {
       },
     ],
     type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Accounting Professional CV (CA) | MD Mahfuzur Rahman',
+    description: 'CV of MD Mahfuzur Rahman, Accounting Professional & CA Articled Student at Islam Quazi Shafique & Co., skilled in Audit, IFRS, VAT, Tax & Power BI.',
+    images: ['https://mdmahfuz.com/images/og-image.jpg'],
   },
   alternates: {
     canonical: 'https://mdmahfuz.com/cv',

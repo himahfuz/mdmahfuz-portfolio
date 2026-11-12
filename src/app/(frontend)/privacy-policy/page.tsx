@@ -2,9 +2,36 @@ import type { Metadata } from "next";
 import { ShieldCheck, Mail, Info } from "lucide-react";
 
 export const metadata: Metadata = {
-  title: "Privacy Policy | MD Mahfuzur Rahman",
+  title: "Privacy Policy",
   description:
-    "Read the Privacy Policy for mdmahfuz.com. Learn how your data is handled when you visit this professional portfolio and use tools like the Consultant VAT & Tax Calculator.",
+    "Privacy Policy for mdmahfuz.com. Learn how data is handled when using our Bangladesh VAT & Tax calculator, Mushak 6.6 generator, and portfolio.",
+  alternates: {
+    canonical: "https://mdmahfuz.com/privacy-policy",
+  },
+  openGraph: {
+    title: "Privacy Policy | MD Mahfuzur Rahman",
+    description:
+      "Privacy Policy for mdmahfuz.com. Learn how data is handled when using our Bangladesh VAT & Tax calculator, Mushak 6.6 generator, and portfolio.",
+    url: "https://mdmahfuz.com/privacy-policy",
+    siteName: "MD Mahfuzur Rahman",
+    locale: "en_US",
+    type: "website",
+    images: [
+      {
+        url: "https://mdmahfuz.com/images/og-image.jpg",
+        width: 1200,
+        height: 630,
+        alt: "MD Mahfuzur Rahman - Privacy Policy",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Privacy Policy | MD Mahfuzur Rahman",
+    description:
+      "Privacy Policy for mdmahfuz.com. Learn how data is handled when using our Bangladesh VAT & Tax calculator, Mushak 6.6 generator, and portfolio.",
+    images: ["https://mdmahfuz.com/images/og-image.jpg"],
+  },
 };
 
 const sections = [

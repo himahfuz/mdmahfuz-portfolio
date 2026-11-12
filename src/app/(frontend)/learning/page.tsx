@@ -4,8 +4,36 @@ import LearningTabs from "./LearningTabs";
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'Learning Notes | MD Mahfuzur Rahman',
-  description: 'Academic notes and study materials for CA Certificate Level exams.',
+  title: 'Accounting, Tax & VAT CA Notes',
+  description:
+    'CA study notes on Accounting, Cost Accounting, Income Tax Act 2023, and Bangladesh VAT by MD Mahfuzur Rahman, Accounting Professional.',
+  alternates: {
+    canonical: 'https://mdmahfuz.com/learning',
+  },
+  openGraph: {
+    title: 'Accounting, Tax & VAT CA Notes | MD Mahfuzur Rahman',
+    description:
+      'CA study notes on Accounting, Cost Accounting, Income Tax Act 2023, and Bangladesh VAT by MD Mahfuzur Rahman, Accounting Professional.',
+    url: 'https://mdmahfuz.com/learning',
+    siteName: 'MD Mahfuzur Rahman',
+    locale: 'en_US',
+    type: 'website',
+    images: [
+      {
+        url: 'https://mdmahfuz.com/images/og-image.jpg',
+        width: 1200,
+        height: 630,
+        alt: 'MD Mahfuzur Rahman - Accounting, Tax & VAT CA Notes',
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Accounting, Tax & VAT CA Notes | MD Mahfuzur Rahman',
+    description:
+      'CA study notes on Accounting, Cost Accounting, Income Tax Act 2023, and Bangladesh VAT by MD Mahfuzur Rahman, Accounting Professional.',
+    images: ['https://mdmahfuz.com/images/og-image.jpg'],
+  },
 };
 
 export const revalidate = 60; // Revalidate every 60 seconds

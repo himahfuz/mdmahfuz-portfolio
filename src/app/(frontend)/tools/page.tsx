@@ -6,28 +6,35 @@ import type { Metadata } from "next";
 export const revalidate = 60; // Revalidate every 60 seconds
 
 export const metadata: Metadata = {
-  title: "Accounting, Audit & Finance Tools | MD Mahfuzur Rahman",
+  title: "Accounting, Audit, VAT & Tax Tools BD",
   description:
-    "Explore practical online tools for accounting, auditing, tax compliance, and financial reporting in Bangladesh. Built for finance and accounting professionals.",
-  keywords: [
-    "accounting tools Bangladesh",
-    "audit tools Bangladesh",
-    "online finance tools",
-    "financial reporting tools",
-    "accounting tools for professionals",
-    "tax compliance tools Bangladesh",
-  ],
+    "Free online accounting, audit, VAT & tax compliance tools for Bangladesh: VAT Tax Calculator, Mushak 6.6 VDS Generator & AI Audit Reviewer.",
   alternates: {
     canonical: "https://mdmahfuz.com/tools",
   },
   openGraph: {
-    title: "Accounting, Audit & Finance Tools | MD Mahfuzur Rahman",
+    title: "Accounting, Audit, VAT & Tax Tools BD | MD Mahfuzur Rahman",
     description:
-      "Explore practical online tools for accounting, auditing, tax compliance, and financial reporting in Bangladesh. Built for finance and accounting professionals.",
+      "Free online accounting, audit, VAT & tax compliance tools for Bangladesh: VAT Tax Calculator, Mushak 6.6 VDS Generator & AI Audit Reviewer.",
     url: "https://mdmahfuz.com/tools",
     siteName: "MD Mahfuzur Rahman",
     locale: "en_US",
     type: "website",
+    images: [
+      {
+        url: "https://mdmahfuz.com/images/og-image.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Accounting, Audit, VAT & Tax Tools BD - MD Mahfuzur Rahman",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Accounting, Audit, VAT & Tax Tools BD | MD Mahfuzur Rahman",
+    description:
+      "Free online accounting, audit, VAT & tax compliance tools for Bangladesh: VAT Tax Calculator, Mushak 6.6 VDS Generator & AI Audit Reviewer.",
+    images: ["https://mdmahfuz.com/images/og-image.jpg"],
   },
 };
 
@@ -88,7 +95,7 @@ export default async function Tools() {
             <div className="w-16 h-16 bg-[var(--color-brand-primary)]/10 rounded-full flex items-center justify-center mb-4 text-[var(--color-brand-primary)]">
               <LucideIcons.Clock size={28} />
             </div>
-            <h3 className="font-poppins font-semibold text-xl text-[var(--color-text-primary)] mb-2">Coming Soon</h3>
+            <h2 className="font-poppins font-semibold text-xl text-[var(--color-text-primary)] mb-2">Coming Soon</h2>
             <p className="text-[14px] text-[var(--color-text-secondary)] text-center w-full max-w-[400px]">Tools and resources are currently being prepared and will be published shortly.</p>
           </div>
         ) : (
@@ -102,9 +109,9 @@ export default async function Tools() {
                   <IconComponent size={24} />
                 </div>
 
-                <h3 className="font-semibold text-[16px] text-[var(--color-text-primary)] mb-2">
+                <h2 className="font-semibold text-[16px] text-[var(--color-text-primary)] mb-2">
                   {tool.title}
-                </h3>
+                </h2>
 
                 <p className="text-[13px] text-[var(--color-text-secondary)] flex-1 mb-6">
                   {tool.description}

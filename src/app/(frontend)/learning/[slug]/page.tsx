@@ -26,22 +26,46 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     .map(word => word.charAt(0).toUpperCase() + word.slice(1))
     .join(' ');
 
-  const title = post?.seo?.metaTitle || (post?.title ? `${post.title} | CA Study Notes` : `${fallbackTitle} | CA Study Notes`);
-  const description = post?.seo?.metaDescription || (post?.title ? `Study notes on ${post.title} (${post.category || 'CA Exam'}). Read online on MD Mahfuzur Rahman's learning portal.` : `Study notes and analysis on ${fallbackTitle}.`);
+  const rawTitle = post?.seo?.metaTitle || (post?.title ? `${post.title} | CA Study Notes` : `${fallbackTitle} | CA Study Notes`);
+  const hasBrand = rawTitle.includes('MD Mahfuzur Rahman');
+  const title = hasBrand ? { absolute: rawTitle } : rawTitle;
+  const ogTitle = hasBrand ? rawTitle : `${rawTitle} | MD Mahfuzur Rahman`;
+
+  const fallbackDesc = post?.title
+    ? `Study notes on ${post.title} (${post.category || 'CA Exam'}). Read online on MD Mahfuzur Rahman's learning portal.`
+    : `Study notes and analysis on ${fallbackTitle}.`;
+  const rawDesc = post?.seo?.metaDescription || fallbackDesc;
+  const description = rawDesc.length > 155 ? `${rawDesc.slice(0, 152).trim()}...` : rawDesc;
+
   const canonicalUrl = `https://mdmahfuz.com/learning/${slug}`;
+  const ogImageUrl = 'https://mdmahfuz.com/images/og-image.jpg';
 
   return {
     title,
     description,
-    keywords: post?.seo?.keywords || [],
     alternates: {
       canonical: canonicalUrl,
     },
     openGraph: {
-      title,
+      title: ogTitle,
       description,
       url: canonicalUrl,
+      siteName: 'MD Mahfuzur Rahman',
       type: 'article',
+      images: [
+        {
+          url: ogImageUrl,
+          width: 1200,
+          height: 630,
+          alt: rawTitle,
+        },
+      ],
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: ogTitle,
+      description,
+      images: [ogImageUrl],
     },
   };
 }

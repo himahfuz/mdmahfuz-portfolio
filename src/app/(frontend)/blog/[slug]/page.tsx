@@ -18,21 +18,42 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   }`, { slug });
 
   const fallbackTitle = slug.split("-").map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(" ");
-  const title = post?.seo?.metaTitle || post?.title || fallbackTitle;
-  const description = post?.seo?.metaDescription || post?.excerpt || `Read article on ${post?.title || fallbackTitle} by MD Mahfuzur Rahman.`;
+  const rawTitle = post?.seo?.metaTitle || post?.title || fallbackTitle;
+  const hasBrand = rawTitle.includes('MD Mahfuzur Rahman');
+  const title = hasBrand ? { absolute: rawTitle } : rawTitle;
+  const ogTitle = hasBrand ? rawTitle : `${rawTitle} | MD Mahfuzur Rahman`;
+
+  const fallbackDesc = `Read article on ${post?.title || fallbackTitle} by MD Mahfuzur Rahman.`;
+  const rawDesc = post?.seo?.metaDescription || post?.excerpt || fallbackDesc;
+  const description = rawDesc.length > 155 ? `${rawDesc.slice(0, 152).trim()}...` : rawDesc;
+
   const canonicalUrl = `https://mdmahfuz.com/blog/${slug}`;
+  const ogImageUrl = post?.thumbnail || 'https://mdmahfuz.com/images/og-image.jpg';
 
   return {
-    title: { absolute: title },
+    title,
     description,
-    keywords: post?.seo?.keywords || [],
     alternates: { canonical: canonicalUrl },
     openGraph: {
-      title,
+      title: ogTitle,
       description,
       url: canonicalUrl,
+      siteName: 'MD Mahfuzur Rahman',
       type: "article",
-      images: post?.thumbnail ? [{ url: post.thumbnail }] : undefined,
+      images: [
+        {
+          url: ogImageUrl,
+          width: 1200,
+          height: 630,
+          alt: rawTitle,
+        },
+      ],
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: ogTitle,
+      description,
+      images: [ogImageUrl],
     },
   };
 }

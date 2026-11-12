@@ -5,16 +5,16 @@ import Calculator from "./Calculator";
 import VatTaxContent from "./VatTaxContent";
 
 export const metadata: Metadata = {
-  title: "VAT Tax Calculator Bangladesh",
+  title: "VAT & Tax Calculator Bangladesh",
   description:
-    "Free online VAT and Tax calculator for Bangladesh. Compute Gross Base, Net Payable, VAT, and Tax/TDS deductions across 4 billing modes with comprehensive calculation guides and FAQ.",
+    "Free Bangladesh VAT and Tax calculator. Compute Gross Base, Net Payable, VAT, and Tax/TDS deductions across 4 billing modes with guides and FAQ.",
   alternates: {
     canonical: "https://mdmahfuz.com/tools/vat-tax-calculator",
   },
   openGraph: {
-    title: "VAT Tax Calculator Bangladesh",
+    title: "VAT & Tax Calculator Bangladesh",
     description:
-      "Free online VAT and Tax calculator for Bangladesh. Compute Gross Base, Net Payable, VAT, and Tax/TDS deductions across 4 billing modes with comprehensive calculation guides and FAQ.",
+      "Free Bangladesh VAT and Tax calculator. Compute Gross Base, Net Payable, VAT, and Tax/TDS deductions across 4 billing modes with guides and FAQ.",
     url: "https://mdmahfuz.com/tools/vat-tax-calculator",
     type: "website",
     siteName: "MD Mahfuzur Rahman",
@@ -24,15 +24,15 @@ export const metadata: Metadata = {
         url: "https://mdmahfuz.com/images/og-image.jpg",
         width: 1200,
         height: 630,
-        alt: "VAT Tax Calculator Bangladesh - MD Mahfuzur Rahman",
+        alt: "VAT & Tax Calculator Bangladesh - MD Mahfuzur Rahman",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "VAT Tax Calculator Bangladesh",
+    title: "VAT & Tax Calculator Bangladesh",
     description:
-      "Free online VAT and Tax calculator for Bangladesh. Compute Gross Base, Net Payable, VAT, and Tax/TDS deductions across 4 billing modes with comprehensive calculation guides and FAQ.",
+      "Free Bangladesh VAT and Tax calculator. Compute Gross Base, Net Payable, VAT, and Tax/TDS deductions across 4 billing modes with guides and FAQ.",
     images: ["https://mdmahfuz.com/images/og-image.jpg"],
   },
 };
@@ -44,9 +44,9 @@ const jsonLdGraph = {
       "@type": "WebPage",
       "@id": "https://mdmahfuz.com/tools/vat-tax-calculator#webpage",
       "url": "https://mdmahfuz.com/tools/vat-tax-calculator",
-      "name": "VAT Tax Calculator Bangladesh",
+      "name": "VAT & Tax Calculator Bangladesh",
       "description":
-        "Free online VAT and Tax calculator for Bangladesh. Compute Gross Base, Net Payable, VAT, and Tax/TDS deductions across 4 billing modes with comprehensive calculation guides and FAQ.",
+        "Free Bangladesh VAT and Tax calculator. Compute Gross Base, Net Payable, VAT, and Tax/TDS deductions across 4 billing modes with guides and FAQ.",
       "inLanguage": "en-US",
       "breadcrumb": {
         "@id": "https://mdmahfuz.com/tools/vat-tax-calculator#breadcrumb",
@@ -58,10 +58,10 @@ const jsonLdGraph = {
     {
       "@type": "WebApplication",
       "@id": "https://mdmahfuz.com/tools/vat-tax-calculator#webapp",
-      "name": "VAT Tax Calculator Bangladesh",
+      "name": "VAT & Tax Calculator Bangladesh",
       "url": "https://mdmahfuz.com/tools/vat-tax-calculator",
       "description":
-        "Free online VAT and Tax calculator for Bangladesh. Compute Gross Base, Net Payable, VAT, and Tax/TDS deductions across 4 commercial billing modes.",
+        "Free Bangladesh VAT and Tax calculator. Compute Gross Base, Net Payable, VAT, and Tax/TDS deductions across 4 billing modes with guides and FAQ.",
       "applicationCategory": "FinanceApplication",
       "operatingSystem": "All",
       "browserRequirements": "Requires JavaScript",

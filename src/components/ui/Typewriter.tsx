@@ -15,7 +15,7 @@ export function Typewriter({
   deletingSpeed = 50, 
   pauseDuration = 2000 
 }: TypewriterProps) {
-  const [text, setText] = useState("");
+  const [text, setText] = useState(texts[0] || "");
   const [isDeleting, setIsDeleting] = useState(false);
   const [loopNum, setLoopNum] = useState(0);
 
@@ -27,8 +27,10 @@ export function Typewriter({
     if (!isDeleting && text === fullText) {
       timer = setTimeout(() => setIsDeleting(true), pauseDuration);
     } else if (isDeleting && text === "") {
-      setIsDeleting(false);
-      setLoopNum(loopNum + 1);
+      timer = setTimeout(() => {
+        setIsDeleting(false);
+        setLoopNum((prev) => prev + 1);
+      }, deletingSpeed);
     } else {
       timer = setTimeout(() => {
         setText(fullText.substring(0, text.length + (isDeleting ? -1 : 1)));

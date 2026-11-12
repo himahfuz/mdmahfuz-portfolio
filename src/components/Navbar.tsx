@@ -18,7 +18,7 @@ export default function Navbar() {
   ];
 
   return (
-    <nav className="relative z-50 flex flex-col items-center w-[90vw] max-w-5xl mx-auto transition-all">
+    <nav aria-label="Main Navigation" className="relative z-50 flex flex-col items-center w-[90vw] max-w-5xl mx-auto transition-all">
       <div className="glass-panel h-[56px] px-6 rounded-[50px] flex items-center justify-between w-full">
         {/* Left: Logo */}
         <Link href="/" className="flex items-center gap-3 cursor-pointer">
@@ -63,6 +63,8 @@ export default function Navbar() {
 
         {/* Hamburger Toggle (Mobile) */}
         <button 
+          type="button"
+          aria-label={isOpen ? "Close menu" : "Open menu"}
           className="lg:hidden text-[var(--color-text-primary)] hover:text-[var(--color-brand-primary)] transition-colors p-1"
           onClick={() => setIsOpen(!isOpen)}
         >

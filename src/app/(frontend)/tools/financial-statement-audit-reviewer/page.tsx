@@ -6,17 +6,33 @@ const repositoryUrl = "https://github.com/himahfuz/Financial-Statement-Audit-Rev
 const downloadUrl = "https://github.com/himahfuz/Financial-Statement-Audit-Reviewer/raw/refs/heads/main/plugin.zip";
 
 export const metadata: Metadata = {
-  title: "Financial Statement Audit Reviewer | AI Pre-Sign Review Tool",
+  title: "AI Financial Statement Audit Reviewer",
   description:
-    "Download the AI-assisted Financial Statement Audit Reviewer by MD Mahfuzur Rahman. Review PDF and Excel financial statements for calculation errors, cross-statement inconsistencies, schedules and disclosures.",
+    "AI-assisted Financial Statement Audit Reviewer for PDF and Excel. Detect footing errors, cross-statement mismatches, schedule gaps & disclosures.",
   alternates: { canonical: pageUrl },
   openGraph: {
-    title: "Financial Statement Audit Reviewer | MD Mahfuzur Rahman",
+    title: "AI Financial Statement Audit Reviewer | MD Mahfuzur Rahman",
     description:
-      "An AI-assisted pre-sign review tool for financial statements, with English and Bangla-English report options.",
+      "AI-assisted Financial Statement Audit Reviewer for PDF and Excel. Detect footing errors, cross-statement mismatches, schedule gaps & disclosures.",
     url: pageUrl,
     siteName: "MD Mahfuzur Rahman",
+    locale: "en_US",
     type: "website",
+    images: [
+      {
+        url: "https://mdmahfuz.com/images/og-image.jpg",
+        width: 1200,
+        height: 630,
+        alt: "AI Financial Statement Audit Reviewer - MD Mahfuzur Rahman",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "AI Financial Statement Audit Reviewer | MD Mahfuzur Rahman",
+    description:
+      "AI-assisted Financial Statement Audit Reviewer for PDF and Excel. Detect footing errors, cross-statement mismatches, schedule gaps & disclosures.",
+    images: ["https://mdmahfuz.com/images/og-image.jpg"],
   },
 };
 
